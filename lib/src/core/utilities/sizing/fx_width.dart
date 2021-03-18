@@ -4,18 +4,33 @@ import '/src/core/mixins/pixel_mixin.dart';
 
 class FxWidth with FxPixelMixin {
   ///Widths
+
+  ///Gives 4dp width
   static double get w4 => FxPixelMixin.dp4;
+
+  ///Gives 8dp width
   static double get w8 => FxPixelMixin.dp8;
+
+  ///Gives 12dp width
   static double get w12 => FxPixelMixin.dp12;
+
+  ///Gives 16dp width
   static double get w16 => FxPixelMixin.dp16;
+
+  ///Gives 20dp width
   static double get w20 => FxPixelMixin.dp20;
+
+  ///Gives 24dp width
   static double get w24 => FxPixelMixin.dp24;
+
+  ///Gives 32dp width
   static double get w32 => FxPixelMixin.dp32;
+
+  ///Gives 48dp width
   static double get w48 => FxPixelMixin.dp48;
+
+  ///Gives 64dp width
   static double get w64 => FxPixelMixin.dp64;
-  static double get w112 => FxPixelMixin.dp112;
-  static double get w144 => FxPixelMixin.dp144;
-  static double get w176 => FxPixelMixin.dp176;
 
   ///[vw] get visible screen width
   static double vw({double width}) => Get.width / width;

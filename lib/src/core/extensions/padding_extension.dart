@@ -1,15 +1,15 @@
-import '/src/core/mixins/pixel_mixin.dart';
+import '../mixins/pixel_mixin.dart';
 import 'package:flutter/material.dart';
 
 extension PaddingExtensions on Widget {
   //Custom Padding
-  Padding p(double value) => _padding(all: value);
-  Padding px(double value) => _padding(horizontal: value);
-  Padding py(double value) => _padding(vertical: value);
-  Padding pr(double value) => _padding(right: value);
-  Padding pl(double value) => _padding(left: value);
-  Padding pt(double value) => _padding(top: value);
-  Padding pb(double value) => _padding(bottom: value);
+  Padding p({@required double all}) => _padding(all: all);
+  Padding px({@required double horizontal}) => _padding(horizontal: horizontal);
+  Padding py({@required double vertical}) => _padding(vertical: vertical);
+  Padding pr({@required double right}) => _padding(right: right);
+  Padding pl({@required double left}) => _padding(left: left);
+  Padding pt({@required double top}) => _padding(top: top);
+  Padding pb({@required double bottom}) => _padding(bottom: bottom);
 
   ///Padding All
   Padding get p0 => _padding(all: FxPixelMixin.dp0);

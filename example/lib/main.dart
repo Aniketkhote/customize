@@ -27,16 +27,11 @@ class MyApp extends StatelessWidget {
           child: Text(
             "Customize Flutter Package",
             style: TextStyle(
+              ///Get Custom Color
               color: FxColors.primary,
             ),
           ),
-        )
-
-            ///Apply padding [p64] on container to all side
-            .p64
-
-            ///Centered container using [centered()] extension method.
-            .centered(),
+        ),
       ),
     );
   }
