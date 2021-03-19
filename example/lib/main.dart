@@ -22,14 +22,9 @@ class MyApp extends StatelessWidget {
 
           ///EdgeInsets.symmetric(horizontal: 32)
           margin: FxMargin.mx32,
-
-          color: FxColors.dangerLight,
+          color: FxColors.red100,
           child: Text(
             "Customize Flutter Package",
-            style: TextStyle(
-              ///Get Custom Color
-              color: FxColors.primary,
-            ),
           ),
         ),
       ),

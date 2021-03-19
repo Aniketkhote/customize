@@ -1,4 +1,2 @@
-library fx_widgets;
-
 ///Buttons
-export 'widgets/fx_button.dart';
+export 'widgets/button/fx_button.dart';

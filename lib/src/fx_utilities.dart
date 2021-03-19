@@ -1,5 +1,3 @@
-library fx_utils;
-
 ///Utilities and Helper Methods
 export 'core/utilities/spacing/fx_margin.dart';
 export 'core/utilities/spacing/fx_padding.dart';
