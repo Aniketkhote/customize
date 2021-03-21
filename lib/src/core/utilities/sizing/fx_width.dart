@@ -1,10 +1,7 @@
 import 'package:get/get.dart';
-
-import '/src/core/mixins/pixel_mixin.dart';
+import '../../mixins/pixel_mixin.dart';
 
 class FxWidth with FxPixelMixin {
-  ///Widths
-
   ///Gives 4dp width
   static double get w4 => FxPixelMixin.dp4;
 
@@ -32,12 +29,20 @@ class FxWidth with FxPixelMixin {
   ///Gives 64dp width
   static double get w64 => FxPixelMixin.dp64;
 
-  ///[vw] get visible screen width
-  static double vw({double width}) => Get.width / width;
+  ///get visible screen width
+  static double vw({double width}) => _getWidth / width;
 
-  ///[vw50] get 50% visible sceen width(half screen)
-  static double get vw50 => Get.width / 50;
+  ///get 25% visible sceen width
+  static double get vw25 => _getWidth / 25;
 
-  ///[vw100] get 100% visible sceen width(full screen)
-  static double get vw100 => Get.width;
+  ///get 50% visible sceen width(half screen)
+  static double get vw50 => _getWidth / 50;
+
+  ///get 75% visible sceen width
+  static double get vw75 => _getWidth / 75;
+
+  ///get 100% visible sceen width(full screen)
+  static double get vw100 => _getWidth;
+
+  static double get _getWidth => Get.width;
 }

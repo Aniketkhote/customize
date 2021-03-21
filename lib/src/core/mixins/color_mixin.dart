@@ -1,5 +1,6 @@
-import 'package:customize/customize.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import '../utilities/colors/fx_colors.dart';
 
 mixin FxColorMixin<T> {
   T _childColor;

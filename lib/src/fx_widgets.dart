@@ -1,2 +1,1 @@
-///Buttons
-export 'widgets/button/fx_button.dart';
+export '../src/widgets/button/fx_button.dart';

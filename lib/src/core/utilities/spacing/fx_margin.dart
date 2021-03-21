@@ -1,41 +1,47 @@
-import '../../mixins/pixel_mixin.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import '../../mixins/pixel_mixin.dart';
 
 class FxMargin with FxPixelMixin {
   ///Custom margin
 
-  ///[m] Get custom all side margin
+  /// Get custom all side margin
   static EdgeInsets m({@required double all}) => _margin(all: all);
 
-  ///[mx] Get custom horizontaly margin
+  /// Get custom horizontaly margin
 
   static EdgeInsets mx({@required double horizontal}) =>
       _margin(horizontal: horizontal);
 
-  ///[my] Get custom vertically margin
+  /// Get custom vertically margin
 
   static EdgeInsets my({@required double vertical}) =>
       _margin(vertical: vertical);
 
-  ///[mr] Get custom right side margin
+  ///get [symmetric] vertically and horizontally margin
+  static EdgeInsets mxy(
+          {@required double horizontal, @required double vertical}) =>
+      _margin(horizontal: horizontal, vertical: vertical);
+
+  /// Get custom right side margin
 
   static EdgeInsets mr({@required double right}) => _margin(right: right);
 
-  ///[ml] Get custom left side margin
+  /// Get custom left side margin
 
   static EdgeInsets ml({@required double left}) => _margin(left: left);
 
-  ///[mt] Get custom top side margin
+  /// Get custom top side margin
 
   static EdgeInsets mt({@required double top}) => _margin(top: top);
 
-  ///[mb] Get custom bottom side margin
+  /// Get custom bottom side margin
 
   static EdgeInsets mb({@required double bottom}) => _margin(bottom: bottom);
 
   ///EdgeInsets All
   ///
-  ///Get all side margin [m] with predifned numbers [eg: m4]
+  ///Get all side margin  with predifned numbers
 
   ///Gives 0dp margin from all sides
   static EdgeInsets get m0 => _margin(all: FxPixelMixin.dp0);
@@ -69,7 +75,7 @@ class FxMargin with FxPixelMixin {
 
   ///EdgeInsets Right
   ///
-  ///Get right side margin [mr] with predifned numbers [eg: mr4]
+  ///Get right side margin with predifned numbers
 
   ///Gives 0dp margin from right side
   static EdgeInsets get mr0 => _margin(right: FxPixelMixin.dp0);
@@ -103,7 +109,7 @@ class FxMargin with FxPixelMixin {
 
   ///EdgeInsets Left
   ///
-  ///Get left side margin [ml] with predifned numbers [eg: ml4]
+  ///Get left side margin with predifned numbers
 
   ///Gives 0dp margin from left side
   static EdgeInsets get ml0 => _margin(left: FxPixelMixin.dp0);
@@ -137,7 +143,7 @@ class FxMargin with FxPixelMixin {
 
   ///EdgeInsets top
   ///
-  ///Get top side margin [mt] with predifned numbers [eg: mt4]
+  ///Get top side margin with predifned numbers
 
   ///Gives 0dp margin from top side
   static EdgeInsets get mt0 => _margin(top: FxPixelMixin.dp0);
@@ -171,7 +177,7 @@ class FxMargin with FxPixelMixin {
 
   ///EdgeInsets bottom
   ///
-  ///Get bottom side margin [mb] with predifned numbers [eg: mb4]
+  ///Get bottom side margin with predifned numbers
 
   ///Gives 0dp margin from bottom side
   static EdgeInsets get mb0 => _margin(bottom: FxPixelMixin.dp0);
@@ -205,7 +211,7 @@ class FxMargin with FxPixelMixin {
 
   ///EdgeInsets Horizontal
   ///
-  ///Get horizontally margin [mx] with predifned numbers [eg: mx4]
+  ///Get horizontally margin with predifned numbers
 
   ///Gives 4dp margin horizontally
   static EdgeInsets get mx4 => _margin(horizontal: FxPixelMixin.dp4);
@@ -236,7 +242,7 @@ class FxMargin with FxPixelMixin {
 
   ///EdgeInsets Vertical
   ///
-  ///Get vertically margin [my] with predifned numbers [eg: my4]
+  ///Get vertically margin with predifned numbers
 
   ///Gives 4dp margin vertically
   static EdgeInsets get my4 => _margin(vertical: FxPixelMixin.dp4);

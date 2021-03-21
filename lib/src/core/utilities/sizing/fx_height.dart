@@ -1,9 +1,7 @@
 import 'package:get/get.dart';
-import '/src/core/mixins/pixel_mixin.dart';
+import '../../mixins/pixel_mixin.dart';
 
 class FxHeight with FxPixelMixin {
-  ///Heights
-
   ///Gives 4dp height
   static double get h4 => FxPixelMixin.dp4;
 
@@ -31,12 +29,20 @@ class FxHeight with FxPixelMixin {
   ///Gives 64dp height
   static double get h64 => FxPixelMixin.dp64;
 
-  ///[vh] get visible screen height
-  static double vh({double height}) => Get.height / height;
+  ///get visible screen height
+  static double vh({double height}) => _getHeight / height;
 
-  ///[vh50] get 50% visible sceen height(half screen)
-  static double get vh50 => Get.height / 50;
+  ///get 25% visible sceen height
+  static double get vh25 => _getHeight / 25;
 
-  ///[vh100] get 100% visible sceen height(full screen)
-  static double get vh100 => Get.height;
+  ///get 50% visible sceen height(half screen)
+  static double get vh50 => _getHeight / 50;
+
+  ///get 75% visible sceen height
+  static double get vh75 => _getHeight / 75;
+
+  ///get 100% visible sceen height(full screen)
+  static double get vh100 => _getHeight;
+
+  static double get _getHeight => Get.width;
 }

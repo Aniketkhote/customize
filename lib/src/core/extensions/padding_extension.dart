@@ -1,38 +1,43 @@
-import '../mixins/pixel_mixin.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import '../mixins/pixel_mixin.dart';
 
 extension PaddingExtensions on Widget {
-  ///[p] get all side padding
+  ///get all side padding
 
   Padding p({@required double all}) => _padding(all: all);
 
-  ///[px] get horizontaly padding
+  ///get horizontaly padding
 
   Padding px({@required double horizontal}) => _padding(horizontal: horizontal);
 
-  ///[py] get vertically padding
+  ///get vertically padding
 
   Padding py({@required double vertical}) => _padding(vertical: vertical);
 
-  ///[pr] get right side padding
+  ///get [symmetric] vertically and horizontally padding
+  Padding pxy({@required double horizontal, @required double vertical}) =>
+      _padding(horizontal: horizontal, vertical: vertical);
+
+  ///get right side padding
 
   Padding pr({@required double right}) => _padding(right: right);
 
-  ///[pl] get left side padding
+  ///get left side padding
 
   Padding pl({@required double left}) => _padding(left: left);
 
-  ///[pt] get top side padding
+  ///get top side padding
 
   Padding pt({@required double top}) => _padding(top: top);
 
-  ///[pb] get bottom side padding
+  ///get bottom side padding
 
   Padding pb({@required double bottom}) => _padding(bottom: bottom);
 
   ///EdgeInsets All
   ///
-  ///Get all side padding [p] with predifned numbers [eg: p4]
+  ///Get all side padding predifned numbers
 
   ///Gives 0dp padding from all sides
   Padding get p0 => _padding(all: FxPixelMixin.dp0);
@@ -66,7 +71,7 @@ extension PaddingExtensions on Widget {
 
   ///EdgeInsets Right
   ///
-  ///Get right side padding [pr] with predifned numbers [eg: pr4]
+  ///Get right side padding with predifned numbers
 
   ///Gives 0dp padding from right side
   Padding get pr0 => _padding(right: FxPixelMixin.dp0);
@@ -100,7 +105,7 @@ extension PaddingExtensions on Widget {
 
   ///EdgeInsets Left
   ///
-  ///Get left side padding [pl] with predifned numbers [eg: pl4]
+  ///Get left side padding with predifned numbers
 
   ///Gives 0dp padding from left side
   Padding get pl0 => _padding(left: FxPixelMixin.dp0);
@@ -134,7 +139,7 @@ extension PaddingExtensions on Widget {
 
   ///EdgeInsets top
   ///
-  ///Get top side padding [pt] with predifned numbers [eg: pt4]
+  ///Get top side padding with predifned numbers
 
   ///Gives 0dp padding from top side
   Padding get pt0 => _padding(top: FxPixelMixin.dp0);
@@ -168,7 +173,7 @@ extension PaddingExtensions on Widget {
 
   ///EdgeInsets bottom
   ///
-  ///Get bottom side padding [pb] with predifned numbers [eg: pb4]
+  ///Get bottom side padding with predifned numbers
   ///Gives 0dp padding from bottom side
   Padding get pb0 => _padding(bottom: FxPixelMixin.dp0);
 
@@ -201,7 +206,7 @@ extension PaddingExtensions on Widget {
 
   ///EdgeInsets Horizontal
   ///
-  ///Get horizontally padding [px] with predifned numbers [eg: px4]
+  ///Get horizontally padding with predifned numbers
 
   ///Gives 4dp padding horizontally
   Padding get px4 => _padding(horizontal: FxPixelMixin.dp4);
@@ -232,7 +237,7 @@ extension PaddingExtensions on Widget {
 
   ///EdgeInsets Vertical
   ///
-  ///Get vertically padding [py] with predifned numbers [eg: py4]
+  ///Get vertically padding with predifned numbers
 
   ///Gives 4dp padding vertically
   Padding get py4 => _padding(vertical: FxPixelMixin.dp4);
@@ -277,5 +282,6 @@ extension PaddingExtensions on Widget {
           left: left ?? horizontal ?? all ?? 0.0,
           right: right ?? horizontal ?? all ?? 0.0,
         ),
+        child: this,
       );
 }
