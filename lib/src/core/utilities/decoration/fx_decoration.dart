@@ -1,7 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../radius/fx_border_radius.dart';
 import '../shadows/fx_shadow.dart';
 
+///Box decoration to directly get decoration on container
 class FxDecoration {
   ///An immutable description of how to paint a box.
   ///
@@ -33,7 +36,102 @@ class FxDecoration {
   ///Gives custom thik [BoxShadow]
   static BoxDecoration get thikShadow => _copyWith(boxShadow: FxShadow.thik);
 
-  static BoxDecoration _copyWith({List<BoxShadow> boxShadow}) => BoxDecoration(
+  ///Gives [BorderRadius] for each corner of a rectangle.
+  BoxDecoration radius({
+    double topLeft,
+    double topRight,
+    double bottomLeft,
+    double bottomRight,
+    double allSide,
+  }) =>
+      _copyWith(
+          borderRadius: FxRadius.radius(
+        allSide: allSide,
+        topLeft: topLeft,
+        topRight: topRight,
+        bottomLeft: bottomLeft,
+        bottomRight: bottomRight,
+      ));
+
+  ///Gives [BorderRadius] 5 for all sides
+  BoxDecoration get radius5 => _copyWith(borderRadius: FxRadius.radius5);
+
+  ///Gives [BorderRadius] 10 for all sides
+  BoxDecoration get radius10 => _copyWith(borderRadius: FxRadius.radius10);
+
+  ///Gives [BorderRadius] 20 for all sides
+  BoxDecoration get radius20 => _copyWith(borderRadius: FxRadius.radius20);
+
+  ///Gives [BorderRadius] 30 for all sides
+  BoxDecoration get radius30 => _copyWith(borderRadius: FxRadius.radius30);
+
+  ///Gives [BorderRadius] 50 for all sides
+  BoxDecoration get radius50 => _copyWith(borderRadius: FxRadius.radius50);
+
+  ///Gives [BorderRadius] 5 for top left side
+  BoxDecoration get radiusTL5 => _copyWith(borderRadius: FxRadius.radiusTL5);
+
+  ///Gives [BorderRadius] 10 for top left side
+  BoxDecoration get radiusTL10 => _copyWith(borderRadius: FxRadius.radiusTL10);
+
+  ///Gives [BorderRadius] 20 for top left side
+  BoxDecoration get radiusTL20 => _copyWith(borderRadius: FxRadius.radiusTL20);
+
+  ///Gives [BorderRadius] 30 for top left side
+  BoxDecoration get radiusTL30 => _copyWith(borderRadius: FxRadius.radiusTL30);
+
+  ///Gives [BorderRadius] 50 for top left side
+  BoxDecoration get radiusTL50 => _copyWith(borderRadius: FxRadius.radiusTL50);
+
+  ///Gives [BorderRadius] 5 for top right side
+  BoxDecoration get radiusTR5 => _copyWith(borderRadius: FxRadius.radiusTR5);
+
+  ///Gives [BorderRadius] 10 for top right side
+  BoxDecoration get radiusTR10 => _copyWith(borderRadius: FxRadius.radiusTR10);
+
+  ///Gives [BorderRadius] 20 for top right side
+  BoxDecoration get radiusTR20 => _copyWith(borderRadius: FxRadius.radiusTR20);
+
+  ///Gives [BorderRadius] 30 for top right side
+  BoxDecoration get radiusTR30 => _copyWith(borderRadius: FxRadius.radiusTR30);
+
+  ///Gives [BorderRadius] 50 for top right side
+  BoxDecoration get radiusTR50 => _copyWith(borderRadius: FxRadius.radiusTR50);
+
+  ///Gives [BorderRadius] 5 for bottom left side
+  BoxDecoration get radiusBL5 => _copyWith(borderRadius: FxRadius.radiusBL5);
+
+  ///Gives [BorderRadius] 10 for bottom left side
+  BoxDecoration get radiusBL10 => _copyWith(borderRadius: FxRadius.radiusBL10);
+
+  ///Gives [BorderRadius] 20 for bottom left side
+  BoxDecoration get radiusBL20 => _copyWith(borderRadius: FxRadius.radiusBL20);
+
+  ///Gives [BorderRadius] 30 for bottom left side
+  BoxDecoration get radiusBL30 => _copyWith(borderRadius: FxRadius.radiusBL30);
+
+  ///Gives [BorderRadius] 50 for bottom left side
+  BoxDecoration get radiusBL50 => _copyWith(borderRadius: FxRadius.radiusBL50);
+
+  ///Gives [BorderRadius] 5 for bottom right side
+  BoxDecoration get radiusBR5 => _copyWith(borderRadius: FxRadius.radiusBR5);
+
+  ///Gives [BorderRadius] 10 for bottom right side
+  BoxDecoration get radiusBR10 => _copyWith(borderRadius: FxRadius.radiusBR10);
+
+  ///Gives [BorderRadius] 20 for bottom right side
+  BoxDecoration get radiusBR20 => _copyWith(borderRadius: FxRadius.radiusBR20);
+
+  ///Gives [BorderRadius] 30 for bottom right side
+  BoxDecoration get radiusBR30 => _copyWith(borderRadius: FxRadius.radiusBR30);
+
+  ///Gives [BorderRadius] 50 for bottom right side
+  BoxDecoration get radiusBR50 => _copyWith(borderRadius: FxRadius.radiusBR50);
+
+  static BoxDecoration _copyWith(
+          {List<BoxShadow> boxShadow, BorderRadius borderRadius}) =>
+      BoxDecoration(
         boxShadow: boxShadow,
+        borderRadius: borderRadius,
       );
 }

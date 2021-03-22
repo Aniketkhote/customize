@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../../mixins/pixel_mixin.dart';
 
+///Gives predefined Margin without writting long syntax
 class FxMargin with FxPixelMixin {
   ///Custom margin
 

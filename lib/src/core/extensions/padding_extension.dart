@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../mixins/pixel_mixin.dart';
 
+///Padding extension on widget to directly get padding
 extension PaddingExtensions on Widget {
   ///get all side padding
 

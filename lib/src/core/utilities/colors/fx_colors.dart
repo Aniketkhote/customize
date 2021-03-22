@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+///Gets Customs colors with shades
 class FxColors {
-  ///Main Colors
   static const Color primary = Color(0xff3880FF);
   static const Color secondary = Color(0xffAA66CC);
   static const Color success = Color(0xFF37BC64);
@@ -15,10 +15,10 @@ class FxColors {
   ///Light Main Colors
   static const Color primaryLight = Color(0xFFEBF2FF);
   static const Color secondaryLight = Color(0xFFF7F0FA);
-  static const Color successLight = Color(0XFFE2F8E9);
+  static const Color successLight = Color(0xFFE2F8E9);
   static const Color infoLight = Color(0xFFEBF8FC);
-  static const Color warningLight = Color(0XFFFF8DE);
-  static const Color dangerLight = Color(0XFFFFF3F3);
+  static const Color warningLight = Color(0xFFFFF8DE);
+  static const Color dangerLight = Color(0xFFFFF3F3);
 
   ///Text Colors
   static const Color textColor = Color(0xFF565360);
@@ -51,7 +51,7 @@ class FxColors {
   static const Color blueGray900 = Color(0xFF0F172A);
 
   ///Cool Gray Colors
-  static const Color coolGray50 = Color(0xFFFF9FAFB);
+  static const Color coolGray50 = Color(0xFFF9FAFB);
   static const Color coolGray100 = Color(0xFFF3F4F6);
   static const Color coolGray200 = Color(0xFFE5E7EB);
   static const Color coolGray300 = Color(0xFFD1D5DB);

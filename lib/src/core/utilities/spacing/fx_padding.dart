@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../../mixins/pixel_mixin.dart';
 
+///Gives predefined Padding without writting long syntax
 class FxPadding with FxPixelMixin {
   ///get all side padding
 

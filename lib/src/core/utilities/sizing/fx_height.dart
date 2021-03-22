@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import '../../mixins/pixel_mixin.dart';
 
+///Gives predefined heights on MediaQuery
 class FxHeight with FxPixelMixin {
   ///Gives 4dp height
   static double get h4 => FxPixelMixin.dp4;

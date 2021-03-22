@@ -1,1 +1,20 @@
-{"dependencies":{"flutter":{"sdk":"flutter"},"get":"^3.26.0"},"description":"Customize is awesome flutter package to create beautiful UI.","environment":{"flutter":">=1.17.0","sdk":">=2.7.0 <3.0.0"},"flutter":null,"homepage":"https://github.com/Aniketkhote/customize","name":"customize","version":"0.0.2"}
+name: customize
+description: Customize Flutter is awesome package to create beautiful UI.
+version: 0.0.4
+homepage: "https://github.com/Aniketkhote/customize"
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get: ^3.26.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  lint: ^1.5.3
+
+flutter: null

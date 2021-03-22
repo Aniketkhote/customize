@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+///BuildContext extension
 extension ContextExtensions on BuildContext {
   ///The size of the media in logical pixels (e.g, the size of the screen).
   ///

@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import '../../mixins/pixel_mixin.dart';
 
+///Gives predefined Width on MediaQuery
 class FxWidth with FxPixelMixin {
   ///Gives 4dp width
   static double get w4 => FxPixelMixin.dp4;

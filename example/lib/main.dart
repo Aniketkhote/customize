@@ -9,22 +9,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Container(
-          ///MediaQuery.of(context).size.height
-          height: FxHeight.vh100,
-
-          ///MediaQuery.of(context).size.width
-          width: FxWidth.vw100,
-
-          ///EdgeInsets.all(32)
-          padding: FxPadding.p32,
-
-          ///EdgeInsets.symmetric(horizontal: 32)
-          margin: FxMargin.mx32,
-          color: FxColors.red100,
-          child: Text("Customize Flutter Package"),
-        ),
+        body: Text("Customize Flutter Package")
+            .h6
+            .xl4
+            .bold
+            .color(color: FxColors.amber500)
+            .container(
+                color: FxColors.blueGray700,
+                padding: FxPadding.pxy(horizontal: 60, vertical: 20))
+            .center,
       ),
     );
   }

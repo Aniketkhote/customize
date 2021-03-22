@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+///String extensions to get basic functionality on strings
 extension StringExtensions on String {
   ///Checks [string] is letter or not and return [bool]
   bool get isString => RegExp("^[a-zA-Z]+").hasMatch(this);
@@ -14,13 +15,13 @@ extension StringExtensions on String {
       .hasMatch(this);
 
   ///Checks [string] is empty or null and return [bool]
-  bool get isEmptyOrNull => this == null || this.isEmpty;
+  bool get isEmptyOrNull => this == null || isEmpty;
 
   ///Remove first element of [string]
-  String get removeFirst => length > 1 ? "${substring(1, length)}" : "";
+  String get removeFirst => length > 1 ? substring(1, length) : "";
 
   ///Remove last element of [string]
-  String get removeLast => length > 1 ? "${substring(0, length - 1)}" : "";
+  String get removeLast => length > 1 ? substring(0, length - 1) : "";
 
   ///Concatenate [string] with space
   String concat({@required String string}) => '$this $string';
@@ -31,11 +32,9 @@ extension StringExtensions on String {
   ///Convert string to [double]
   double get toDouble => double.tryParse(this);
 
-  ///Round off string if double to int
-  int get round =>
-      this.isNotEmpty && this.isNumber ? this.toDouble.round() : null;
+  ///Round off double to int if double is string
+  int get round => isNotEmpty && isNumber ? toDouble.round() : null;
 
   ///Convert [string] into slug
-  String get toSlug =>
-      this.toString().trim().toLowerCase().replaceAll(" ", "-");
+  String get toSlug => toString().trim().toLowerCase().replaceAll(" ", "-");
 }
