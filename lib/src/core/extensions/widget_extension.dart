@@ -14,6 +14,34 @@ extension WidgetExtensions on Widget {
   ///Directly access [Expanded] widget using dot operator
   Expanded get expanded => Expanded(child: this);
 
+  ///Creates a widget that expands a child of a [Row], [Column], or [Flex]
+  ///
+  ///child fills the available space along the flex widget's main axis.
+  ///Directly access [Expanded] widget with [flex] using dot operator
+  Expanded expandedWithFlex({@required int flex}) =>
+      Expanded(flex: flex, child: this);
+
+  ///Creates a widget that controls where a child of a [Stack] is positioned.
+  ///
+  ///Only two out of the three horizontal values ([left], [right], [width]), and
+  ///only two out of the three vertical values ([top], [bottom], [height]), can be set.
+  ///In each case, at least one of the three must be null.
+  Positioned positioned({
+    double top,
+    double bottom,
+    double left,
+    double right,
+    double height,
+    double width,
+  }) =>
+      Positioned(
+        child: this,
+        top: top,
+        bottom: bottom,
+        left: left,
+        right: right,
+      );
+
   ///Create a widget that makes its child partially transparent
   ///
   ///The [Opacity] argument must not be null and must be between 0.0 and 1.0

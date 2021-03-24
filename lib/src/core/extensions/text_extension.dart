@@ -322,6 +322,13 @@ extension TextExtension on Text {
   Text get blackBold =>
       _copyWith(style: const TextStyle(fontWeight: FontWeight.w900));
 
+  ///An optional maximum number of lines for the text to span, wrapping if necessary.
+  ///
+  ///If the text exceeds the given number of lines, it will be truncated according to [overflow].
+  ///If this is 1, text will not wrap. Otherwise, text will be wrapped at the edge of the box.
+
+  Text maxLines({@required int maxLines}) => _copyWith(maxLines: maxLines);
+
   Text _copyWith(
       {Key key,
       StrutStyle strutStyle,

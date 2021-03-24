@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
             .h6
             .xl4
             .bold
+            .dashed
             .color(color: FxColors.amber500)
             .container(
                 color: FxColors.blueGray700,

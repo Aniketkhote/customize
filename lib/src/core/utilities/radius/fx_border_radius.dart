@@ -102,9 +102,9 @@ class FxRadius {
     double allSide,
   }) =>
       BorderRadius.only(
-        topLeft: Radius.circular(topLeft ?? allSide ?? 30.00),
-        topRight: Radius.circular(topRight ?? allSide ?? 30.00),
-        bottomLeft: Radius.circular(bottomLeft ?? allSide ?? 30.00),
-        bottomRight: Radius.circular(bottomRight ?? allSide ?? 30.00),
+        topLeft: Radius.circular(topLeft ?? allSide ?? 0),
+        topRight: Radius.circular(topRight ?? allSide ?? 0),
+        bottomLeft: Radius.circular(bottomLeft ?? allSide ?? 0),
+        bottomRight: Radius.circular(bottomRight ?? allSide ?? 0),
       );
 }

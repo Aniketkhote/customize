@@ -9,6 +9,16 @@ class FxDecoration {
   ///An immutable description of how to paint a box.
   ///
   ///The [BoxDecoration] class provides a variety of ways to draw a box.
+  BoxDecoration decoration(
+          {Color color,
+          Border border,
+          BorderRadius borderRadius,
+          List<BoxShadow> boxShadow}) =>
+      _copyWith(
+          borderRadius: borderRadius,
+          boxShadow: boxShadow,
+          color: color,
+          border: border);
 
   ///A list of shadows cast by this box behind the box.
   ///
@@ -129,9 +139,14 @@ class FxDecoration {
   BoxDecoration get radiusBR50 => _copyWith(borderRadius: FxRadius.radiusBR50);
 
   static BoxDecoration _copyWith(
-          {List<BoxShadow> boxShadow, BorderRadius borderRadius}) =>
+          {List<BoxShadow> boxShadow,
+          BorderRadius borderRadius,
+          Color color,
+          Border border}) =>
       BoxDecoration(
-        boxShadow: boxShadow,
-        borderRadius: borderRadius,
+        boxShadow: boxShadow ?? FxShadow.normal,
+        borderRadius: borderRadius ?? FxRadius.radius5,
+        border: border ?? Border.all(color: Colors.transparent, width: 1),
+        color: color ?? Colors.transparent,
       );
 }
