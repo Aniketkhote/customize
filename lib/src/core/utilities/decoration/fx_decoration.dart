@@ -138,15 +138,16 @@ class FxDecoration {
   ///Gives [BorderRadius] 50 for bottom right side
   BoxDecoration get radiusBR50 => _copyWith(borderRadius: FxRadius.radiusBR50);
 
-  static BoxDecoration _copyWith(
-          {List<BoxShadow> boxShadow,
-          BorderRadius borderRadius,
-          Color color,
-          Border border}) =>
+  static BoxDecoration _copyWith({
+    List<BoxShadow> boxShadow,
+    BorderRadius borderRadius,
+    Color color,
+    Border border,
+  }) =>
       BoxDecoration(
         boxShadow: boxShadow ?? FxShadow.normal,
         borderRadius: borderRadius ?? FxRadius.radius5,
-        border: border ?? Border.all(color: Colors.transparent, width: 1),
+        border: border ?? Border.all(color: Colors.transparent),
         color: color ?? Colors.transparent,
       );
 }

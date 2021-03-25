@@ -5,6 +5,12 @@ import 'package:flutter/cupertino.dart';
 extension TextExtension on Text {
   ///The size of glyphs (in logical pixels) to use when painting the text.
   ///
+  ///Sets [fontSize] to this text
+  Text fontSize({@required double fontSize}) =>
+      _copyWith(style: TextStyle(fontSize: fontSize));
+
+  ///The size of glyphs (in logical pixels) to use when painting the text.
+  ///
   ///Sets [fontSize] to 96 logical pixel and [fontWeight] to light
   Text get h1 => _copyWith(
       style: const TextStyle(fontSize: 96.0, fontWeight: FontWeight.w300));
@@ -326,8 +332,7 @@ extension TextExtension on Text {
   ///
   ///If the text exceeds the given number of lines, it will be truncated according to [overflow].
   ///If this is 1, text will not wrap. Otherwise, text will be wrapped at the edge of the box.
-
-  Text maxLines({@required int maxLines}) => _copyWith(maxLines: maxLines);
+  Text maxLine({@required int maxLines}) => _copyWith(maxLines: maxLines);
 
   Text _copyWith(
       {Key key,

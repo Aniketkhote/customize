@@ -11,16 +11,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Text("Customize Flutter Package")
-            .h6
-            .xl4
-            .bold
-            .dashed
-            .color(color: FxColors.amber500)
-            .container(
-                color: FxColors.blueGray700,
-                padding: FxPadding.pxy(horizontal: 60, vertical: 20))
-            .center,
+        body: Center(
+          child: FxEmptyState(
+            title: "Wrong",
+            subTitle: "Someting wrong",
+            assetsImage:
+                "https://i.pinimg.com/originals/5d/35/e3/5d35e39988e3a183bdc3a9d2570d20a9.gif",
+          ),
+        ),
       ),
     );
   }

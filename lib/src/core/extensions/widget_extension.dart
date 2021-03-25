@@ -42,6 +42,26 @@ extension WidgetExtensions on Widget {
         right: right,
       );
 
+  ///How to align the child.
+  ///
+  ///The x and y values of the [Alignment] control the horizontal and vertical alignment, respectively
+  ///[Align] has some properties like [Alignment.bottomCenter][Alignment.topRight]
+  Align align({AlignmentGeometry alignment}) =>
+      Align(child: this, alignment: alignment);
+
+  ///Creates a fixed size box.
+  ///
+  ///The [width] and [height] parameters can be null to indicate that
+  ///the size of the box should not be constrained in the corresponding dimension.
+  SizedBox sizedBox({@required double height, double width}) =>
+      SizedBox(child: this, height: height, width: width);
+
+  ///Creates a fixed  sqaure size box.
+  ///
+  ///Sets [width] and [height] parameters equal to given size
+  SizedBox squareBox({@required double size}) =>
+      SizedBox(child: this, height: size, width: size);
+
   ///Create a widget that makes its child partially transparent
   ///
   ///The [Opacity] argument must not be null and must be between 0.0 and 1.0
