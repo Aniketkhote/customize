@@ -30,15 +30,14 @@ import 'package:customize/customize.dart';
 ## Basic Example
 ```dart
 FxEmptyState(
-            title: "Wrong",
-            subTitle: "Someting wrong",
-            mage:
-                "https://i.pinimg.com/originals/5d/35/e3/5d35e39988e3a183bdc3a9d2570d20a9.gif",
-          ),
+  title: "Wrong",
+  subTitle: "Someting wrong",
+  image: "https://i.pinimg.com/originals/5d/35/e3/5d35e39988e3a183bdc3a9d2570d20a9.gif",
+),
 ```
 ## Screen Shot
 <p align="center">
   <a href="#" target="_blank">
-    <img src="https://imgur.com/V38BOVa.png"  width="800" alt="customize">
+    <img src="https://imgur.com/V38BOVa.png"  width="250" height="500" alt="customize">
   </a>
 </p>

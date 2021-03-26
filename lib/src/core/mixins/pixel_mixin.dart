@@ -29,13 +29,4 @@ mixin FxPixelMixin {
 
   ///Gives logical pixel 64
   static const double dp64 = 64;
-
-  ///Gives logical pixel 11
-  static const double dp112 = 112;
-
-  ///Gives logical pixel 14
-  static const double dp144 = 144;
-
-  ///Gives logical pixel 17
-  static const double dp176 = 176;
 }

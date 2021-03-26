@@ -37,4 +37,7 @@ extension StringExtensions on String {
 
   ///Convert [string] into slug
   String get toSlug => toString().trim().toLowerCase().replaceAll(" ", "-");
+
+  ///Check image is svg or not
+  bool get isSvg => toLowerCase().endsWith(".svg");
 }

@@ -12,14 +12,10 @@ extension WidgetExtensions on Widget {
   ///
   ///child fills the available space along the flex widget's main axis.
   ///Directly access [Expanded] widget using dot operator
-  Expanded get expanded => Expanded(child: this);
-
-  ///Creates a widget that expands a child of a [Row], [Column], or [Flex]
-  ///
-  ///child fills the available space along the flex widget's main axis.
-  ///Directly access [Expanded] widget with [flex] using dot operator
-  Expanded expandedWithFlex({@required int flex}) =>
-      Expanded(flex: flex, child: this);
+  Expanded expanded(int flex) => Expanded(
+        child: this,
+        flex: flex ?? 1,
+      );
 
   ///Creates a widget that controls where a child of a [Stack] is positioned.
   ///

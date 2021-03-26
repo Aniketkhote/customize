@@ -8,10 +8,12 @@ class FxAlert extends StatelessWidget {
     this.title,
     this.icon,
     this.message,
-    this.size,
     this.color,
     this.backgroundColor,
     this.borderRadius,
+    this.iconBgColor,
+    this.iconColor,
+    this.leftBar,
   }) : super(key: key);
 
   ///
@@ -30,49 +32,70 @@ class FxAlert extends StatelessWidget {
   final String message;
 
   ///
-  ///Sets Alert message
+  ///Sets text color
   ///
   final Color color;
 
   ///
-  ///Sets Alert message
+  ///Sets alert background color
   ///
   final Color backgroundColor;
 
   ///
-  ///Sets Alert size [sm] [md]
+  ///Sets icon color
   ///
-  final double size;
+  final Color iconColor;
+
+  ///
+  ///Sets icon background color
+  ///
+  final Color iconBgColor;
 
   ///
   ///Sets Alert border radius [rounded] [circular]
   ///
   final BorderRadius borderRadius;
 
+  ///
+  ///Sets vertical left bar
+  ///
+  final bool leftBar;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: FxPadding.pxy(horizontal: 15, vertical: 5),
+      constraints: BoxConstraints(maxHeight: 70),
       decoration: BoxDecoration(
-          color: backgroundColor ?? FxColors.primaryLight,
-          borderRadius: borderRadius ?? FxRadius.radius(allSide: 0)),
-      height: size ?? FxSize.medium,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        color: backgroundColor ?? color.withOpacity(.1),
+        borderRadius: borderRadius ?? FxRadius.radius(allSide: 0),
+      ),
+      child: Row(
         children: <Widget>[
-          Text(title).color(color: color ?? FxColors.primary).bold.lg,
-          Text(message).color(color: color ?? FxColors.primary).sm.ellipsis,
+          if (leftBar ?? false)
+            Container(
+                decoration: BoxDecoration(
+                    border: Border(left: BorderSide(color: color, width: 4)))),
+          if (icon != null)
+            CircleAvatar(
+              child: Icon(icon, color: iconColor ?? Colors.white),
+              backgroundColor: iconBgColor ?? color,
+            ).pl12,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              if (title != null)
+                Text(title).color(color: color ?? FxColors.primary).bold.lg.pb4,
+              Text(message)
+                  .color(color: color ?? FxColors.primary)
+                  .sm
+                  .letterSpacing(1)
+                  .ellipsis
+                  .maxLine(2)
+            ],
+          ).px12.expanded(1),
         ],
       ),
-    );
+    ).px8.py4;
   }
-}
-
-class FxSize {
-  static double get extraSmall => 30.00;
-  static double get small => 35.00;
-  static double get medium => 40.00;
-  static double get normal => 45.00;
-  static double get large => 50.00;
-  static double get extraLarge => 60.00;
 }

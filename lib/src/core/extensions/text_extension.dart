@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 
 ///Text extension to directly style on Text
 extension TextExtension on Text {
+  Text textStyle({TextStyle style}) => _copyWith(style: style);
+
   ///The size of glyphs (in logical pixels) to use when painting the text.
   ///
   ///Sets [fontSize] to this text
@@ -127,7 +129,7 @@ extension TextExtension on Text {
   ///Whether the text should break at soft line breaks.
   ///
   ///If false, the glyphs in the text will be positioned as if there was unlimited horizontal space.
-  Text setSoftWrap({bool softWrap}) => _copyWith(softWrap: softWrap);
+  Text setSoftWrap(bool softWrap) => _copyWith(softWrap: softWrap);
 
   ///How to overflowing should be handled
   ///
@@ -242,7 +244,7 @@ extension TextExtension on Text {
   ///The amount of space (in logical pixels) to add between each letter.
   ///
   ///A negative value can be used to bring the letters closer.
-  Text letterSpacing({double spacing}) =>
+  Text letterSpacing(double spacing) =>
       _copyWith(style: TextStyle(letterSpacing: spacing));
 
   /// Sets [letterSpacing] to -3.0
@@ -332,7 +334,7 @@ extension TextExtension on Text {
   ///
   ///If the text exceeds the given number of lines, it will be truncated according to [overflow].
   ///If this is 1, text will not wrap. Otherwise, text will be wrapped at the edge of the box.
-  Text maxLine({@required int maxLines}) => _copyWith(maxLines: maxLines);
+  Text maxLine(int maxLines) => _copyWith(maxLines: maxLines);
 
   Text _copyWith(
       {Key key,
