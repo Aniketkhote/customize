@@ -83,12 +83,12 @@ extension TextExtension on Text {
   ///The color to use when painting the text.
   ///
   ///Sets text color with either [Colors] or [FxColors]
-  Text color({Color color}) => _copyWith(style: TextStyle(color: color));
+  Text color(Color color) => _copyWith(style: TextStyle(color: color));
 
   ///The color to use as the background for the text.
   ///
   ///Sets text background color with either [Colors] or [FxColors]
-  Text bgColor({Color backgroundColor}) =>
+  Text bgColor(Color backgroundColor) =>
       _copyWith(style: TextStyle(backgroundColor: backgroundColor));
 
   ///Whether and how to align text horizontally

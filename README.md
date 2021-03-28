@@ -20,7 +20,7 @@ Thanks to the introduction of [extension methods](https://dart.dev/guides/langua
 
 ```yaml
 # add this line to your dependencies
-  customize: ^0.0.4
+  customize: ^0.0.5
 ```
 
 ```dart

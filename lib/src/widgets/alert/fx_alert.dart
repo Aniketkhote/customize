@@ -85,9 +85,9 @@ class FxAlert extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               if (title != null)
-                Text(title).color(color: color ?? FxColors.primary).bold.lg.pb4,
+                Text(title).color(color ?? FxColors.primary).bold.lg.pb4,
               Text(message)
-                  .color(color: color ?? FxColors.primary)
+                  .color(color ?? FxColors.primary)
                   .sm
                   .letterSpacing(1)
                   .ellipsis
