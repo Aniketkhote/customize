@@ -10,15 +10,15 @@ extension PaddingExtensions on Widget {
 
   ///get horizontaly padding
 
-  Padding px({@required double horizontal}) => _padding(horizontal: horizontal);
+  Padding px({@required double h}) => _padding(horizontal: h);
 
   ///get vertically padding
 
-  Padding py({@required double vertical}) => _padding(vertical: vertical);
+  Padding py({@required double v}) => _padding(vertical: v);
 
   ///get [symmetric] vertically and horizontally padding
-  Padding pxy({@required double horizontal, @required double vertical}) =>
-      _padding(horizontal: horizontal, vertical: vertical);
+  Padding pxy({@required double h, @required double v}) =>
+      _padding(horizontal: h, vertical: v);
 
   ///get right side padding
 

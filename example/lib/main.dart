@@ -1,4 +1,3 @@
-import 'package:customize/customize.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,9 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: SafeArea(
-          child: FxIconBox(
-            child: Icon(Icons.favorite),
-          ),
+          child: Center(child: Text("Customize")),
         ),
       ),
     );

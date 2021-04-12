@@ -3,6 +3,9 @@ import 'package:flutter/cupertino.dart';
 
 ///Text extension to directly style on Text
 extension TextExtension on Text {
+  ///An immutable style describing how to format and paint text.
+  ///
+  ///Apply [TextStyle] to existing textstyle
   Text textStyle({TextStyle style}) => _copyWith(style: style);
 
   ///The size of glyphs (in logical pixels) to use when painting the text.

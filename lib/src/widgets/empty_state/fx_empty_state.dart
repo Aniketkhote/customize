@@ -3,7 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../fx_extensions.dart';
 
+/// Get empty state widget
 class FxEmptyState extends StatelessWidget {
+  /// Create custom empty state screen
   FxEmptyState({
     @required this.title,
     @required this.subTitle,

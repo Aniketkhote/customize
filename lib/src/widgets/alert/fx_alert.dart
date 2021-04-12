@@ -1,19 +1,22 @@
-import 'package:customize/customize.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import '../../fx_extensions.dart';
+import '../../fx_utilities.dart';
 
+///Custom Alert box
 class FxAlert extends StatelessWidget {
+  ///Creates custom alert box
   const FxAlert({
-    Key key,
+    @required this.message,
     this.title,
     this.icon,
-    this.message,
-    this.color,
+    this.color = FxColors.primary,
     this.backgroundColor,
     this.borderRadius,
     this.iconBgColor,
     this.iconColor,
     this.leftBar,
+    Key key,
   }) : super(key: key);
 
   ///
@@ -84,16 +87,10 @@ class FxAlert extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              if (title != null)
-                Text(title).color(color ?? FxColors.primary).bold.lg.pb4,
-              Text(message)
-                  .color(color ?? FxColors.primary)
-                  .sm
-                  .letterSpacing(1)
-                  .ellipsis
-                  .maxLine(2)
+              if (title != null) Text(title).color(color).bold.lg.pb4,
+              Text(message).color(color).sm.letterSpacing(1).ellipsis.maxLine(2)
             ],
-          ).px12.expanded(1),
+          ).px12.expanded(flex: 1),
         ],
       ),
     ).px8.py4;

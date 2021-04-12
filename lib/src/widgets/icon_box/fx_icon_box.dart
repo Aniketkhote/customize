@@ -1,8 +1,10 @@
-import 'package:customize/customize.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import '../../fx_utilities.dart';
 
+///Get predefined icon box
 class FxIconBox extends StatelessWidget {
+  ///create widget that wrap with box
   const FxIconBox({
     @required this.child,
     this.onTap,
@@ -39,7 +41,7 @@ class FxIconBox extends StatelessWidget {
         child: child,
         decoration: BoxDecoration(
           color: boxColor ?? FxColors.primaryLight,
-          borderRadius: BorderRadius.circular(radius) ?? FxRadius.radius10,
+          borderRadius: BorderRadius.circular(radius ?? 10),
         ),
       ),
     );

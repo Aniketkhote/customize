@@ -12,7 +12,7 @@ extension WidgetExtensions on Widget {
   ///
   ///child fills the available space along the flex widget's main axis.
   ///Directly access [Expanded] widget using dot operator
-  Expanded expanded(int flex) => Expanded(
+  Expanded expanded({int flex}) => Expanded(
         child: this,
         flex: flex ?? 1,
       );
@@ -45,6 +45,31 @@ extension WidgetExtensions on Widget {
   Align align({AlignmentGeometry alignment}) =>
       Align(child: this, alignment: alignment);
 
+  ///[Align] child to Bottom Right of parent widget
+  Align get bottomRight => Align(child: this, alignment: Alignment.bottomRight);
+
+  ///[Align] child to Bottom Left of parent widget
+  Align get bottomLeft => Align(child: this, alignment: Alignment.bottomLeft);
+
+  ///[Align] child to Bottom Center of parent widget
+  Align get bottomCenter =>
+      Align(child: this, alignment: Alignment.bottomCenter);
+
+  ///[Align] child to Top Right of parent widget
+  Align get topRight => Align(child: this, alignment: Alignment.topRight);
+
+  ///[Align] child to Top Left of parent widget
+  Align get topLeft => Align(child: this, alignment: Alignment.topLeft);
+
+  ///[Align] child to Top Center of parent widget
+  Align get topCenter => Align(child: this, alignment: Alignment.topCenter);
+
+  ///[Align] child to Center Right of parent widget
+  Align get centerRight => Align(child: this, alignment: Alignment.centerRight);
+
+  ///[Align] child to Center Left of parent widget
+  Align get centerLeft => Align(child: this, alignment: Alignment.centerLeft);
+
   ///Creates a fixed size box.
   ///
   ///The [width] and [height] parameters can be null to indicate that
@@ -61,7 +86,7 @@ extension WidgetExtensions on Widget {
   ///Create a widget that makes its child partially transparent
   ///
   ///The [Opacity] argument must not be null and must be between 0.0 and 1.0
-  Opacity opcity({@required double opacity}) =>
+  Opacity opacity({@required double opacity}) =>
       Opacity(opacity: opacity, child: this);
 
   ///
