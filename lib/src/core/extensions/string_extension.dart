@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-
 ///String extensions to get basic functionality on strings
 extension StringExtensions on String {
   ///Checks string with regex
@@ -21,13 +18,15 @@ extension StringExtensions on String {
   bool get isEmptyOrNull => this == null || isEmpty;
 
   ///Remove first element of [string]
-  String get removeFirst => length > 1 ? substring(1, length) : "";
+  String removeFirst([int upto]) =>
+      length > 1 ? substring(upto ?? 1, length) : "";
 
   ///Remove last element of [string]
-  String get removeLast => length > 1 ? substring(0, length - 1) : "";
+  String removeLast([int upto]) =>
+      length > 1 ? substring(0, length - upto ?? 1) : "";
 
   ///Concatenate [string] with space
-  String concat({@required String string}) => '$this $string';
+  String concat(String string) => '$this $string';
 
   ///Convert string to [int]
   int get toInt => int.tryParse(this);
@@ -56,28 +55,28 @@ extension StringExtensions on String {
 
   ///check string is image
   bool get isImage {
-    String imageExt = toLowerCase();
-    return imageExt.endsWith(".jpg") ||
-        imageExt.endsWith(".jpeg") ||
-        imageExt.endsWith(".png") ||
-        imageExt.endsWith(".svg");
+    String _imageExt = toLowerCase();
+    return _imageExt.endsWith(".jpg") ||
+        _imageExt.endsWith(".jpeg") ||
+        _imageExt.endsWith(".png") ||
+        _imageExt.endsWith(".svg");
   }
 
   ///check string is video
   bool get isVideo {
-    String videoExt = toLowerCase();
-    return videoExt.endsWith(".mp4") ||
-        videoExt.endsWith(".avi") ||
-        videoExt.endsWith(".mpeg") ||
-        videoExt.endsWith(".WEBM");
+    String _videoExt = toLowerCase();
+    return _videoExt.endsWith(".mp4") ||
+        _videoExt.endsWith(".avi") ||
+        _videoExt.endsWith(".mpeg") ||
+        _videoExt.endsWith(".WEBM");
   }
 
   ///check string is audio
   bool get isAudio {
-    String audioExt = toLowerCase();
-    return audioExt.endsWith(".mp3") ||
-        audioExt.endsWith(".wav") ||
-        audioExt.endsWith(".aac") ||
-        audioExt.endsWith(".wma");
+    String _audioExt = toLowerCase();
+    return _audioExt.endsWith(".mp3") ||
+        _audioExt.endsWith(".wav") ||
+        _audioExt.endsWith(".aac") ||
+        _audioExt.endsWith(".wma");
   }
 }

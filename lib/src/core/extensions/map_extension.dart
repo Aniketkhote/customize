@@ -1,20 +1,16 @@
-import 'package:flutter/material.dart';
-
 ///Map extension to entend Map functionality
 extension MapExtensionson on Map<dynamic, dynamic> {
   ///Whether this map contains the given [key]/[value] pair.
   ///
   ///Returns true if any of the key / value pair in the map are equal.
-  bool contains({@required String key, @required dynamic value}) {
-    bool isContain = false;
-
+  bool containsMap(dynamic key, dynamic value) {
     this.forEach((dynamic k, dynamic v) {
       if (k.toString().toLowerCase() == key.toString().toLowerCase() &&
           v.toString().toLowerCase() == value.toString().toLowerCase())
-        isContain = true;
+        return true;
     });
 
-    return isContain;
+    return false;
   }
 
   ///Returns all entries of this map.
