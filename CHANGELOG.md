@@ -16,3 +16,22 @@
     - Alert box
     - icon box
     - Empty state
+## [0.1.0] - April 15, 2021
+    - Added some List methods
+        + flatten
+        + flattenMap
+        + countBy
+        + pluck()
+        + sorted()
+        + sortBy()
+        + diff()
+        + chunk()
+        + only()
+        + notOnly()
+        + whereIn()
+        + whereNotIn()
+        + whereBetween()
+        + whereNotBetween()
+        + containsInMap()
+        + containsKeyInMap()
+        + containsValueInMap()

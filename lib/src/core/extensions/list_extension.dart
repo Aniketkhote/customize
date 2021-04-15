@@ -15,7 +15,7 @@ extension ListExtensionson on List<dynamic> {
   /// Expands each element of this [Iterable] into zero or more elements.
   ///
   ///Get values from list of maps either passing key or not
-  List<dynamic> getValues(dynamic key) => FxList.pluck(this, key);
+  List<dynamic> pluck(dynamic key) => FxList.pluck(this, key);
 
   ///Get sorted list
   List<dynamic> sorted([bool isDecending = false]) =>
@@ -138,9 +138,7 @@ class FxList {
       [bool isDecending = false]) {
     list.sort((dynamic a, dynamic b) => a[key].compareTo(b[key]));
 
-    if (isDecending) {
-      list = list.reversed.toList();
-    }
+    if (isDecending) list.reversed.toList();
 
     return list;
   }
@@ -173,16 +171,11 @@ class FxList {
   ///Gets only those values which is given
   static List<dynamic> only(List<dynamic> list, List<dynamic> keys) {
     List<dynamic> _list = <dynamic>[];
-    Map<dynamic, dynamic> _map = <dynamic, dynamic>{};
 
-    list.forEach((dynamic map) {
-      for (dynamic key in keys) {
-        if (map.containsKey(key)) {
-          _map.putIfAbsent(key, () => map[key]);
-        }
-      }
-      _list.add(_map);
-    });
+    list.forEach((dynamic map) => keys.forEach((dynamic key) {
+          // ignore: always_specify_types
+          if (map.containsKey(key)) _list?.add({key: map[key]});
+        }));
 
     return _list;
   }

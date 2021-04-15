@@ -33,17 +33,15 @@ class FxIconBox extends StatelessWidget {
   final Widget child;
 
   @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap ?? null,
-      child: Container(
-        padding: EdgeInsets.all(10),
-        child: child,
-        decoration: BoxDecoration(
-          color: boxColor ?? FxColors.primaryLight,
-          borderRadius: BorderRadius.circular(radius ?? 10),
+  Widget build(BuildContext context) => InkWell(
+        onTap: onTap,
+        child: Container(
+          padding: EdgeInsets.all(10),
+          child: child,
+          decoration: BoxDecoration(
+            color: boxColor ?? FxColors.primaryLight,
+            borderRadius: BorderRadius.circular(radius ?? 10),
+          ),
         ),
-      ),
-    );
-  }
+      );
 }

@@ -50,10 +50,10 @@ extension MapExtensionson on Map<dynamic, dynamic> {
 }
 
 class FxMap {
-  static bool _defaultBool = false;
-  static int _defaultInt = 0;
-  static double _defaultDouble = 0;
-  static String _defaultString = '';
+  static final bool _defaultBool = false;
+  static final int _defaultInt = 0;
+  static final double _defaultDouble = 0;
+  static final String _defaultString = '';
 
   ///Whether this map contains the given [key]/[value] pair.
   ///
@@ -89,7 +89,7 @@ class FxMap {
   ///
   /// If value/map is NULL or not [bool] type return default value [defaultBool]
   static bool getBool(Map<dynamic, dynamic> map, String key) {
-    if (map == null) map = <dynamic, dynamic>{};
+    map ?? <dynamic, dynamic>{};
 
     if (map.containsKey(key)) if (map[key] is bool)
       return map[key] ?? _defaultBool;
@@ -100,7 +100,7 @@ class FxMap {
   ///
   /// If value/map  is NULL or not [int] type return default value [defaultInt]
   static int getInt(Map<dynamic, dynamic> map, String key) {
-    if (map == null) map = <dynamic, dynamic>{};
+    map ?? <dynamic, dynamic>{};
 
     if (map.containsKey(key)) return toInt(map[key]);
     return _defaultInt;
@@ -110,7 +110,7 @@ class FxMap {
   ///
   /// If value/map  is NULL or not [double] type return default value [defaultDouble]
   static double getDouble(Map<dynamic, dynamic> map, String key) {
-    if (map == null) map = <dynamic, dynamic>{};
+    map ?? <dynamic, dynamic>{};
 
     if (map.containsKey(key)) return toDouble(map[key]);
     return _defaultDouble;
@@ -120,7 +120,7 @@ class FxMap {
   ///
   /// If value/map  is NULL or not [String] type return default value [defaultString]
   static String getString(Map<dynamic, dynamic> map, String key) {
-    if (map == null) map = <dynamic, dynamic>{};
+    map ?? <dynamic, dynamic>{};
 
     if (map.containsKey(key)) if (map[key] is String)
       return map[key] ?? _defaultString;
@@ -131,7 +131,7 @@ class FxMap {
   ///
   /// If value/map  is NULL or not [List] type return default value [defaultString]
   static List<T> getList<T>(Map<dynamic, dynamic> map, String key) {
-    if (map == null) map = <T, T>{};
+    map ?? <T, T>{};
 
     if (map.containsKey(key)) if (map[key] is List<T>) return map[key] ?? <T>[];
     return <T>[];
@@ -143,10 +143,10 @@ class FxMap {
       try {
         return int.parse(value);
       } on Exception catch (e, s) {
-        print("toInt Exception : $e\n$s");
+        AssertionError("toInt Exception : $e\n$s");
       }
     }
-    print("Error in toInt $value");
+    AssertionError("Error in toInt $value");
     return 0;
   }
 
@@ -156,10 +156,10 @@ class FxMap {
       try {
         return double.parse(value) ?? 0.0;
       } on Exception catch (e, s) {
-        print("toDouble Exception : $e\n$s");
+        AssertionError("toDouble Exception : $e\n$s");
       }
     }
-    print("Error in toDouble $value");
+    AssertionError("Error in toDouble $value");
     return 0;
   }
 }

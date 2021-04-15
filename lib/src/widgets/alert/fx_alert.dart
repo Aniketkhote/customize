@@ -65,34 +65,38 @@ class FxAlert extends StatelessWidget {
   final bool leftBar;
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      constraints: BoxConstraints(maxHeight: 70),
-      decoration: BoxDecoration(
-        color: backgroundColor ?? color.withOpacity(.1),
-        borderRadius: borderRadius ?? FxRadius.radius(allSide: 0),
-      ),
-      child: Row(
-        children: <Widget>[
-          if (leftBar ?? false)
-            Container(
-                decoration: BoxDecoration(
-                    border: Border(left: BorderSide(color: color, width: 4)))),
-          if (icon != null)
-            CircleAvatar(
-              child: Icon(icon, color: iconColor ?? Colors.white),
-              backgroundColor: iconBgColor ?? color,
-            ).pl12,
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              if (title != null) Text(title).color(color).bold.lg.pb4,
-              Text(message).color(color).sm.letterSpacing(1).ellipsis.maxLine(2)
-            ],
-          ).px12.expanded(flex: 1),
-        ],
-      ),
-    ).px8.py4;
-  }
+  Widget build(BuildContext context) => Container(
+        constraints: BoxConstraints(maxHeight: 70),
+        decoration: BoxDecoration(
+          color: backgroundColor ?? color.withOpacity(.1),
+          borderRadius: borderRadius ?? FxRadius.radius(allSide: 0),
+        ),
+        child: Row(
+          children: <Widget>[
+            if (leftBar ?? false)
+              Container(
+                  decoration: BoxDecoration(
+                      border:
+                          Border(left: BorderSide(color: color, width: 4)))),
+            if (icon != null)
+              CircleAvatar(
+                child: Icon(icon, color: iconColor ?? Colors.white),
+                backgroundColor: iconBgColor ?? color,
+              ).pl12,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                if (title != null) Text(title).color(color).bold.lg.pb4,
+                Text(message)
+                    .color(color)
+                    .sm
+                    .letterSpacing(1)
+                    .ellipsis
+                    .maxLine(2)
+              ],
+            ).px12.expanded(flex: 1),
+          ],
+        ),
+      ).px8.py4;
 }

@@ -34,39 +34,37 @@ class FxCallout extends StatelessWidget {
   final Color buttonColor;
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: FxHeight.h25,
-      margin: FxMargin.m8,
-      padding: FxPadding.p32,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(radius ?? 10),
-        color: background ?? FxColors.blueGray100,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text("Hello").xl2.bold,
-              Text("Hello").lg.wideLetter.semiBold,
-            ],
-          ).expanded(flex: 1),
-          ElevatedButton(
-            onPressed: null,
-            style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(buttonColor ?? FxColors.primary),
-            ),
-            child: Text("Contact us".toUpperCase())
-                .bold
-                .color(Colors.white)
-                .center,
-          ).expanded(flex: 1).pl24,
-        ],
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Container(
+        height: FxHeight.h25,
+        margin: FxMargin.m8,
+        padding: FxPadding.p32,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(radius ?? 10),
+          color: background ?? FxColors.blueGray100,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text("Hello").xl2.bold,
+                Text("Hello").lg.wideLetter.semiBold,
+              ],
+            ).expanded(flex: 1),
+            ElevatedButton(
+              onPressed: null,
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all(buttonColor ?? FxColors.primary),
+              ),
+              child: Text("Contact us".toUpperCase())
+                  .bold
+                  .color(Colors.white)
+                  .center,
+            ).expanded(flex: 1).pl24,
+          ],
+        ),
+      );
 }

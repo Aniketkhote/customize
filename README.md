@@ -20,24 +20,57 @@ Thanks to the introduction of [extension methods](https://dart.dev/guides/langua
 
 ```yaml
 # add this line to your dependencies
-  customize: ^0.0.5
+  customize: ^0.1.0
 ```
 
 ```dart
 import 'package:customize/customize.dart';
 ```
 
-## Basic Example
+## Basic Dart Example
 ```dart
-FxEmptyState(
-  title: "Wrong",
-  subTitle: "Someting wrong",
-  image: "https://i.pinimg.com/originals/5d/35/e3/5d35e39988e3a183bdc3a9d2570d20a9.gif",
-),
+ List mapList = [
+    {'id': 1, 'name': 'Desk', 'price': 200},
+    {'id': 2, 'name': 'Chair', 'price': 100},
+    {'id': 3, 'name': 'Bookcase', 'price': 150},
+  ];
+
+  //Get only those object whose price is 150 & 200
+  print(mapList.whereIn('price', [150,200]));
+
+  [
+    {id: 3, name: Bookcase, price: 150}, 
+    {id: 1, name: Desk, price: 200}
+  ]
+
+
+  //Get only those object whose price is not 150 & 200
+  print(mapList.whereNotIn('price', [150,200]));
+
+  [
+    {'id': 2, 'name': 'Chair', 'price': 100}
+  ]
+
 ```
-## Screen Shot
-<p align="center">
-  <a href="#" target="_blank">
-    <img src="https://imgur.com/V38BOVa.png"  width="250" height="500" alt="customize">
-  </a>
-</p>
+
+## Some other methods
+- flatten
+- flattenMap
+- countBy
+- pluck()
+- sorted()
+- sortBy()
+- diff()
+- chunk()
+- only()
+- notOnly()
+- whereIn()
+- whereNotIn()
+- whereBetween()
+- whereNotBetween()
+- containsInMap()
+- containsKeyInMap()
+- containsValueInMap()
+
+
+Read the full [API reference](https://pub.dev/documentation/customize/latest/).

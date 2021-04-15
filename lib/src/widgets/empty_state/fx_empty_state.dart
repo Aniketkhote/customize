@@ -76,48 +76,46 @@ class FxEmptyState extends StatelessWidget {
   final Color backgroundColor;
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: context.width,
-      height: context.height,
-      color: backgroundColor ?? Colors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            child: assetsImage.isSvg
-                ? SvgPicture.asset(
-                    assetsImage,
-                    height: imageHeight ?? context.height * .4,
-                    width: imageWidth ?? context.width * .6,
-                  )
-                : Image.asset(
-                    assetsImage,
-                    height: imageHeight ?? context.height * .4,
-                    width: imageWidth ?? context.width * .8,
-                  ),
-          ).pb48,
-          Text(title)
-              .lg
-              .bold
-              .widerLetter
-              .textAlignCenter
-              .textStyle(style: titleTextStyle),
-          Text(subTitle)
-              .sm
-              .widerLetter
-              .textAlignCenter
-              .textStyle(style: subtitleTextStyle),
-          GestureDetector(
-            onTap: onTap,
-            child: Text(clickableText ?? "")
+  Widget build(BuildContext context) => Container(
+        width: context.width,
+        height: context.height,
+        color: backgroundColor ?? Colors.white,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              child: assetsImage.isSvg
+                  ? SvgPicture.asset(
+                      assetsImage,
+                      height: imageHeight ?? context.height * .4,
+                      width: imageWidth ?? context.width * .6,
+                    )
+                  : Image.asset(
+                      assetsImage,
+                      height: imageHeight ?? context.height * .4,
+                      width: imageWidth ?? context.width * .8,
+                    ),
+            ).pb48,
+            Text(title)
+                .lg
                 .bold
-                .textStyle(style: clickableTextStyle)
-                .pt20,
-          ),
-        ],
-      ),
-    );
-  }
+                .widerLetter
+                .textAlignCenter
+                .textStyle(style: titleTextStyle),
+            Text(subTitle)
+                .sm
+                .widerLetter
+                .textAlignCenter
+                .textStyle(style: subtitleTextStyle),
+            GestureDetector(
+              onTap: onTap,
+              child: Text(clickableText ?? "")
+                  .bold
+                  .textStyle(style: clickableTextStyle)
+                  .pt20,
+            ),
+          ],
+        ),
+      );
 }
