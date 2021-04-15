@@ -14,6 +14,20 @@ extension StringExtensions on String {
           r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
       .hasMatch(this);
 
+  ///Checks [string] is valid mobile number or not and return [bool]
+  ///
+  ///eg. 7xxxxxxxxxx, 8xxxxxxxxxx, 9xxxxxxxxxx
+  bool get isMobileNumber => RegExp("^([789]{1}[0-9]{9})").hasMatch(this);
+
+  ///Check this string min length, if satisfied condition then return true
+  bool minLength(int min) => length >= min;
+
+  ///Check this string max length, if satisfied condition then return true
+  bool maxLength(int max) => length <= max;
+
+  ///Check this string length between range, if satisfied condition then return true
+  bool range(int min, int max) => length >= min && length <= max;
+
   ///Checks [string] is empty or null and return [bool]
   bool get isEmptyOrNull => this == null || isEmpty;
 
@@ -25,8 +39,28 @@ extension StringExtensions on String {
   String removeLast([int upto]) =>
       length > 1 ? substring(0, length - upto ?? 1) : "";
 
+  ///Removes all whitespace
+  String get removeWhitespace => replaceAll(' ', '');
+
   ///Concatenate [string] with space
   String concat(String string) => '$this $string';
+
+  ///Counts the number of occurrences of string
+  Map<String, int> count(String str) {
+    String _str = str.replaceAll(' ', '');
+
+    Map<String, int> map = <String, int>{};
+
+    for (int i = 0; i < _str.length; i++) {
+      int count = map[_str[i]] ?? 0;
+      map[_str[i]] = count + 1;
+    }
+    return map;
+  }
+
+  ///Counts the number of occurrences of value.
+  int countBy(String string) =>
+      string.isEmptyOrNull ? 0 : string.allMatches(this).length;
 
   ///Convert string to [int]
   int get toInt => int.tryParse(this);

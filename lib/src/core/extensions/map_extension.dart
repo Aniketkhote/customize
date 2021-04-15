@@ -5,6 +5,9 @@ extension MapExtensionson on Map<dynamic, dynamic> {
   ///Returns true if any of the key / value pair in the map are equal.
   bool contains(dynamic key, dynamic value) => FxMap.contains(this, key, value);
 
+  ///Returns the ID of the Map collection if exists otherwise return 0;
+  dynamic get getId => FxMap.getId(this);
+
   ///Returns all entries of this map.
   ///
   ///if first map keys are not in second map.
@@ -65,6 +68,11 @@ class FxMap {
     });
 
     return isContain;
+  }
+
+  ///Returns the ID of the Map collection if exists otherwise return 0;
+  static dynamic getId(Map<dynamic, dynamic> map) {
+    return (map.containsKey('id') && map['id'] != null) ? map['id'] : 0;
   }
 
   ///Returns all entries of this map.

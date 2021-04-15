@@ -29,8 +29,11 @@ extension ListExtensionson on List<dynamic> {
   ///Creates a new list with the elements of this that are not in other.
   List<dynamic> diff(List<dynamic> list) => FxList.diff(this, list);
 
+  ///Returns random value from this list
+  dynamic get random => FxList.random(this);
+
   ///counts the occurrences of values in the list
-  Map<dynamic, dynamic> get countBy => FxList.countBy(this);
+  Map<dynamic, dynamic> get count => FxList.count(this);
 
   ///The chunk method breaks the list into multiple, smaller list of a given size
   List<dynamic> chunk(int size) => FxList.chunk(this, size);
@@ -150,8 +153,11 @@ class FxList {
     return list1;
   }
 
+  ///Returns random value from this list
+  static dynamic random(List<dynamic> list) => (list..shuffle()).first;
+
   ///counts the occurrences of values in the list
-  static Map<dynamic, dynamic> countBy(List<dynamic> list) {
+  static Map<dynamic, dynamic> count(List<dynamic> list) {
     Map<dynamic, dynamic> _map;
     list.forEach(
         (dynamic x) => _map[x] = _map.containsKey(x) ? _map[x] + 1 : 1);
