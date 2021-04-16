@@ -35,6 +35,18 @@ extension ListExtensionson on List<dynamic> {
   ///counts the occurrences of values in the list
   Map<dynamic, dynamic> get count => FxList.count(this);
 
+  ///counts the occurrences of values in the list if condition satisified
+  Map<dynamic, dynamic> countBy(dynamic Function(dynamic) fn) =>
+      FxList.countBy(this, fn);
+
+  ///Group by objects according to key/value pair
+  Map<dynamic, List<dynamic>> groupBy(dynamic Function(dynamic) fn) =>
+      FxList.groupBy(this, fn);
+
+  ///Group list of objects according to key/value pair
+  Map<dynamic, dynamic> groupByOnMap(String key) =>
+      FxList.groupByOnMap(this, key);
+
   ///The chunk method breaks the list into multiple, smaller list of a given size
   List<dynamic> chunk(int size) => FxList.chunk(this, size);
 
@@ -158,6 +170,30 @@ class FxList {
     list.forEach(
         (dynamic x) => _map[x] = _map.containsKey(x) ? _map[x] + 1 : 1);
     return _map;
+  }
+
+  ///counts the occurrences of values in the list if condition satisified
+  static Map<dynamic, dynamic> countBy(
+      Iterable<dynamic> itr, dynamic Function(dynamic) fn) {
+    // ignore: always_specify_types
+    return Map.fromIterable(itr.map(fn).toSet(),
+        // ignore: always_specify_types
+        value: (i) => itr.where((v) => fn(v) == i).length);
+  }
+
+  ///Group by objects according to key/value pair
+  static Map<dynamic, List<dynamic>> groupBy(
+      Iterable<dynamic> itr, dynamic Function(dynamic) fn) {
+    // ignore: always_specify_types
+    return Map.fromIterable(itr.map(fn).toSet(),
+        // ignore: always_specify_types
+        value: (i) => itr.where((v) => fn(v) == i).toList());
+  }
+
+  ///Group list of objects according to key/value pair
+  static Map<dynamic, dynamic> groupByOnMap(List<dynamic> list, String key) {
+    // ignore: always_specify_types
+    return groupBy(list, (obj) => obj[key]);
   }
 
   ///The chunk method breaks the list into multiple, smaller list of a given size

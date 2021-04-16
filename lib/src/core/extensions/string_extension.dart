@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
 ///String extensions to get basic functionality on strings
 extension StringExtensions on String {
   ///Checks string with regex
@@ -49,7 +52,7 @@ extension StringExtensions on String {
   Map<String, int> get count => FxString.count(this);
 
   ///Counts the number of occurrences of value.
-  int countBy(String string) => FxString.countBy(string);
+  int countBy(String str) => FxString.countBy(this, str);
 
   ///Convert string to [int]
   int get toInt => FxString.toInt(this);
@@ -107,6 +110,9 @@ extension StringExtensions on String {
 
   ///check string is audio
   bool get isAudio => FxString.isAudio(this);
+
+  ///Convert [string] to [Text] widget
+  Text text() => Text(this);
 }
 
 class FxString {
@@ -176,8 +182,8 @@ class FxString {
   }
 
   ///Counts the number of occurrences of value.
-  static int countBy(String string) =>
-      string.isEmptyOrNull ? 0 : string.allMatches(string).length;
+  static int countBy(String string, String str) =>
+      str.isEmptyOrNull ? 0 : str.allMatches(string).length;
 
   ///Convert string to [int]
   static int toInt(Object value) {

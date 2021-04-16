@@ -69,7 +69,7 @@ class FxAlert extends StatelessWidget {
         constraints: BoxConstraints(maxHeight: 70),
         decoration: BoxDecoration(
           color: backgroundColor ?? color.withOpacity(.1),
-          borderRadius: borderRadius ?? FxRadius.radius(allSide: 0),
+          borderRadius: borderRadius ?? FxRadius.radius(all: 0),
         ),
         child: Row(
           children: <Widget>[
@@ -95,7 +95,7 @@ class FxAlert extends StatelessWidget {
                     .ellipsis
                     .maxLine(2)
               ],
-            ).px12.expanded(flex: 1),
+            ).px12.expanded(),
           ],
         ),
       ).px8.py4;

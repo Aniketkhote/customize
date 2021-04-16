@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../../mixins/pixel_mixin.dart';
 
@@ -32,7 +31,7 @@ class FxWidth with FxPixelMixin {
   static double get w64 => _getWidth(width: FxPixelMixin.dp64);
 
   ///get device width
-  static double width({@required double width}) => _getWidth(width: width);
+  static double width(double width) => _getWidth(width: width);
 
   ///get 25% device width
   static double get w25 => _getWidth(width: 25);

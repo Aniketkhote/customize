@@ -2,6 +2,13 @@ import '../../fx_extensions.dart';
 
 ///Map extension to entend Map functionality
 extension MapExtensionson on Map<dynamic, dynamic> {
+  ///Check map is either empty or null
+  bool isEmptyOrNull(Map<dynamic, dynamic> map) => FxMap.isEmptyOrNull(this);
+
+  ///Check map is neither empty nor null
+  bool isNotEmptyOrNull(Map<dynamic, dynamic> map) =>
+      FxMap.isNotEmptyOrNull(this);
+
   ///Whether this map contains the given [key]/[value] pair.
   ///
   ///Returns true if any of the key / value pair in the map are equal.
@@ -59,6 +66,14 @@ class FxMap {
   static final int defaultInt = 0;
   static final double defaultDouble = 0;
   static final String defaultString = '';
+
+  ///Check map is either empty or null
+  static bool isEmptyOrNull(Map<dynamic, dynamic> map) =>
+      map.isEmpty || map == null;
+
+  ///Check map is neither empty nor null
+  static bool isNotEmptyOrNull(Map<dynamic, dynamic> map) =>
+      map.isNotEmpty || map != null;
 
   ///Whether this map contains the given [key]/[value] pair.
   ///

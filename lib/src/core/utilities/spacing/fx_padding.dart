@@ -6,38 +6,35 @@ import '../../mixins/pixel_mixin.dart';
 class FxPadding with FxPixelMixin {
   ///get all side padding
 
-  static EdgeInsets p({@required double all}) => _padding(all: all);
+  static EdgeInsets p(double all) => _padding(all: all);
 
   ///get horizontaly padding
 
-  static EdgeInsets px({@required double horizontal}) =>
-      _padding(horizontal: horizontal);
+  static EdgeInsets px(double horizontal) => _padding(horizontal: horizontal);
 
   ///get vertically padding
 
-  static EdgeInsets py({@required double vertical}) =>
-      _padding(vertical: vertical);
+  static EdgeInsets py(double vertical) => _padding(vertical: vertical);
 
   ///get [symmetric] vertically and horizontally padding
-  static EdgeInsets pxy(
-          {@required double horizontal, @required double vertical}) =>
-      _padding(horizontal: horizontal, vertical: vertical);
+  static EdgeInsets pxy({@required double h, @required double v}) =>
+      _padding(horizontal: h, vertical: v);
 
   ///get right side padding
 
-  static EdgeInsets pr({@required double right}) => _padding(right: right);
+  static EdgeInsets pr(double right) => _padding(right: right);
 
   ///get left side padding
 
-  static EdgeInsets pl({@required double left}) => _padding(left: left);
+  static EdgeInsets pl(double left) => _padding(left: left);
 
   ///get top side padding
 
-  static EdgeInsets pt({@required double top}) => _padding(top: top);
+  static EdgeInsets pt(double top) => _padding(top: top);
 
   ///get bottom side padding
 
-  static EdgeInsets pb({@required double bottom}) => _padding(bottom: bottom);
+  static EdgeInsets pb(double bottom) => _padding(bottom: bottom);
 
   ///EdgeInsets All
   ///

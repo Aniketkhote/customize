@@ -53,11 +53,11 @@ class FxDecoration {
     double topRight,
     double bottomLeft,
     double bottomRight,
-    double allSide,
+    double all,
   }) =>
       _copyWith(
           borderRadius: FxRadius.radius(
-        allSide: allSide,
+        all: all,
         topLeft: topLeft,
         topRight: topRight,
         bottomLeft: bottomLeft,

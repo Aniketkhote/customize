@@ -9,10 +9,10 @@ class FxRadius {
     double topRight,
     double bottomLeft,
     double bottomRight,
-    double allSide,
+    double all,
   }) =>
       _copyWith(
-        allSide: allSide,
+        allSide: all,
         topLeft: topLeft,
         topRight: topRight,
         bottomLeft: bottomLeft,

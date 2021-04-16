@@ -52,7 +52,7 @@ class FxCallout extends StatelessWidget {
                 Text("Hello").xl2.bold,
                 Text("Hello").lg.wideLetter.semiBold,
               ],
-            ).expanded(flex: 1),
+            ).expanded(),
             ElevatedButton(
               onPressed: null,
               style: ButtonStyle(
@@ -63,7 +63,7 @@ class FxCallout extends StatelessWidget {
                   .bold
                   .color(Colors.white)
                   .center,
-            ).expanded(flex: 1).pl24,
+            ).expanded().pl24,
           ],
         ),
       );

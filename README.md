@@ -15,6 +15,7 @@
 Thanks to the introduction of [extension methods](https://dart.dev/guides/language/extension-methods) in Dart 2.7.0, `customize` makes it possible to build widget tree\`s more readable and efficient.
 
 [`Customize`](https://pub.dev/packages/customize) is build as a tool to enhance your Flutter UI development experience and make code easier. It is highly inspired by Bootstrap and Tailwind CSS. 
+It also provide lots of extension methods on String, List and Map.
 
 ## How to Use
 
@@ -56,7 +57,8 @@ import 'package:customize/customize.dart';
 ## Some other methods
 - flatten
 - flattenMap
-- countBy
+- count
+- countBy()
 - pluck()
 - sorted()
 - sortBy()
@@ -74,3 +76,18 @@ import 'package:customize/customize.dart';
 
 
 Read the full [API reference](https://pub.dev/documentation/customize/latest/).
+
+
+## Contributing 
+Customize is 100% free and open source. We encourage and support an active, healthy community that accepts contributions from the public – including you.
+
+- Pick up any issue marked with ["good first - issue"](https://github.com/Aniketkhote/customize/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
+- Fix a bug
+- Write and improve some documentation. Documentation is very critical to us. We would appreciate help in adding multiple languages to our docs.
+- If you are a developer, feel free to check out the source and submit pull requests.
+- Please don't forget to like, follow, and star our repo! Join our growing community to keep up to date with the latest GetWidget development.
+
+**Please don't forget to Like, Follow, and Star our repo!**
+
+
+Code and documentation Copyright 2021 [Aniket Khote](https://github.com/Aniketkhote)

@@ -7,38 +7,33 @@ class FxMargin with FxPixelMixin {
   ///Custom margin
 
   /// Get custom all side margin
-  static EdgeInsets m({@required double all}) => _margin(all: all);
+  static EdgeInsets m(double all) => _margin(all: all);
 
   /// Get custom horizontaly margin
-
-  static EdgeInsets mx({@required double horizontal}) =>
-      _margin(horizontal: horizontal);
+  static EdgeInsets mx(double horizontal) => _margin(horizontal: horizontal);
 
   /// Get custom vertically margin
-
-  static EdgeInsets my({@required double vertical}) =>
-      _margin(vertical: vertical);
+  static EdgeInsets my(double vertical) => _margin(vertical: vertical);
 
   ///get [symmetric] vertically and horizontally margin
-  static EdgeInsets mxy(
-          {@required double horizontal, @required double vertical}) =>
-      _margin(horizontal: horizontal, vertical: vertical);
+  static EdgeInsets mxy({@required double h, @required double v}) =>
+      _margin(horizontal: h, vertical: v);
 
   /// Get custom right side margin
 
-  static EdgeInsets mr({@required double right}) => _margin(right: right);
+  static EdgeInsets mr(double right) => _margin(right: right);
 
   /// Get custom left side margin
 
-  static EdgeInsets ml({@required double left}) => _margin(left: left);
+  static EdgeInsets ml(double left) => _margin(left: left);
 
   /// Get custom top side margin
 
-  static EdgeInsets mt({@required double top}) => _margin(top: top);
+  static EdgeInsets mt(double top) => _margin(top: top);
 
   /// Get custom bottom side margin
 
-  static EdgeInsets mb({@required double bottom}) => _margin(bottom: bottom);
+  static EdgeInsets mb(double bottom) => _margin(bottom: bottom);
 
   ///EdgeInsets All
   ///

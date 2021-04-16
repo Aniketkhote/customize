@@ -12,7 +12,7 @@ extension WidgetExtensions on Widget {
   ///
   ///child fills the available space along the flex widget's main axis.
   ///Directly access [Expanded] widget using dot operator
-  Expanded expanded({int flex}) => Expanded(
+  Expanded expanded([int flex]) => Expanded(
         child: this,
         flex: flex ?? 1,
       );
@@ -74,20 +74,19 @@ extension WidgetExtensions on Widget {
   ///
   ///The [width] and [height] parameters can be null to indicate that
   ///the size of the box should not be constrained in the corresponding dimension.
-  SizedBox sizedBox({@required double height, double width}) =>
+  SizedBox sizedBox({double height, double width}) =>
       SizedBox(child: this, height: height, width: width);
 
-  ///Creates a fixed  sqaure size box.
+  ///Creates a fixed sqaure size box.
   ///
   ///Sets [width] and [height] parameters equal to given size
-  SizedBox squareBox({@required double size}) =>
+  SizedBox squareBox(double size) =>
       SizedBox(child: this, height: size, width: size);
 
   ///Create a widget that makes its child partially transparent
   ///
   ///The [Opacity] argument must not be null and must be between 0.0 and 1.0
-  Opacity opacity({@required double opacity}) =>
-      Opacity(opacity: opacity, child: this);
+  Opacity opacity(double opacity) => Opacity(opacity: opacity, child: this);
 
   ///
   ///Get 0% [Opacity] which means fully invisible

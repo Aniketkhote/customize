@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../../mixins/pixel_mixin.dart';
 
@@ -32,7 +31,7 @@ class FxHeight with FxPixelMixin {
   static double get h64 => _getHeight(height: FxPixelMixin.dp64);
 
   ///get visible screen height
-  static double height({@required double height}) => _getHeight(height: height);
+  static double height(double height) => _getHeight(height: height);
 
   ///Gives 25% height of device
   static double get h25 => _getHeight(height: 25);
