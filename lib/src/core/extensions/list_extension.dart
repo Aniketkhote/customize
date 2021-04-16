@@ -129,11 +129,7 @@ class FxList {
   ///Get sorted list
   static List<dynamic> sorted(List<dynamic> list, [bool isDecending = false]) {
     list.sort();
-
-    if (isDecending)
-      return list.reversed.toList();
-    else
-      return list;
+    return isDecending ? list.reversed.toList() : list;
   }
 
   ///The sortBy method sorts the list of objects by the given key.
@@ -190,15 +186,11 @@ class FxList {
   static List<dynamic> notOnly(List<dynamic> list, List<dynamic> keys) {
     List<dynamic> _list = <dynamic>[];
     list.forEach((dynamic map) => keys.forEach((dynamic key) {
-          if (map.containsKey(key)) {
-            map.remove(key);
-          }
+          if (map.containsKey(key)) map.remove(key);
         }));
 
     list.forEach((dynamic map) {
-      if (map.isNotEmpty) {
-        _list.add(map);
-      }
+      if (map.isNotEmpty) _list.add(map);
     });
 
     return _list;
@@ -213,9 +205,7 @@ class FxList {
 
     params.forEach((dynamic param) {
       list.forEach((dynamic map) {
-        if (FxMap.contains(map, key, param)) {
-          _list.add(map);
-        }
+        if (FxMap.contains(map, key, param)) _list.add(map);
       });
     });
 
@@ -239,9 +229,7 @@ class FxList {
 
     list.forEach((dynamic element) {
       if (element.containsKey(key) && element[key] != null) {
-        if (element[key] >= start && element[key] <= end) {
-          _list?.add(element);
-        }
+        if (element[key] >= start && element[key] <= end) _list?.add(element);
       }
     });
 
@@ -255,9 +243,7 @@ class FxList {
 
     list.forEach((dynamic element) {
       if (element.containsKey(key) && element[key] != null) {
-        if (element[key] <= start || element[key] >= end) {
-          _list?.add(element);
-        }
+        if (element[key] <= start || element[key] >= end) _list?.add(element);
       }
     });
 
@@ -286,11 +272,10 @@ class FxList {
   ///Get median of numbers
   static num median(List<num> list) {
     num middle = list.length ~/ 2;
-    if (list.length.isOdd) {
+    if (list.length.isOdd)
       return list[middle];
-    } else {
+    else
       return (list[middle - 1] + list[middle]) / 2.0;
-    }
   }
 
   ///Get mode of numbers
@@ -300,9 +285,8 @@ class FxList {
 
     for (num i = 0; i < list.length; ++i) {
       num count = 0;
-      for (num j = 0; j < list.length; ++j) {
-        if (list[j] == list[i]) ++count;
-      }
+      for (num j = 0; j < list.length; ++j) if (list[j] == list[i]) ++count;
+
       if (count > maxCount) {
         maxCount = count;
         maxValue = list[i];

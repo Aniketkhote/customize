@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:io' show Platform;
 
 ///BuildContext extension
 extension ContextExtensions on BuildContext {
@@ -22,4 +23,22 @@ extension ContextExtensions on BuildContext {
 
   ///Check if device is on portrait mode
   bool get isPortrait => orientation == Orientation.portrait;
+
+  ///Check [Platform] is Android if it is return true otherwise false
+  bool get isAndroid => Platform.isAndroid;
+
+  ///Check [Platform] is Fuchsia if it is return true otherwise false
+  bool get isFuchsia => Platform.isFuchsia;
+
+  ///Check [Platform] is IOS if it is return true otherwise false
+  bool get isIOS => Platform.isIOS;
+
+  ///Check [Platform] is Linux if it is return true otherwise false
+  bool get isLinux => Platform.isLinux;
+
+  ///Check [Platform] is MacOS if it is return true otherwise false
+  bool get isMacOS => Platform.isMacOS;
+
+  ///Check [Platform] is Windows if it is return true otherwise false
+  bool get isWindows => Platform.isWindows;
 }
