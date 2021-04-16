@@ -21,11 +21,23 @@ It also provide lots of extension methods on String, List and Map.
 
 ```yaml
 # add this line to your dependencies
-  customize: ^0.1.0
+  customize: ^0.1.1
 ```
 
 ```dart
 import 'package:customize/customize.dart';
+```
+
+## Basic Flutter Example
+```dart
+
+ FxAlert(
+  title: "alert title".toTitleCase(),
+  message: "this is alert message".toSentenceCase(),
+  icon: Icons.check,
+  borderRadius: FxRadius.radius10,
+).p12
+
 ```
 
 ## Basic Dart Example
@@ -55,24 +67,49 @@ import 'package:customize/customize.dart';
 ```
 
 ## Some other methods
-- flatten
-- flattenMap
-- count
-- countBy()
-- pluck()
-- sorted()
-- sortBy()
-- diff()
-- chunk()
-- only()
-- notOnly()
-- whereIn()
-- whereNotIn()
-- whereBetween()
-- whereNotBetween()
-- containsInMap()
-- containsKeyInMap()
-- containsValueInMap()
+    - Widgets
+        + height box
+        + width box
+        + square box
+
+    - String Methods
+        + isMobileNumber
+        + minLength()
+        + maxLength()
+        + range()
+        + mask()
+        + countBy()
+        + toTitleCase()
+        + toSentenceCase
+        + toCapitalCase
+    
+    - List Methods
+        + flatten
+        + flattenMap
+        + countBy()
+        + groupBy
+        + groupByOnMap()
+        + pluck()
+        + sorted()
+        + sortBy()
+        + diff()
+        + chunk()
+        + only()
+        + notOnly()
+        + whereIn()
+        + whereNotIn()
+        + whereBetween()
+        + whereNotBetween()
+        + containsInMap()
+        + containsKeyInMap()
+        + containsValueInMap()
+
+    - Map Methods
+        + isEmptyOrNull
+        + isNotEmptyOrNull
+        + getId
+
+
 
 
 Read the full [API reference](https://pub.dev/documentation/customize/latest/).

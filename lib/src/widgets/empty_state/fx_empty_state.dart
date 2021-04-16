@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '../../fx_extensions.dart';
 
 /// Get empty state widget
@@ -9,7 +8,7 @@ class FxEmptyState extends StatelessWidget {
   FxEmptyState({
     @required this.title,
     @required this.subTitle,
-    @required this.assetsImage,
+    @required this.child,
     this.subtitleTextStyle,
     this.titleTextStyle,
     this.clickableText,
@@ -23,7 +22,7 @@ class FxEmptyState extends StatelessWidget {
   ///
   ///Sets image to [FxEmptyState]
   ///
-  final String assetsImage;
+  final Widget child;
 
   ///
   ///Sets image height
@@ -85,17 +84,9 @@ class FxEmptyState extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              child: assetsImage.isSvg
-                  ? SvgPicture.asset(
-                      assetsImage,
-                      height: imageHeight ?? context.height * .4,
-                      width: imageWidth ?? context.width * .6,
-                    )
-                  : Image.asset(
-                      assetsImage,
-                      height: imageHeight ?? context.height * .4,
-                      width: imageWidth ?? context.width * .8,
-                    ),
+              height: imageHeight ?? context.height * .4,
+              width: imageWidth ?? context.width * .6,
+              child: child,
             ).pb48,
             Text(title)
                 .lg

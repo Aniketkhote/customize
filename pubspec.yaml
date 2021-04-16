@@ -1,6 +1,6 @@
 name: customize
 description: Customize Flutter is awesome package to create beautiful UI.
-version: 0.1.0
+version: 0.1.1
 homepage: "https://github.com/Aniketkhote/customize"
 
 environment:
@@ -10,7 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: ^0.19.3
   get: ^3.26.0
 
 dev_dependencies:

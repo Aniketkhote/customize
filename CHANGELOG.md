@@ -35,3 +35,30 @@
         + containsInMap()
         + containsKeyInMap()
         + containsValueInMap()
+## [0.1.1] - April 17, 2021
+    - Widgets
+        + height box
+        + width box
+        + square box
+
+    - String Methods
+        + isMobileNumber
+        + minLength()
+        + maxLength()
+        + range()
+        + mask()
+        + countBy()
+        + toTitleCase()
+        + toSentenceCase
+        + toCapitalCase
+    
+    - List Methods
+        + countBy()
+        + groupBy
+        + groupByOnMap()
+
+    - Map Methods
+        + isEmptyOrNull
+        + isNotEmptyOrNull
+        + getId
+

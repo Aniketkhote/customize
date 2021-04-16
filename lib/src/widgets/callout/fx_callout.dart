@@ -13,6 +13,7 @@ class FxCallout extends StatelessWidget {
     this.title,
     this.caption,
     this.buttonText,
+    this.onPressed,
   });
 
   /// sets title to callout
@@ -33,9 +34,12 @@ class FxCallout extends StatelessWidget {
   /// sets button color
   final Color buttonColor;
 
+  ///  Called when the button is tapped or otherwise activated.
+  final VoidCallback onPressed;
+
   @override
   Widget build(BuildContext context) => Container(
-        height: FxHeight.h25,
+        height: FxHeight.h20,
         margin: FxMargin.m8,
         padding: FxPadding.p32,
         decoration: BoxDecoration(
@@ -43,18 +47,19 @@ class FxCallout extends StatelessWidget {
           color: background ?? FxColors.blueGray100,
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text("Hello").xl2.bold,
-                Text("Hello").lg.wideLetter.semiBold,
+                Text("Callout Title").xl2.bold,
+                Text("Callout message").lg.wideLetter.normal,
               ],
-            ).expanded(),
+            ),
             ElevatedButton(
-              onPressed: null,
+              onPressed: onPressed,
               style: ButtonStyle(
                 backgroundColor:
                     MaterialStateProperty.all(buttonColor ?? FxColors.primary),
@@ -63,7 +68,7 @@ class FxCallout extends StatelessWidget {
                   .bold
                   .color(Colors.white)
                   .center,
-            ).expanded().pl24,
+            ).pl24,
           ],
         ),
       );
