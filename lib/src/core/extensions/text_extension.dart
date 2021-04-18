@@ -6,12 +6,39 @@ extension TextExtension on Text {
   ///An immutable style describing how to format and paint text.
   ///
   ///Apply [TextStyle] to existing textstyle
-  Text textStyle({TextStyle style}) => _copyWith(style: style);
+  Text textStyle({
+    Key key,
+    TextStyle style,
+    StrutStyle strutStyle,
+    bool softWrap,
+    TextOverflow overflow,
+    TextDirection textDirection,
+    Locale locale,
+    String semanticsLabel,
+    double textScaleFactor,
+    TextWidthBasis textWidthBasis,
+    int maxLines,
+    TextAlign textAlign,
+  }) =>
+      _copyWith(
+        key: key,
+        style: style,
+        strutStyle: strutStyle,
+        softWrap: softWrap,
+        overflow: overflow,
+        textDirection: textDirection,
+        locale: locale,
+        semanticsLabel: semanticsLabel,
+        textScaleFactor: textScaleFactor,
+        textWidthBasis: textWidthBasis,
+        maxLines: maxLines,
+        textAlign: textAlign,
+      );
 
   ///The size of glyphs (in logical pixels) to use when painting the text.
   ///
   ///Sets [fontSize] to this text
-  Text fontSize({@required double fontSize}) =>
+  Text fontSize(double fontSize) =>
       _copyWith(style: TextStyle(fontSize: fontSize));
 
   ///The size of glyphs (in logical pixels) to use when painting the text.
@@ -203,15 +230,15 @@ extension TextExtension on Text {
       style: const TextStyle(decorationStyle: TextDecorationStyle.wavy));
 
   ///Sets the color in which to paint the text decorations.
-  Text textDecoraionColor({Color decorationColor}) =>
+  Text textDecoraionColor(Color decorationColor) =>
       _copyWith(style: TextStyle(decorationColor: decorationColor));
 
   ///Set [fontFamily] for the text
-  Text fontFamily({String fontFamily}) =>
+  Text fontFamily(String fontFamily) =>
       _copyWith(style: TextStyle(fontFamily: fontFamily));
 
   ///set [textScaleFactor] to text
-  Text textScaleFactor({double textScaleFactor}) =>
+  Text textScaleFactor(double textScaleFactor) =>
       _copyWith(textScaleFactor: textScaleFactor);
 
   /// Sets [textScaleFactor] to extra small i.e. 0.75
@@ -276,7 +303,7 @@ extension TextExtension on Text {
   ///
   ///(i.e. between each word).
   ///A negative value can be used to bring the words closer.
-  Text wordSpacing({double spacing}) =>
+  Text wordSpacing(double spacing) =>
       _copyWith(style: TextStyle(wordSpacing: spacing));
 
   /// Sets [WordSpacing] to -3.0
@@ -330,7 +357,7 @@ extension TextExtension on Text {
       _copyWith(style: const TextStyle(fontWeight: FontWeight.w800));
 
   ///Sets [fontWeight] to [FontWeight.w900]
-  Text get blackBold =>
+  Text get darkBold =>
       _copyWith(style: const TextStyle(fontWeight: FontWeight.w900));
 
   ///An optional maximum number of lines for the text to span, wrapping if necessary.

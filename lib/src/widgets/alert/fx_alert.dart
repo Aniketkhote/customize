@@ -69,7 +69,7 @@ class FxAlert extends StatelessWidget {
         constraints: BoxConstraints(maxHeight: 70),
         decoration: BoxDecoration(
           color: backgroundColor ?? color.withOpacity(.1),
-          borderRadius: borderRadius ?? FxRadius.radius(all: 0),
+          borderRadius: borderRadius ?? FxRadius.all(0),
         ),
         child: Row(
           children: <Widget>[

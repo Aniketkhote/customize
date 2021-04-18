@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 ///Creates a fixed sqaure size box.
 ///
 ///Sets [width] and [height] parameters equal to given size
-class SqaureBox extends StatelessWidget {
-  SqaureBox(this.size, {this.child});
+class SquareBox extends StatelessWidget {
+  SquareBox(this.size, {this.child});
 
   ///Create square size box
   final double size;

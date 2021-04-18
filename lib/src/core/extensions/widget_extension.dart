@@ -36,6 +36,37 @@ extension WidgetExtensions on Widget {
         bottom: bottom,
         left: left,
         right: right,
+        height: height,
+        width: width,
+      );
+
+  ///Hide widget
+  Visibility hide([bool isVisible = false]) =>
+      Visibility(child: this, visible: isVisible);
+
+  ///show tooltip
+  Widget tooltip(
+    String message, {
+    Key key,
+    Decoration decoration,
+    double height,
+    bool preferBelow,
+    EdgeInsetsGeometry padding,
+    TextStyle textStyle,
+    Duration waitDuration,
+    EdgeInsetsGeometry margin,
+  }) =>
+      Tooltip(
+        key: key,
+        message: message,
+        decoration: decoration,
+        height: height,
+        padding: padding,
+        preferBelow: preferBelow,
+        textStyle: textStyle,
+        waitDuration: waitDuration,
+        margin: margin,
+        child: this,
       );
 
   ///How to align the child.
@@ -80,8 +111,16 @@ extension WidgetExtensions on Widget {
   ///Creates a fixed sqaure size box.
   ///
   ///Sets [width] and [height] parameters equal to given size
-  SizedBox squareBox(double size) =>
-      SizedBox(child: this, height: size, width: size);
+  SizedBox squareBox(double size, [Widget child]) =>
+      SizedBox(height: size, width: size, child: child);
+
+  ///Create Fixed size width box
+  SizedBox wBox(double size, [Widget child]) =>
+      SizedBox(width: size, child: child);
+
+  ///Create Fixed size height box
+  SizedBox hBox(double size, [Widget child]) =>
+      SizedBox(height: size, child: child);
 
   ///Create a widget that makes its child partially transparent
   ///
@@ -112,4 +151,24 @@ extension WidgetExtensions on Widget {
   ///Get 100% [Opacity] which means fully visible
   ///
   Opacity get opacity100 => Opacity(opacity: 1.0, child: this);
+
+  /// Add on Tap handler to the current widget
+  GestureDetector onTap(VoidCallback callback) {
+    return GestureDetector(child: this, onTap: callback);
+  }
+
+  /// Add on Double Tap handler to the current widget
+  GestureDetector onDoubleTap(VoidCallback callback) {
+    return GestureDetector(child: this, onDoubleTap: callback);
+  }
+
+  /// Add on InkWell Tap handler to the current widget
+  InkWell onInkTap(VoidCallback callback) {
+    return InkWell(child: this, onTap: callback);
+  }
+
+  /// Add onInkWell Double Tap handler to the current widget
+  InkWell onInkDoubleTap(VoidCallback callback) {
+    return InkWell(child: this, onDoubleTap: callback);
+  }
 }

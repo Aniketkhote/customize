@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 ///Create Fixed size height box
-class Height extends StatelessWidget {
-  Height(this.height, {this.child});
+class HBox extends StatelessWidget {
+  HBox(this.height, {this.child});
 
   ///Create height box
   final double height;
@@ -13,7 +13,7 @@ class Height extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height,
+      height: height.toDouble(),
       child: child,
     );
   }

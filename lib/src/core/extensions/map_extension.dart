@@ -3,11 +3,10 @@ import '../../fx_extensions.dart';
 ///Map extension to entend Map functionality
 extension MapExtensionson on Map<dynamic, dynamic> {
   ///Check map is either empty or null
-  bool isEmptyOrNull(Map<dynamic, dynamic> map) => FxMap.isEmptyOrNull(this);
+  bool get isEmptyOrNull => FxMap.isEmptyOrNull(this);
 
   ///Check map is neither empty nor null
-  bool isNotEmptyOrNull(Map<dynamic, dynamic> map) =>
-      FxMap.isNotEmptyOrNull(this);
+  bool get isNotEmptyOrNull => FxMap.isNotEmptyOrNull(this);
 
   ///Whether this map contains the given [key]/[value] pair.
   ///
@@ -72,8 +71,7 @@ class FxMap {
       map.isEmpty || map == null;
 
   ///Check map is neither empty nor null
-  static bool isNotEmptyOrNull(Map<dynamic, dynamic> map) =>
-      map.isNotEmpty || map != null;
+  static bool isNotEmptyOrNull(Map<dynamic, dynamic> map) => !map.isEmptyOrNull;
 
   ///Whether this map contains the given [key]/[value] pair.
   ///
@@ -117,9 +115,9 @@ class FxMap {
     Map<dynamic, dynamic> data = map;
     data ??= <dynamic, dynamic>{};
 
-    if (data.containsKey(key)) if (data[key] is bool)
-      return data[key] ?? defaultBool;
-    return defaultBool;
+    return (data.containsKey(key) && data[key] is bool)
+        ? data[key] ?? defaultBool
+        : defaultBool;
   }
 
   /// Reads a [key] value of [int] type from [Map].
@@ -129,8 +127,9 @@ class FxMap {
     Map<dynamic, dynamic> data = map;
     data ??= <dynamic, dynamic>{};
 
-    if (data.containsKey(key)) return FxString.toInt(data[key]);
-    return defaultInt;
+    return data.containsKey(key)
+        ? FxString.toInt(data[key]) ?? defaultInt
+        : defaultInt;
   }
 
   /// Reads a [key] value of [double] type from [Map].
@@ -140,8 +139,9 @@ class FxMap {
     Map<dynamic, dynamic> data = map;
     data ??= <dynamic, dynamic>{};
 
-    if (data.containsKey(key)) return FxString.toDouble(data[key]);
-    return defaultDouble;
+    return data.containsKey(key)
+        ? FxString.toDouble(data[key]) ?? defaultDouble
+        : defaultDouble;
   }
 
   /// Reads a [key] value of [String] type from [Map].
@@ -151,9 +151,9 @@ class FxMap {
     Map<dynamic, dynamic> data = map;
     data ??= <dynamic, dynamic>{};
 
-    if (data.containsKey(key)) if (data[key] is String)
-      return data[key] ?? defaultString;
-    return defaultString;
+    return (data.containsKey(key) && data[key] is String)
+        ? data[key] ?? defaultString
+        : defaultString;
   }
 
   /// Reads a [key] value of [List] type from [Map].
@@ -163,8 +163,8 @@ class FxMap {
     Map<dynamic, dynamic> data = map;
     data ??= <dynamic, dynamic>{};
 
-    if (data.containsKey(key)) if (data[key] is List<dynamic>)
-      return data[key] ?? <dynamic>[];
-    return <dynamic>[];
+    return (data.containsKey(key) && data[key] is List<dynamic>)
+        ? data[key] ?? <dynamic>[]
+        : <dynamic>[];
   }
 }

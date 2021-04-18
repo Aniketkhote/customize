@@ -1,6 +1,5 @@
 ///Utilities and Helper Methods
 export 'core/utilities/colors/fx_colors.dart';
-export 'core/utilities/decoration/fx_decoration.dart';
 export 'core/utilities/radius/fx_border_radius.dart';
 export 'core/utilities/shadows/fx_shadow.dart';
 export 'core/utilities/sizing/fx_height.dart';

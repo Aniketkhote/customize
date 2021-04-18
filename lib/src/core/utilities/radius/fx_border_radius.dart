@@ -4,35 +4,36 @@ import 'package:flutter/cupertino.dart';
 ///Border radius to easliy get predefined radius.
 class FxRadius {
   ///Gives [BorderRadius] for each corner of a rectangle.
-  static BorderRadius radius({
+  static BorderRadius only({
     double topLeft,
     double topRight,
     double bottomLeft,
     double bottomRight,
-    double all,
   }) =>
       _copyWith(
-        allSide: all,
         topLeft: topLeft,
         topRight: topRight,
         bottomLeft: bottomLeft,
         bottomRight: bottomRight,
       );
 
+  ///Gives [BorderRadius] for each corner of a rectangle.
+  static BorderRadius all(double radius) => _copyWith(all: radius);
+
   ///Gives [BorderRadius] 5 for all sides
-  static BorderRadius get radius5 => _copyWith(allSide: 5);
+  static BorderRadius get radius5 => _copyWith(all: 5);
 
   ///Gives [BorderRadius] 10 for all sides
-  static BorderRadius get radius10 => _copyWith(allSide: 10);
+  static BorderRadius get radius10 => _copyWith(all: 10);
 
   ///Gives [BorderRadius] 20 for all sides
-  static BorderRadius get radius20 => _copyWith(allSide: 20);
+  static BorderRadius get radius20 => _copyWith(all: 20);
 
   ///Gives [BorderRadius] 30 for all sides
-  static BorderRadius get radius30 => _copyWith(allSide: 30);
+  static BorderRadius get radius30 => _copyWith(all: 30);
 
   ///Gives [BorderRadius] 50 for all sides
-  static BorderRadius get radius50 => _copyWith(allSide: 50);
+  static BorderRadius get radius50 => _copyWith(all: 50);
 
   ///Gives [BorderRadius] 5 for top left side
   static BorderRadius get radiusTL5 => _copyWith(topLeft: 5);
@@ -99,12 +100,12 @@ class FxRadius {
     double topRight,
     double bottomLeft,
     double bottomRight,
-    double allSide,
+    double all,
   }) =>
       BorderRadius.only(
-        topLeft: Radius.circular(topLeft ?? allSide ?? 0),
-        topRight: Radius.circular(topRight ?? allSide ?? 0),
-        bottomLeft: Radius.circular(bottomLeft ?? allSide ?? 0),
-        bottomRight: Radius.circular(bottomRight ?? allSide ?? 0),
+        topLeft: Radius.circular(topLeft ?? all ?? 0),
+        topRight: Radius.circular(topRight ?? all ?? 0),
+        bottomLeft: Radius.circular(bottomLeft ?? all ?? 0),
+        bottomRight: Radius.circular(bottomRight ?? all ?? 0),
       );
 }

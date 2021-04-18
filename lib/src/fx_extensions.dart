@@ -6,3 +6,4 @@ export 'core/extensions/widget_extension.dart';
 export 'core/extensions/container_extension.dart';
 export 'core/extensions/map_extension.dart';
 export 'core/extensions/list_extension.dart';
+export 'core/extensions/num_extension.dart';

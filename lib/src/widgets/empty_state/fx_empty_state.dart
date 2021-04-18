@@ -1,3 +1,4 @@
+import 'package:customize/customize.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../../fx_extensions.dart';
@@ -78,6 +79,7 @@ class FxEmptyState extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         width: context.width,
         height: context.height,
+        padding: FxPadding.p32,
         color: backgroundColor ?? Colors.white,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -87,25 +89,33 @@ class FxEmptyState extends StatelessWidget {
               height: imageHeight ?? context.height * .4,
               width: imageWidth ?? context.width * .6,
               child: child,
-            ).pb48,
+            ).pb24,
             Text(title)
                 .lg
                 .bold
                 .widerLetter
+                .color(FxColors.blueGray500)
                 .textAlignCenter
                 .textStyle(style: titleTextStyle),
             Text(subTitle)
                 .sm
                 .widerLetter
+                .color(FxColors.blueGray500)
                 .textAlignCenter
-                .textStyle(style: subtitleTextStyle),
-            GestureDetector(
-              onTap: onTap,
+                .textStyle(style: subtitleTextStyle)
+                .pt4,
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all(FxColors.blueGray100),
+              ),
+              onPressed: onTap,
               child: Text(clickableText ?? "")
                   .bold
-                  .textStyle(style: clickableTextStyle)
-                  .pt20,
-            ),
+                  .lg
+                  .color(FxColors.blueGray500)
+                  .textStyle(style: clickableTextStyle),
+            ).pt20,
           ],
         ),
       );

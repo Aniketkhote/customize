@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 ///Create Fixed size width box
-class Width extends StatelessWidget {
-  Width(this.width, {this.child});
+class WBox extends StatelessWidget {
+  WBox(this.width, {this.child});
 
   ///Create width box
   final double width;

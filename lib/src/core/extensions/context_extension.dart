@@ -15,6 +15,15 @@ extension ContextExtensions on BuildContext {
   ///This is same as [MediaQuery.of(context).width]
   double get width => mediaQuerySize.width;
 
+  /// Extension for getting Theme
+  ThemeData get theme => Theme.of(this);
+
+  /// Extension for getting textTheme
+  TextTheme get textTheme => Theme.of(this).textTheme;
+
+  // The default brightness of the [Theme].
+  Brightness get brightness => theme.brightness;
+
   ///Similar to [MediaQuery.of(context).orientation]
   Orientation get orientation => MediaQuery.of(this).orientation;
 

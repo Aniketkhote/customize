@@ -11,16 +11,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: SafeArea(
-          child: Center(
-            child: FxAlert(
-              title: "alert title".toTitleCase(),
-              message: "this is alert message".toSentenceCase(),
-              icon: Icons.check,
-              borderRadius: FxRadius.radius10,
-            ).p12,
-          ),
-        ),
+        backgroundColor: Colors.white,
+        body: SafeArea(child: FxAlert(message: "message")),
       ),
     );
   }

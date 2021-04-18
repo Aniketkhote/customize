@@ -12,19 +12,16 @@ extension ListExtensionson on List<dynamic> {
   ///Merge list of maps into single map
   Map<dynamic, dynamic> get flattenMap => FxList.flattenMap(this);
 
-  /// Expands each element of this [Iterable] into zero or more elements.
-  ///
-  ///Get values from list of maps either passing key or not
+  ///The [pluck] method retrieves all of the values for a given key
   List<dynamic> pluck(dynamic key) => FxList.pluck(this, key);
 
   ///Get sorted list
-  List<dynamic> sorted([bool isDecending = false]) =>
-      FxList.sorted(this, isDecending);
+  List<dynamic> sorted([bool isDesc = false]) => FxList.sorted(this, isDesc);
 
   ///The sortBy method sorts the list of objects by the given key.
   List<dynamic> sortBy(List<dynamic> list, dynamic key,
-          [bool isDecending = false]) =>
-      FxList.sortBy(this, key, isDecending);
+          [bool isDesc = false]) =>
+      FxList.sortBy(this, key, isDesc);
 
   ///Creates a new list with the elements of this that are not in other.
   List<dynamic> diff(List<dynamic> list) => FxList.diff(this, list);
@@ -51,8 +48,7 @@ extension ListExtensionson on List<dynamic> {
   List<dynamic> chunk(int size) => FxList.chunk(this, size);
 
   ///Gets only those values which is given
-  List<dynamic> only(List<dynamic> list, List<dynamic> keys) =>
-      FxList.only(this, keys);
+  List<dynamic> only(List<dynamic> keys) => FxList.only(this, keys);
 
   ///Removes elements from the list which is given
   List<dynamic> notOnly(List<dynamic> keys) => FxList.notOnly(this, keys);
@@ -60,13 +56,13 @@ extension ListExtensionson on List<dynamic> {
   ///Removes elements from the list that do not have a specified item value
   ///
   ///that is not contained within the given list
-  List<dynamic> whereIn(dynamic key, List<dynamic> params) =>
+  List<dynamic> whereIn(dynamic key, List<num> params) =>
       FxList.whereIn(this, key, params);
 
   ///Removes elements from the list that have a specified item value
   ///
   ///that is not contained within the given list
-  List<dynamic> whereNotIn(dynamic key, List<dynamic> params) =>
+  List<dynamic> whereNotIn(dynamic key, List<num> params) =>
       FxList.whereNotIn(this, key, params);
 
   /// Filters the collection by determining if a specified item value is within a given range
@@ -95,16 +91,15 @@ extension ListExtensionson on List<dynamic> {
   ///Get mode of numbers
   num get mode => FxList.mode(this);
 
-  ///Checks given key is exists or not
-  bool containsInMap(dynamic key, dynamic value) =>
-      FxList.containsInMap(this, key, value);
+  ///Checks given key/value is exists or not
+  bool hasKeyValue(dynamic key, dynamic value) =>
+      FxList.hasKeyValue(this, key, value);
 
   ///Checks given key is exists or not
-  bool containsKeyInMap(dynamic key) => FxList.containsKeyInMap(this, key);
+  bool hasKey(dynamic key) => FxList.hasKey(this, key);
 
   ///Checks given value is exists or not
-  bool containsValueInMap(dynamic value) =>
-      FxList.containsValueInMap(this, value);
+  bool hasValue(dynamic value) => FxList.hasValue(this, value);
 }
 
 class FxList {
@@ -123,35 +118,27 @@ class FxList {
         key: (dynamic v) => v.key, value: (dynamic v) => v.value);
   }
 
-  /// Expands each element of this [Iterable] into zero or more elements.
-  ///
-  ///Get values from list of maps either passing key or not
+  ///The [pluck] method retrieves all of the values for a given key
   static List<dynamic> pluck(List<dynamic> list, [dynamic key]) {
     List<dynamic> _list = <dynamic>[];
-    list.forEach((dynamic element) {
-      if (element.containsKey(key)) {
-        _list?.add(element[key]);
-      } else {
-        element.forEach((dynamic k, dynamic v) => _list?.add(v));
-      }
-    });
+    list.forEach((dynamic element) => (element.containsKey(key))
+        ? _list?.add(element[key])
+        : element.forEach((dynamic k, dynamic v) => _list?.add(v)));
     return _list;
   }
 
   ///Get sorted list
-  static List<dynamic> sorted(List<dynamic> list, [bool isDecending = false]) {
+  static List<dynamic> sorted(List<dynamic> list, [bool isDesc = false]) {
     list.sort();
-    return isDecending ? list.reversed.toList() : list;
+    return isDesc ? list.reversed.toList() : list;
   }
 
   ///The sortBy method sorts the list of objects by the given key.
   static List<dynamic> sortBy(List<dynamic> list, dynamic key,
-      [bool isDecending = false]) {
+      [bool isDesc = false]) {
     list.sort((dynamic a, dynamic b) => a[key].compareTo(b[key]));
 
-    if (isDecending) list.reversed.toList();
-
-    return list;
+    return isDesc ? list.reversed.toList() : list;
   }
 
   ///Creates a new list with the elements of this that are not in other.
@@ -209,11 +196,17 @@ class FxList {
   ///Gets only those values which is given
   static List<dynamic> only(List<dynamic> list, List<dynamic> keys) {
     List<dynamic> _list = <dynamic>[];
+    list.forEach((dynamic map) {
+      Map<dynamic, dynamic> _map = <dynamic, dynamic>{};
 
-    list.forEach((dynamic map) => keys.forEach((dynamic key) {
-          // ignore: always_specify_types
-          if (map.containsKey(key)) _list?.add({key: map[key]});
-        }));
+      keys.forEach((dynamic key) {
+        // ignore: always_specify_types
+        if (map.containsKey(key)) _map.addAll({key: map[key]});
+      });
+      _list.forEach((dynamic map) {
+        if (map.isNotEmpty) _list.add(map);
+      });
+    });
 
     return _list;
   }
@@ -236,7 +229,7 @@ class FxList {
   ///
   ///that is not contained within the given list
   static List<dynamic> whereIn(
-      List<dynamic> list, dynamic key, List<dynamic> params) {
+      List<dynamic> list, dynamic key, List<num> params) {
     List<dynamic> _list = <dynamic>[];
 
     params.forEach((dynamic param) {
@@ -265,7 +258,7 @@ class FxList {
 
     list.forEach((dynamic element) {
       if (element.containsKey(key) && element[key] != null) {
-        if (element[key] >= start && element[key] <= end) _list?.add(element);
+        if (element[key] > start && element[key] < end) _list?.add(element);
       }
     });
 
@@ -279,7 +272,7 @@ class FxList {
 
     list.forEach((dynamic element) {
       if (element.containsKey(key) && element[key] != null) {
-        if (element[key] <= start || element[key] >= end) _list?.add(element);
+        if (element[key] < start || element[key] > end) _list?.add(element);
       }
     });
 
@@ -331,15 +324,15 @@ class FxList {
     return maxValue;
   }
 
-  ///Checks given key is exists or not
-  static bool containsInMap(List<dynamic> list, dynamic key, dynamic value) =>
+  ///Checks given key/value is exists or not
+  static bool hasKeyValue(List<dynamic> list, dynamic key, dynamic value) =>
       list.any((dynamic element) => FxMap.contains(element, key, value));
 
   ///Checks given key is exists or not
-  static bool containsKeyInMap(List<dynamic> list, dynamic key) =>
+  static bool hasKey(List<dynamic> list, dynamic key) =>
       list.any((dynamic element) => element.containsKey(key));
 
   ///Checks given value is exists or not
-  static bool containsValueInMap(List<dynamic> list, dynamic value) =>
+  static bool hasValue(List<dynamic> list, dynamic value) =>
       list.any((dynamic element) => element.containsValue(value));
 }

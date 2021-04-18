@@ -25,6 +25,9 @@ extension ContainerExtensions on Widget {
         padding: padding,
       );
 
+  ///sets background color to widget
+  Container bgColor(Color color) => _copyWith(color: color);
+
   Container _copyWith({
     Color color,
     BoxDecoration decoration,

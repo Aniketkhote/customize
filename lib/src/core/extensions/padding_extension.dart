@@ -5,36 +5,29 @@ import '../mixins/pixel_mixin.dart';
 ///Padding extension on widget to directly get padding
 extension PaddingExtensions on Widget {
   ///get all side padding
-
-  Padding p({@required double all}) => _padding(all: all);
+  Padding p(double all) => _padding(all: all);
 
   ///get horizontaly padding
-
-  Padding px({@required double h}) => _padding(horizontal: h);
+  Padding px(double h) => _padding(horizontal: h);
 
   ///get vertically padding
-
-  Padding py({@required double v}) => _padding(vertical: v);
+  Padding py(double v) => _padding(vertical: v);
 
   ///get [symmetric] vertically and horizontally padding
   Padding pxy({@required double h, @required double v}) =>
       _padding(horizontal: h, vertical: v);
 
   ///get right side padding
-
-  Padding pr({@required double right}) => _padding(right: right);
+  Padding pr(double right) => _padding(right: right);
 
   ///get left side padding
-
-  Padding pl({@required double left}) => _padding(left: left);
+  Padding pl(double left) => _padding(left: left);
 
   ///get top side padding
-
-  Padding pt({@required double top}) => _padding(top: top);
+  Padding pt(double top) => _padding(top: top);
 
   ///get bottom side padding
-
-  Padding pb({@required double bottom}) => _padding(bottom: bottom);
+  Padding pb(double bottom) => _padding(bottom: bottom);
 
   ///EdgeInsets All
   ///
