@@ -20,6 +20,36 @@ class FxRadius {
   ///Gives [BorderRadius] for each corner of a rectangle.
   static BorderRadius all(double radius) => _copyWith(all: radius);
 
+  ///Gives [BorderRadius] to [topLeft] corner of a rectangle.
+  static BorderRadius topLeft(double radius) => _copyWith(topLeft: radius);
+
+  ///Gives [BorderRadius] to [topRight] corner of a rectangle.
+  static BorderRadius topRight(double radius) => _copyWith(topRight: radius);
+
+  ///Gives [BorderRadius]to [bottomLeft] corner of a rectangle.
+  static BorderRadius bottomLeft(double radius) =>
+      _copyWith(bottomLeft: radius);
+
+  ///Gives [BorderRadius] to [bottomRight] corner of a rectangle.
+  static BorderRadius bottomRight(double radius) =>
+      _copyWith(bottomRight: radius);
+
+  ///Gives [BorderRadius] to [top] side of a rectangle.
+  static BorderRadius top(double radius) =>
+      _copyWith(topLeft: radius, topRight: radius);
+
+  ///Gives [BorderRadius] to [bottom] side of a rectangle.
+  static BorderRadius bottom(double radius) =>
+      _copyWith(bottomLeft: radius, bottomRight: radius);
+
+  ///Gives [BorderRadius] to [left] side of a rectangle.
+  static BorderRadius left(double radius) =>
+      _copyWith(topLeft: radius, bottomLeft: radius);
+
+  ///Gives [BorderRadius] to [right] side of a rectangle.
+  static BorderRadius right(double radius) =>
+      _copyWith(topRight: radius, bottomRight: radius);
+
   ///Gives [BorderRadius] 5 for all sides
   static BorderRadius get radius5 => _copyWith(all: 5);
 

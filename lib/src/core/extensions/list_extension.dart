@@ -41,8 +41,7 @@ extension ListExtensionson on List<dynamic> {
       FxList.groupBy(this, fn);
 
   ///Group list of objects according to key/value pair
-  Map<dynamic, dynamic> groupByOnMap(String key) =>
-      FxList.groupByOnMap(this, key);
+  Map<dynamic, dynamic> groupByKey(String key) => FxList.groupByKey(this, key);
 
   ///The chunk method breaks the list into multiple, smaller list of a given size
   List<dynamic> chunk(int size) => FxList.chunk(this, size);
@@ -178,7 +177,7 @@ class FxList {
   }
 
   ///Group list of objects according to key/value pair
-  static Map<dynamic, dynamic> groupByOnMap(List<dynamic> list, String key) {
+  static Map<dynamic, dynamic> groupByKey(List<dynamic> list, String key) {
     // ignore: always_specify_types
     return groupBy(list, (obj) => obj[key]);
   }

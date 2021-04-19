@@ -12,7 +12,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
-        body: SafeArea(child: FxAlert(message: "message")),
+        body: SafeArea(
+          child: FxButton(
+            text: "Button",
+            shape: ButtonShape.pill,
+            shadow: FxShadow.medium,
+            size: ButtonSize.normal,
+            type: ButtonType.solid,
+          ).center,
+        ),
       ),
     );
   }

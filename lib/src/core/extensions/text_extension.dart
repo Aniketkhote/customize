@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../../fx_utilities.dart';
+
 ///Text extension to directly style on Text
 extension TextExtension on Text {
   ///An immutable style describing how to format and paint text.

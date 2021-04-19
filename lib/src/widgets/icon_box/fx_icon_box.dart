@@ -6,14 +6,16 @@ import '../../fx_extensions.dart';
 ///Get predefined icon box
 class FxIconBox extends StatelessWidget {
   ///create widget that wrap with box
-  const FxIconBox(
-      {@required this.child,
-      this.onTap,
-      this.boxColor,
-      this.borderRadius,
-      this.margin,
-      this.padding,
-      this.size});
+  const FxIconBox({
+    @required this.child,
+    this.onTap,
+    this.boxColor,
+    this.borderRadius,
+    this.margin,
+    this.padding,
+    this.size,
+    this.boxShadow,
+  });
 
   ///
   ///Callback function
@@ -44,6 +46,9 @@ class FxIconBox extends StatelessWidget {
   ///sets size to icon box
   final double size;
 
+  ///Sets box shadow to icon box
+  final List<BoxShadow> boxShadow;
+
   @override
   Widget build(BuildContext context) => Container(
         padding: padding ?? FxPadding.p12,
@@ -52,6 +57,7 @@ class FxIconBox extends StatelessWidget {
         decoration: BoxDecoration(
           color: boxColor ?? FxColors.primaryLight,
           borderRadius: borderRadius ?? BorderRadius.circular(10),
+          boxShadow: boxShadow ?? FxShadow.none,
         ),
       ).squareBox(size).onInkTap(() => onTap);
 }

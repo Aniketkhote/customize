@@ -25,8 +25,22 @@ extension ContainerExtensions on Widget {
         padding: padding,
       );
 
-  ///sets background color to widget
+  ///set background color to widget
   Container bgColor(Color color) => _copyWith(color: color);
+
+  ///set [BoxDecoration] to child widget
+  Container decoration(BoxDecoration decoration) =>
+      _copyWith(decoration: decoration);
+
+  ///set [BorderRadius] to child widget
+  Container radius(BorderRadius borderRadius) =>
+      _copyWith(borderRadius: borderRadius);
+
+  ///set [BoxShadow] to child widget
+  Container shadow(List<BoxShadow> shadow) => _copyWith(boxShadow: shadow);
+
+  ///set [Border] to child widget
+  Container border(Border border) => _copyWith(border: border);
 
   Container _copyWith({
     Color color,
@@ -34,6 +48,9 @@ extension ContainerExtensions on Widget {
     AlignmentGeometry alignment,
     EdgeInsetsGeometry margin,
     EdgeInsetsGeometry padding,
+    BorderRadius borderRadius,
+    List<BoxShadow> boxShadow,
+    Border border,
     double height,
     double width,
   }) =>
@@ -41,7 +58,12 @@ extension ContainerExtensions on Widget {
         child: this,
         color: decoration == null ? color : null,
         alignment: alignment,
-        decoration: decoration,
+        decoration: decoration ??
+            BoxDecoration(
+              borderRadius: borderRadius,
+              boxShadow: boxShadow,
+              border: border,
+            ),
         height: height,
         width: width,
         margin: margin,

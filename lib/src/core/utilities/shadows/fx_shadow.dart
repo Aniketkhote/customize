@@ -12,14 +12,23 @@ class FxShadow {
     double spreadRadius,
   }) =>
       _copyWith(
-          blurRadius: blurRadius,
-          color: color,
-          offset: offset,
-          spreadRadius: spreadRadius);
+        blurRadius: blurRadius,
+        color: color,
+        offset: offset,
+        spreadRadius: spreadRadius,
+      );
+
+  ///Gives no shadow
+  static List<BoxShadow> get none => _copyWith(
+        color: Colors.transparent,
+        blurRadius: 0,
+        offset: const Offset(0, 0),
+        spreadRadius: 0,
+      );
 
   ///Gives custom thin shadow
   static List<BoxShadow> get thin => _copyWith(
-        color: FxColors.blueGray200,
+        color: FxColors.blueGray400,
         blurRadius: 2,
         offset: const Offset(1, 1),
         spreadRadius: 1,
@@ -27,15 +36,15 @@ class FxShadow {
 
   ///Gives custom normal shadow
   static List<BoxShadow> get normal => _copyWith(
-        color: FxColors.blueGray200,
-        blurRadius: 3,
+        color: FxColors.blueGray400,
+        blurRadius: 2,
         offset: const Offset(1, 2),
         spreadRadius: 1,
       );
 
   ///Gives custom medium shadow
   static List<BoxShadow> get medium => _copyWith(
-        color: FxColors.blueGray300,
+        color: FxColors.blueGray400,
         blurRadius: 3,
         offset: const Offset(1, 2),
         spreadRadius: 2,
@@ -43,10 +52,10 @@ class FxShadow {
 
   ///Gives custom thik shadow
   static List<BoxShadow> get thik => _copyWith(
-        color: FxColors.blueGray300,
-        blurRadius: 5,
+        color: FxColors.blueGray400,
+        blurRadius: 4,
         offset: const Offset(2, 3),
-        spreadRadius: 3,
+        spreadRadius: 2,
       );
 
   static List<BoxShadow> _copyWith({
