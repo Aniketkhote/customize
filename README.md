@@ -230,7 +230,11 @@ FxEmptyState(
 ## Contributing 
 Customize is 100% free and open source. We encourage and support an active, healthy community that accepts contributions from the public – including you.
 
+<<<<<<< HEAD
 - Pick up any issue marked with label ["good first issue"](https://github.com/Aniketkhote/customize/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
+=======
+- Pick up any issue marked with label "[good first issue](https://github.com/Aniketkhote/customize/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)"
+>>>>>>> c6dc3d5f9f54cc51ccf179c2f8ee2d70865775f4
 - Fix a bug
 - Write and improve some documentation. Documentation is very critical to us. We would appreciate help in adding multiple languages to our docs.
 - If you are a developer, feel free to check out the source and submit pull requests.
