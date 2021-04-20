@@ -8,18 +8,18 @@ import '../../fx_extensions.dart';
 ///Get custom button style
 class FxButton extends StatelessWidget {
   FxButton({
-    this.text,
+    @required this.text,
+    @required this.onPressed,
     this.leadingIcon,
     this.trailingIcon,
-    this.onPressed,
     this.padding,
     this.margin,
     this.radius,
-    this.outlineColor = FxColors.primary,
     this.color,
     this.shadow,
     this.textColor,
-    this.iconColor = Colors.white,
+    this.iconColor,
+    this.outlineColor = FxColors.primary,
     this.shape = ButtonShape.rounded,
     this.size = ButtonSize.normal,
     this.type = ButtonType.solid,
@@ -74,7 +74,7 @@ class FxButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: padding ?? FxPadding.pxy(h: 16, v: 7),
-      margin: margin ?? FxMargin.mxy(h: 20, v: 5),
+      margin: margin ?? FxPadding.pxy(h: 20, v: 5),
       decoration: BoxDecoration(
         borderRadius: radius ?? getButtonShape(),
         color: color ?? getButtonType(),
@@ -88,7 +88,8 @@ class FxButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Icon(leadingIcon, color: iconColor, size: 20)
+            Icon(leadingIcon,
+                    color: getTextColor(iconColor ?? getButtonType()), size: 20)
                 .hide(leadingIcon != null),
             text
                 .text()
@@ -101,7 +102,8 @@ class FxButton extends StatelessWidget {
                 .textStyle(textScaleFactor: getButtonSize())
                 .px4
                 .hide(text != null),
-            Icon(trailingIcon, color: iconColor, size: 20)
+            Icon(trailingIcon,
+                    color: getTextColor(iconColor ?? getButtonType()), size: 20)
                 .hide(trailingIcon != null),
           ],
         ),
@@ -152,6 +154,7 @@ class FxButton extends StatelessWidget {
     if (ButtonType.outline2x == type)
       return Border.all(
           color: outlineColor, width: 3, style: BorderStyle.solid);
+
     return Border.all(style: BorderStyle.none);
   }
 }

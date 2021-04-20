@@ -33,6 +33,8 @@ It also provide lots of extension methods on String, List and Map.
 import 'package:customize/customize.dart';
 ```
 
+> **Note** : - Removed FxMargin, use FxPadding instead of FxMargin. 
+
 ## Basic Flutter Example
 ```dart
 /// Custom Alert Box
@@ -127,85 +129,108 @@ FxEmptyState(
 ***
 ---
 
-## Some other methods
-    - Widgets
-        + Alert box
-        + Icon box
-        + Empty state
-        + Callout
-        + height box
-        + width box
-        + square box
+## Some other methods and Widgets
 
-    - String Methods
-        + isAlphabet
-        + isEmail
-        + isNumber
-        + isMobileNumber
-        + removeWhitespace
-        + minLength()
-        + maxLength()
-        + range()
-        + mask()
-        + countBy()
-        + toTitleCase()
-        + toSentenceCase
-        + toCapitalCase
-        + toSlug
-        + Checks file extensions(eg. png,svg,pdf,audio,video and more).
+<details>
+<summary>Widgets</summary>
+
+* Alert box
+* Icon box
+* FxButton
+* Empty state
+* Callout
+* height box
+* width box
+* square box
+
+</details>
+
+<details>
+<summary>String Methods</summary>
+
+* isAlphabet
+* isEmail
+* isNumber
+* isMobileNumber
+* removeWhitespace
+* minLength()
+* maxLength()
+* range()
+* mask()
+* countBy()
+* toTitleCase()
+* toSentenceCase
+* toCapitalCase
+* toSlug
+* Checks file extensions(eg. png,svg,pdf,audio,video and more).
+
+[String API Reference](https://pub.dev/documentation/customize/latest/customize/StringExtensions.html).
+
+</details>
+
+<details>
+<summary>List Methods</summary>
     
-    - List Methods
-        + flatten
-        + flattenMap
-        + random
-        + min
-        + max
-        + sum
-        + avg
-        + median
-        + mode
-        + countBy()
-        + groupBy
-        + groupByOnMap()
-        + pluck()
-        + sorted()
-        + sortBy()
-        + diff()
-        + chunk()
-        + only()
-        + notOnly()
-        + whereIn()
-        + whereNotIn()
-        + whereBetween()
-        + whereNotBetween()
-        + containsInMap()
-        + containsKeyInMap()
-        + containsValueInMap()
+* flatten
+* flattenMap
+* random
+* min
+* max
+* sum
+* avg
+* median
+* mode
+* groupBy
+* countBy()
+* groupByOnMap()
+* pluck()
+* sorted()
+* sortBy()
+* diff()
+* chunk()
+* only()
+* notOnly()
+* whereIn()
+* whereNotIn()
+* whereBetween()
+* whereNotBetween()
+* hasKeyValue()
+* hasKey()
+* hasValue()
 
-    - Map Methods
-        + getId
-        + isEmptyOrNull
-        + isNotEmptyOrNull
-        + contains()
-        + diffKeys()
-        + diffValues()
-        + getBool()
-        + getInt()
-        + getDouble()
-        + getString()
-        + getList()
+[List API Reference](https://pub.dev/documentation/customize/latest/customize/ListExtensions.html).
+
+</details>
+
+<details>
+<summary>Map Methods</summary>
+
+* getId
+* isEmptyOrNull
+* isNotEmptyOrNull
+* contains()
+* diffKeys()
+* diffValues()
+* getBool()
+* getInt()
+* getDouble()
+* getString()
+* getList()
+
+[Map API Reference](https://pub.dev/documentation/customize/latest/customize/MapExtensions.html).
+
+</details>
 
 
 
-
-Read the full [API reference](https://pub.dev/documentation/customize/latest/).
+**Read the full** [API reference](https://pub.dev/documentation/customize/latest/).
 
 ***
 
 ## Contributing 
 Customize is 100% free and open source. We encourage and support an active, healthy community that accepts contributions from the public – including you.
 
-- Pick up any issue marked with ["good first - issue"](https://github.com/Aniketkhote/customize/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
+- Pick up any issue marked with label ["good first issue"](https://github.com/Aniketkhote/customize/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
 - Fix a bug
 - Write and improve some documentation. Documentation is very critical to us. We would appreciate help in adding multiple languages to our docs.
 - If you are a developer, feel free to check out the source and submit pull requests.

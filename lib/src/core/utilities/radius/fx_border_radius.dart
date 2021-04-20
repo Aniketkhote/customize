@@ -50,6 +50,9 @@ class FxRadius {
   static BorderRadius right(double radius) =>
       _copyWith(topRight: radius, bottomRight: radius);
 
+  ///Removes [BorderRadius] from all sides of a rectangle.
+  static BorderRadius get none => _copyWith();
+
   ///Gives [BorderRadius] 5 for all sides
   static BorderRadius get radius5 => _copyWith(all: 5);
 

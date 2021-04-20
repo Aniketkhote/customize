@@ -4,6 +4,15 @@ import '../mixins/pixel_mixin.dart';
 
 ///Padding extension on widget to directly get padding
 extension PaddingExtensions on Widget {
+  ///get padding only on given values non-zero.
+  Padding only({
+    double top,
+    double bottom,
+    double left,
+    double right,
+  }) =>
+      _padding(top: top, bottom: bottom, left: left, right: right);
+
   ///get all side padding
   Padding p(double all) => _padding(all: all);
 

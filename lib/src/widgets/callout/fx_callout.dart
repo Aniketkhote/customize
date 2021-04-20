@@ -57,7 +57,7 @@ class FxCallout extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         height: height ?? FxHeight.h20,
         width: width ?? FxWidth.w100,
-        margin: margin ?? FxMargin.m8,
+        margin: margin ?? FxPadding.p8,
         padding: padding ?? FxPadding.p32,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(radius ?? 10),

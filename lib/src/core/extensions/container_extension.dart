@@ -1,3 +1,4 @@
+import 'package:customize/src/fx_utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -38,6 +39,21 @@ extension ContainerExtensions on Widget {
 
   ///set [BoxShadow] to child widget
   Container shadow(List<BoxShadow> shadow) => _copyWith(boxShadow: shadow);
+
+  ///Removes [BoxShadow] to child widget
+  Container get shadowNone => _copyWith(boxShadow: FxShadow.none);
+
+  ///set thin [BoxShadow] to child widget
+  Container get shadowThin => _copyWith(boxShadow: FxShadow.thin);
+
+  ///set normal [BoxShadow] to child widget
+  Container get shadowNormal => _copyWith(boxShadow: FxShadow.normal);
+
+  ///set medium [BoxShadow] to child widget
+  Container get shadowMedium => _copyWith(boxShadow: FxShadow.medium);
+
+  ///set thik [BoxShadow] to child widget
+  Container get shadowThik => _copyWith(boxShadow: FxShadow.thik);
 
   ///set [Border] to child widget
   Container border(Border border) => _copyWith(border: border);

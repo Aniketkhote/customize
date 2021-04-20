@@ -8,6 +8,7 @@ class FxIconBox extends StatelessWidget {
   ///create widget that wrap with box
   const FxIconBox({
     @required this.child,
+    this.label,
     this.onTap,
     this.boxColor,
     this.borderRadius,
@@ -16,6 +17,14 @@ class FxIconBox extends StatelessWidget {
     this.size,
     this.boxShadow,
   });
+
+  ///This widget can only have one child.
+  ///
+  ///Pass either [Icon],[Text] or [Image]
+  final Widget child;
+
+  ///Sets label text for icon box
+  final String label;
 
   ///
   ///Callback function
@@ -32,11 +41,6 @@ class FxIconBox extends StatelessWidget {
   ///
   final BorderRadius borderRadius;
 
-  ///This widget can only have one child.
-  ///
-  ///Pass either [Icon],[Text] or [Image]
-  final Widget child;
-
   ///sets padding to icon box
   final EdgeInsetsGeometry padding;
 
@@ -50,14 +54,22 @@ class FxIconBox extends StatelessWidget {
   final List<BoxShadow> boxShadow;
 
   @override
-  Widget build(BuildContext context) => Container(
-        padding: padding ?? FxPadding.p12,
-        margin: margin ?? FxPadding.p12,
-        child: child,
-        decoration: BoxDecoration(
-          color: boxColor ?? FxColors.primaryLight,
-          borderRadius: borderRadius ?? BorderRadius.circular(10),
-          boxShadow: boxShadow ?? FxShadow.none,
-        ),
-      ).squareBox(size).onInkTap(() => onTap);
+  Widget build(BuildContext context) => Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Container(
+            height: size,
+            width: size,
+            padding: padding ?? FxPadding.p12,
+            margin: margin ?? FxPadding.p12,
+            child: child.onInkTap(() => onTap),
+            decoration: BoxDecoration(
+              color: boxColor ?? FxColors.primaryLight,
+              borderRadius: borderRadius ?? FxRadius.radius10,
+              boxShadow: boxShadow ?? FxShadow.none,
+            ),
+          ),
+          Text(label ?? "").body2.hide(label.isNotEmptyOrNull),
+        ],
+      );
 }

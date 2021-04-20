@@ -60,6 +60,7 @@ extension MapExtensionson on Map<dynamic, dynamic> {
   double toDouble(Object value) => FxString.toDouble(value);
 }
 
+///Custom Methods on Map
 class FxMap {
   static final bool defaultBool = false;
   static final int defaultInt = 0;
@@ -77,12 +78,10 @@ class FxMap {
   ///
   ///Returns true if any of the key / value pair in the map are equal.
   static bool contains(Map<dynamic, dynamic> map, dynamic key, dynamic value) {
-    bool isContain = false;
     map.forEach((dynamic k, dynamic v) {
-      if (k == key && v == value) isContain = true;
+      if (k == key && v == value) return true;
     });
-
-    return isContain;
+    return false;
   }
 
   ///Returns the ID of the Map collection if exists otherwise return 0;

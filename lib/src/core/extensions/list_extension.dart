@@ -1,6 +1,6 @@
 import '../../fx_extensions.dart';
 
-///List extension to entend Map functionality
+///List extension to entend List functionality
 extension ListExtensionson on List<dynamic> {
   /// Expands each element of this [Iterable] into zero or more elements.
   ///
@@ -101,6 +101,7 @@ extension ListExtensionson on List<dynamic> {
   bool hasValue(dynamic value) => FxList.hasValue(this, value);
 }
 
+///Custom Methods on List
 class FxList {
   /// Expands each element of this [Iterable] into zero or more elements.
   ///

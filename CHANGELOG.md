@@ -1,3 +1,10 @@
+## [0.1.2] - April 17, 2021
+    * Removed FxMargin, use FxPadding instead of FxMargin.
+    * Added Widget FxButton.
+    * Fixed Box Shadow.
+    * Added some extra border method to direct apply borders.
+    * Added some extension methods on widget like shadow, borderRadius, visibility, InkWell and much more.
+
 ## [0.1.1] - April 17, 2021
     - Widgets
         + height box

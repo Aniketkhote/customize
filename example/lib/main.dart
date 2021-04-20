@@ -13,12 +13,9 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
-          child: FxButton(
-            text: "Button",
-            shape: ButtonShape.pill,
-            shadow: FxShadow.medium,
-            size: ButtonSize.normal,
-            type: ButtonType.solid,
+          child: FxIconBox(
+            child: Icon(Icons.ac_unit),
+            boxShadow: FxShadow.medium,
           ).center,
         ),
       ),

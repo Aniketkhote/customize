@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/rendering.dart';
 
 ///Widget extension to entend widget functionality
 extension WidgetExtensions on Widget {
@@ -163,12 +164,50 @@ extension WidgetExtensions on Widget {
   }
 
   /// Add on InkWell Tap handler to the current widget
-  InkWell onInkTap(VoidCallback callback) {
-    return InkWell(child: this, onTap: callback);
+  InkWell onInkTap(
+    VoidCallback callback, {
+    Color splashColor,
+    Color focusColor,
+    Color hoverColor,
+    bool enableFeedback,
+    double radius,
+    BorderRadius borderRadius,
+    MouseCursor mouseCursor,
+  }) {
+    return InkWell(
+      child: this,
+      onTap: callback,
+      splashColor: splashColor,
+      focusColor: focusColor,
+      hoverColor: hoverColor,
+      enableFeedback: enableFeedback,
+      radius: radius,
+      borderRadius: borderRadius,
+      mouseCursor: mouseCursor,
+    );
   }
 
   /// Add onInkWell Double Tap handler to the current widget
-  InkWell onInkDoubleTap(VoidCallback callback) {
-    return InkWell(child: this, onDoubleTap: callback);
+  InkWell onInkDoubleTap(
+    VoidCallback callback, {
+    Color splashColor,
+    Color focusColor,
+    Color hoverColor,
+    bool enableFeedback,
+    double radius,
+    BorderRadius borderRadius,
+    MouseCursor mouseCursor,
+  }) {
+    return InkWell(
+      child: this,
+      onDoubleTap: callback,
+      splashColor: splashColor,
+      focusColor: focusColor,
+      hoverColor: hoverColor,
+      enableFeedback: enableFeedback,
+      radius: radius,
+      borderRadius: borderRadius,
+      mouseCursor: mouseCursor,
+    );
   }
 }

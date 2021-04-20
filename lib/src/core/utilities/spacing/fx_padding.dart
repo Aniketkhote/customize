@@ -2,18 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../../mixins/pixel_mixin.dart';
 
-///Gives predefined Padding without writting long syntax
+///Gives predefined Padding
 class FxPadding with FxPixelMixin {
-  ///get all side padding
+  ///get padding only on given values non-zero.
+  EdgeInsets only({
+    double top,
+    double bottom,
+    double left,
+    double right,
+  }) =>
+      _padding(top: top, bottom: bottom, left: left, right: right);
 
+  ///get all side padding
   static EdgeInsets p(double all) => _padding(all: all);
 
   ///get horizontaly padding
-
   static EdgeInsets px(double horizontal) => _padding(horizontal: horizontal);
 
   ///get vertically padding
-
   static EdgeInsets py(double vertical) => _padding(vertical: vertical);
 
   ///get [symmetric] vertically and horizontally padding
@@ -21,19 +27,15 @@ class FxPadding with FxPixelMixin {
       _padding(horizontal: h, vertical: v);
 
   ///get right side padding
-
   static EdgeInsets pr(double right) => _padding(right: right);
 
   ///get left side padding
-
   static EdgeInsets pl(double left) => _padding(left: left);
 
   ///get top side padding
-
   static EdgeInsets pt(double top) => _padding(top: top);
 
   ///get bottom side padding
-
   static EdgeInsets pb(double bottom) => _padding(bottom: bottom);
 
   ///EdgeInsets All
