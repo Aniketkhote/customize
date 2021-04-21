@@ -1,7 +1,7 @@
 import '../../fx_extensions.dart';
 
-///Map extension to entend Map functionality
-extension MapExtensionson on Map<dynamic, dynamic> {
+///Map extension to extend Map functionality
+extension MapExtensions on Map<dynamic, dynamic> {
   ///Check map is either empty or null
   bool get isEmptyOrNull => FxMap.isEmptyOrNull(this);
 

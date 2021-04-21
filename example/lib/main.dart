@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
-          child: FxIconBox(
-            child: Icon(Icons.ac_unit),
-            boxShadow: FxShadow.medium,
+          child: FxButton(
+            text: "Get Data",
+            onPressed: () => null,
           ).center,
         ),
       ),

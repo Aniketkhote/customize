@@ -148,8 +148,9 @@ extension StringExtensions on String {
   Text text() => Text(this);
 }
 
+/// Custom string methods
 class FxString {
-  ///Checks string with regex
+  ///match string with regex pattern
   static bool regex(String string, String source) =>
       RegExp(source).hasMatch(string);
 

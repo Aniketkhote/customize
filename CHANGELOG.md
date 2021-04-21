@@ -4,6 +4,9 @@
     * Fixed Box Shadow.
     * Added some extra border method to direct apply borders.
     * Added some extension methods on widget like shadow, borderRadius, visibility, InkWell and much more.
+    * Added Faker class to generates fake data
+        - faker.word() // lorem
+        - faker.words(2) // [lorem, ipsum]
 
 ## [0.1.1] - April 17, 2021
     - Widgets

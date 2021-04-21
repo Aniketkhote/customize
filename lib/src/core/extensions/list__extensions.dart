@@ -1,7 +1,7 @@
 import '../../fx_extensions.dart';
 
-///List extension to entend List functionality
-extension ListExtensionson on List<dynamic> {
+///List extension to extend List functionality
+extension ListExtensions on List<dynamic> {
   /// Expands each element of this [Iterable] into zero or more elements.
   ///
   ///Merge list of lists into single list
