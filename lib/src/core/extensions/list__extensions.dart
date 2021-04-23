@@ -2,73 +2,164 @@ import '../../fx_extensions.dart';
 
 ///List extension to extend List functionality
 extension ListExtensions on List<dynamic> {
+  ///check list is empty or null
+  ///Example:
+  ///```dart
+  ///list.isEmptyOrNull // false
+  ///```
+  bool get isEmptyOrNull => FxList.isEmptyOrNull(this);
+
+  ///check list is neither empty nor null
+  ///Example:
+  ///```dart
+  ///list.isNotEmptyOrNull // false
+  ///```
+  bool get isNotEmptyOrNull => FxList.isNotEmptyOrNull(this);
+
   /// Expands each element of this [Iterable] into zero or more elements.
   ///
   ///Merge list of lists into single list
+  ///Example:
+  ///```dart
+  ///list.flatten // [[1,2],[3,4]] -> [1,2,3,4]
+  ///```
   List<dynamic> get flatten => FxList.flatten(this);
 
   /// Expands each element of this [Iterable] into zero or more elements.
   ///
   ///Merge list of maps into single map
+  ///Example:
+  ///```dart
+  ///list.flattenMap
+  ///
+  /// // [{"id":1,"age":23},{"id":2,"name":"thor"}]
+  /// {"id": 2, "age": 23, "name": "thore"}
+  ///```
   Map<dynamic, dynamic> get flattenMap => FxList.flattenMap(this);
 
   ///The [pluck] method retrieves all of the values for a given key
+  ///Example:
+  ///```dart
+  ///list.pluck("id")
+  ///
+  /// // [{"id":1,"age":23},{"id":2,"name":"thor"}]
+  /// // [1,2]
+  ///```
   List<dynamic> pluck(dynamic key) => FxList.pluck(this, key);
 
   ///Get sorted list
+  ///Example:
+  ///```dart
+  ///list.sorted(true) // create new list with descending order
+  ///```
   List<dynamic> sorted([bool isDesc = false]) => FxList.sorted(this, isDesc);
 
   ///The sortBy method sorts the list of objects by the given key.
-  List<dynamic> sortBy(List<dynamic> list, dynamic key,
-          [bool isDesc = false]) =>
+  ///Example:
+  ///```dart
+  ///list.sortBy("price") // create new list with soreted list according to price
+  ///```
+  List<dynamic> sortBy(dynamic key, [bool isDesc = false]) =>
       FxList.sortBy(this, key, isDesc);
 
   ///Creates a new list with the elements of this that are not in other.
+  ///Example:
+  ///```dart
+  ///list.diff(list2) // return all element of this list which is not in other
+  ///```
   List<dynamic> diff(List<dynamic> list) => FxList.diff(this, list);
 
   ///Returns random value from this list
+  ///Example:
+  ///```dart
+  ///list.random // [1,2,3,4,5] -> 4
+  ///```
   dynamic get random => FxList.random(this);
 
   ///counts the occurrences of values in the list
+  ///Example:
+  ///```dart
+  ///list.count // return no of all occurrrnces
+  ///```
   Map<dynamic, dynamic> get count => FxList.count(this);
 
   ///counts the occurrences of values in the list if condition satisified
+  ///Example:
+  ///```dart
+  ///list.countBy(fn)
+  ///```
   Map<dynamic, dynamic> countBy(dynamic Function(dynamic) fn) =>
       FxList.countBy(this, fn);
 
   ///Group by objects according to key/value pair
+  ///Example:
+  ///```dart
+  ///list.groupBy(fn)
+  ///```
   Map<dynamic, List<dynamic>> groupBy(dynamic Function(dynamic) fn) =>
       FxList.groupBy(this, fn);
 
-  ///Group list of objects according to key/value pair
+  ///Group the objects according to key/value pair and return list
+  ///Example:
+  ///```dart
+  ///list.groupBy("key")
+  ///```
   Map<dynamic, dynamic> groupByKey(String key) => FxList.groupByKey(this, key);
 
   ///The chunk method breaks the list into multiple, smaller list of a given size
+  ///Example:
+  ///```dart
+  ///list.chunk(2) // [1,2,3,4,5] -> [[1,2], [3,4], [5]]
+  ///```
   List<dynamic> chunk(int size) => FxList.chunk(this, size);
 
   ///Gets only those values which is given
+  ///Example:
+  ///```dart
+  ///list.only("key", [value1, value2])
+  ///```
   List<dynamic> only(List<dynamic> keys) => FxList.only(this, keys);
 
   ///Removes elements from the list which is given
+  ///Example:
+  ///```dart
+  ///list.notOnly("key", [value1, value2])
+  ///```
   List<dynamic> notOnly(List<dynamic> keys) => FxList.notOnly(this, keys);
 
   ///Removes elements from the list that do not have a specified item value
   ///
   ///that is not contained within the given list
+  ///Example:
+  ///```dart
+  ///list.whereIn("key", [value1, value2])
+  ///```
   List<dynamic> whereIn(dynamic key, List<num> params) =>
       FxList.whereIn(this, key, params);
 
   ///Removes elements from the list that have a specified item value
   ///
   ///that is not contained within the given list
+  ///Example:
+  ///```dart
+  ///list.whereNotIn("key", [value1, value2])
+  ///```
   List<dynamic> whereNotIn(dynamic key, List<num> params) =>
       FxList.whereNotIn(this, key, params);
 
   /// Filters the collection by determining if a specified item value is within a given range
+  /// Example:
+  ///```dart
+  ///list.whereBetween("key", start, end)
+  ///```
   List<dynamic> whereBetween(dynamic key, num start, num end) =>
       FxList.whereBetween(this, key, start, end);
 
-  ///Filters the collection by determining if a specified item value is outside of a given range
+  /// Filters the collection by determining if a specified item value is outside of a given range
+  /// Example:
+  ///```dart
+  ///list.whereNotBetween("key", start, end)
+  ///```
   List<dynamic> whereNotBetween(dynamic key, num start, num end) =>
       FxList.whereNotBetween(this, key, start, end);
 
@@ -103,15 +194,41 @@ extension ListExtensions on List<dynamic> {
 
 ///Custom Methods on List
 class FxList {
+  ///check list is empty or null
+  ///Example:
+  ///```dart
+  ///isEmptyOrNull(list) // false
+  ///```
+  static bool isEmptyOrNull(List<dynamic> list) => list.isEmpty || list == null;
+
+  ///check list is neither empty nor null
+  /// ///check list is empty or null
+  ///Example:
+  ///```dart
+  ///isNotEmptyOrNull(list) // false
+  ///```
+  static bool isNotEmptyOrNull(List<dynamic> list) => !list.isEmptyOrNull;
+
   /// Expands each element of this [Iterable] into zero or more elements.
   ///
   ///Merge list of lists into single list
+  ///Example:
+  ///```dart
+  ///flatten(list) // [[1,2],[3,4]] -> [1,2,3,4]
+  ///```
   static List<dynamic> flatten(List<dynamic> list) =>
       list.expand((dynamic i) => i).toList();
 
   /// Expands each element of this [Iterable] into zero or more elements.
   ///
   ///Merge list of maps into single map
+  ///Example:
+  ///```dart
+  ///flattenMap(map)
+  ///
+  /// // [{"id":1,"age":23},{"id":2,"name":"thor"}]
+  /// {"id": 2, "age": 23, "name": "thore"}
+  ///```
   static Map<dynamic, dynamic> flattenMap(List<dynamic> list) {
     List<dynamic> _mapList = list.expand((dynamic map) => map.entries).toList();
     return Map<dynamic, dynamic>.fromIterable(_mapList,
@@ -119,6 +236,13 @@ class FxList {
   }
 
   ///The [pluck] method retrieves all of the values for a given key
+  ///Example:
+  ///```dart
+  ///pluck(list, "id")
+  ///
+  /// // [{"id":1,"age":23},{"id":2,"name":"thor"}]
+  /// // [1,2]
+  ///```
   static List<dynamic> pluck(List<dynamic> list, [dynamic key]) {
     List<dynamic> _list = <dynamic>[];
     list.forEach((dynamic element) => (element.containsKey(key))
@@ -128,12 +252,20 @@ class FxList {
   }
 
   ///Get sorted list
+  ///Example:
+  ///```dart
+  ///sorted(list, true) // create new list with descending order
+  ///```
   static List<dynamic> sorted(List<dynamic> list, [bool isDesc = false]) {
     list.sort();
     return isDesc ? list.reversed.toList() : list;
   }
 
   ///The sortBy method sorts the list of objects by the given key.
+  ///Example:
+  ///```dart
+  ///sortBy(list, "price") // create new list with soreted list according to price
+  ///```
   static List<dynamic> sortBy(List<dynamic> list, dynamic key,
       [bool isDesc = false]) {
     list.sort((dynamic a, dynamic b) => a[key].compareTo(b[key]));
@@ -142,6 +274,10 @@ class FxList {
   }
 
   ///Creates a new list with the elements of this that are not in other.
+  ///Example:
+  ///```dart
+  ///diff(list1,list2) // return all element of this list which is not in other
+  ///```
   static List<dynamic> diff(List<dynamic> list1, List<dynamic> list2) {
     list1.removeWhere(
         (dynamic first) => list2.any((dynamic second) => second == first));
@@ -149,9 +285,17 @@ class FxList {
   }
 
   ///Returns random value from this list
+  ///Example:
+  ///```dart
+  ///random(list) // [1,2,3,4,5] -> 4
+  ///```
   static dynamic random(List<dynamic> list) => (list..shuffle()).first;
 
   ///counts the occurrences of values in the list
+  ///Example:
+  ///```dart
+  ///count(list) // return no of all occurrrnces
+  ///```
   static Map<dynamic, dynamic> count(List<dynamic> list) {
     Map<dynamic, dynamic> _map;
     list.forEach(
@@ -160,6 +304,10 @@ class FxList {
   }
 
   ///counts the occurrences of values in the list if condition satisified
+  ///Example:
+  ///```dart
+  ///countBy(list, fn)
+  ///```
   static Map<dynamic, dynamic> countBy(
       Iterable<dynamic> itr, dynamic Function(dynamic) fn) {
     // ignore: always_specify_types
@@ -169,6 +317,10 @@ class FxList {
   }
 
   ///Group by objects according to key/value pair
+  ///Example:
+  ///```dart
+  ///groupBy(list, fn)
+  ///```
   static Map<dynamic, List<dynamic>> groupBy(
       Iterable<dynamic> itr, dynamic Function(dynamic) fn) {
     // ignore: always_specify_types
@@ -177,13 +329,21 @@ class FxList {
         value: (i) => itr.where((v) => fn(v) == i).toList());
   }
 
-  ///Group list of objects according to key/value pair
+  ///Group the objects according to key/value pair and return list
+  ///Example:
+  ///```dart
+  ///groupBy(list, "key")
+  ///```
   static Map<dynamic, dynamic> groupByKey(List<dynamic> list, String key) {
     // ignore: always_specify_types
     return groupBy(list, (obj) => obj[key]);
   }
 
   ///The chunk method breaks the list into multiple, smaller list of a given size
+  ///Example:
+  ///```dart
+  ///chunk(list, 2) // [1,2,3,4,5] -> [[1,2], [3,4], [5]]
+  ///```
   static List<dynamic> chunk(List<dynamic> list, int size) {
     List<dynamic> chunks = <dynamic>[];
     for (int i = 0; i < list.length; i += size) {
@@ -194,6 +354,10 @@ class FxList {
   }
 
   ///Gets only those values which is given
+  ///Example:
+  ///```dart
+  ///only(list, "key", [value1, value2])
+  ///```
   static List<dynamic> only(List<dynamic> list, List<dynamic> keys) {
     List<dynamic> _list = <dynamic>[];
     list.forEach((dynamic map) {
@@ -212,6 +376,10 @@ class FxList {
   }
 
   ///Removes elements from the list which is given
+  ///Example:
+  ///```dart
+  ///notOnly(list, "key", [value1, value2])
+  ///```
   static List<dynamic> notOnly(List<dynamic> list, List<dynamic> keys) {
     List<dynamic> _list = <dynamic>[];
     list.forEach((dynamic map) => keys.forEach((dynamic key) {
@@ -228,6 +396,10 @@ class FxList {
   ///Removes elements from the list that do not have a specified item value
   ///
   ///that is not contained within the given list
+  ///Example:
+  ///```dart
+  ///whereIn(list, "key", [value1, value2])
+  ///```
   static List<dynamic> whereIn(
       List<dynamic> list, dynamic key, List<num> params) {
     List<dynamic> _list = <dynamic>[];
@@ -244,6 +416,10 @@ class FxList {
   ///Removes elements from the list that have a specified item value
   ///
   ///that is not contained within the given list
+  ///Example:
+  ///```dart
+  ///whereNotIn(list, "key", [value1, value2])
+  ///```
   static List<dynamic> whereNotIn(
       List<dynamic> list, dynamic key, List<num> params) {
     params.forEach((dynamic param) =>
@@ -252,6 +428,10 @@ class FxList {
   }
 
   /// Filters the collection by determining if a specified item value is within a given range
+  /// Example:
+  ///```dart
+  ///whereBetween(list, "key",start, end)
+  ///```
   static List<dynamic> whereBetween(
       List<dynamic> list, dynamic key, num start, num end) {
     List<dynamic> _list = <dynamic>[];
@@ -265,7 +445,11 @@ class FxList {
     return _list;
   }
 
-  /// Filters the list by determining if a specified item value is outside of a given range
+  ///Filters the collection by determining if a specified item value is outside of a given range
+  ///Example:
+  ///```dart
+  ///whereNotBetween(list, "key", start, end)
+  ///```
   static List<dynamic> whereNotBetween(
       List<dynamic> list, dynamic key, num start, num end) {
     List<dynamic> _list = <dynamic>[];

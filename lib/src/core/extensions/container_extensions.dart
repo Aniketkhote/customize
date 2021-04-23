@@ -1,6 +1,6 @@
-import 'package:customize/src/fx_utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import '../../fx_utilities.dart';
 
 ///Container extension to wrap any widget using dot
 extension ContainerExtensions on Widget {

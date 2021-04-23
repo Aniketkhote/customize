@@ -3,23 +3,23 @@ import '../../extensions/list__extensions.dart';
 import '../../extensions/string_extensions.dart';
 
 ///Generates fake lorem data
-mixin Lorem {
+class Lorem {
   ///Generates fake word.
   ///
   ///Example:
   ///```dart
   ///faker.word() // lorem
   ///```
-  static String word() => wordList.random;
+  String word() => wordList.random;
 
   ///Generates fake lists words.
   ///Example:
   ///```dart
   ///faker.words(2) // [lorem, ipsum]
   ///```
-  static List<String> words([int count = 10]) {
-    if (count < 0) return <String>[];
-    return <String>[for (int i = 0; i < count; i++) wordList.random];
+  List<String> words({int nWords = 10}) {
+    if (nWords < 0) return <String>[];
+    return <String>[for (int i = 0; i < nWords; i++) wordList.random];
   }
 
   ///Generates fake sentence.
@@ -27,19 +27,21 @@ mixin Lorem {
   ///```dart
   ///faker.sentence() // this a lorem ipsum test
   ///```
-  static String sentence([int words = 10]) {
-    if (words < 0) return "";
-    return Lorem.words(words).join(" ").toSentenceCase() + ".";
+  String sentence({int nWords = 10}) {
+    if (nWords < 0) return "";
+    return words(nWords: nWords).join(" ").toSentenceCase() + ".";
   }
 
   ///Generates fake List of sentences
   ///Example:
   ///```dart
-  ///faker.sentences(count:2, words: 3) // [lorem ipsum test, sample test data]
+  ///faker.sentences(nSentence:2, nWords: 3) // [lorem ipsum test, sample test data]
   ///```
-  static List<String> sentences({int count = 5, int words = 10}) {
-    if (count < 0 || words < 0) return <String>[];
-    return <String>[for (int i = 0; i < count; i++) Lorem.sentence(words)];
+  List<String> sentences({int nSentence = 5, int nWords = 10}) {
+    if (nSentence < 0) return <String>[];
+    return <String>[
+      for (int i = 0; i < nSentence; i++) sentence(nWords: nWords)
+    ];
   }
 
   ///Generates fake paragraph
@@ -47,9 +49,9 @@ mixin Lorem {
   ///```dart
   ///faker.paragraph(2)
   ///```
-  static String paragraph([int sentence = 5]) {
-    if (sentence < 0) return "";
-    return Lorem.sentences(count: sentence).join(" ");
+  String paragraph({int nSentence = 5, int nWords = 5}) {
+    if (nSentence < 0) return "";
+    return sentences(nSentence: nSentence, nWords: nWords).join(" ");
   }
 
   ///Generates fake List of paragraphs.
@@ -57,17 +59,31 @@ mixin Lorem {
   ///if asText is true return paragraphs as text.
   ///Example:
   ///```dart
-  ///faker.paragraphs(count: 2, sentence:2)
+  ///faker.paragraphs(nParagraphs: 2, nSentence:2)
   ///```
-  static dynamic paragraphs(
-      {int count = 3, int sentence = 5, bool asText = false}) {
-    if (count < 0 || sentence < 0) return "";
+  dynamic paragraphs(
+      {int nParagraph = 3,
+      int nSentence = 5,
+      int nWords = 10,
+      bool asText = false}) {
+    if (nParagraph < 0) return "";
 
     List<String> paragraphs = <String>[
-      for (int i = 0; i < count; i++) Lorem.paragraph(sentence)
+      for (int i = 0; i < nParagraph; i++)
+        paragraph(nSentence: nSentence, nWords: nWords)
     ];
 
-    if (asText) return "           ".concat(paragraphs.join("\n           "));
+    if (asText) return paragraphs.join("\n");
     return paragraphs;
+  }
+
+  ///Generates fake long text.
+  ///Example:
+  ///```dart
+  ///faker.text()
+  ///```
+  String text([int nSentence = 10]) {
+    if (nSentence < 0) return "";
+    return paragraph(nSentence: nSentence);
   }
 }

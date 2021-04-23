@@ -1,7 +1,7 @@
-import 'package:customize/customize.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import '../../fx_extensions.dart';
+import '../../fx_utilities.dart';
 
 /// Get empty state widget
 class FxEmptyState extends StatelessWidget {

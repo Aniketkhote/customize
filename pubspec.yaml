@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  crypto: ^3.0.1
   get: ^3.26.0
 
 dev_dependencies:

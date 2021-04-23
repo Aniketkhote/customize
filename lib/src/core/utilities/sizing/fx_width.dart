@@ -1,34 +1,33 @@
 import 'package:get/get.dart';
-import '../../mixins/pixel_mixin.dart';
 
 ///Gives predefined Width on MediaQuery
-class FxWidth with FxPixelMixin {
+class FxWidth {
   ///Gives 4% device width
-  static double get w4 => _getWidth(FxPixelMixin.dp4);
+  static double get w4 => _getWidth(4);
 
   ///Gives 8% device width
-  static double get w8 => _getWidth(FxPixelMixin.dp8);
+  static double get w8 => _getWidth(8);
 
   ///Gives 12% device width
-  static double get w12 => _getWidth(FxPixelMixin.dp12);
+  static double get w12 => _getWidth(12);
 
   ///Gives 16% device width
-  static double get w16 => _getWidth(FxPixelMixin.dp16);
+  static double get w16 => _getWidth(16);
 
   ///Gives 20% device width
-  static double get w20 => _getWidth(FxPixelMixin.dp20);
+  static double get w20 => _getWidth(20);
 
   ///Gives 24% device width
-  static double get w24 => _getWidth(FxPixelMixin.dp24);
+  static double get w24 => _getWidth(24);
 
   ///Gives 32% device width
-  static double get w32 => _getWidth(FxPixelMixin.dp32);
+  static double get w32 => _getWidth(32);
 
   ///Gives 48% device width
-  static double get w48 => _getWidth(FxPixelMixin.dp48);
+  static double get w48 => _getWidth(48);
 
   ///Gives 64% device width
-  static double get w64 => _getWidth(FxPixelMixin.dp64);
+  static double get w64 => _getWidth(64);
 
   ///get device width
   static double width(double width) => _getWidth(width);

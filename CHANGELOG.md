@@ -1,4 +1,7 @@
-## [0.1.2] - April 17, 2021
+## [0.1.3] - April 23, 2021
+    * Fixed bug and added some documentation
+    
+## [0.1.2] - April 21, 2021
     * Removed FxMargin, use FxPadding instead of FxMargin.
     * Added Widget FxButton.
     * Fixed Box Shadow.

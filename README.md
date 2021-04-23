@@ -1,9 +1,8 @@
-<p align="center" >
-  <strong>Customize is awesome flutter package to create beautiful UI.</strong>
-  <br />
-  <br />
-  <a href="https://www.buymeacoffee.com/aniketkhote" target="_blank"><img width="150px" src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
-</p>
+<div align="center" >
+  
+  ## Customize is awesome flutter package to create beautiful UI.
+  
+</div>
 
 <br />
 
@@ -55,7 +54,7 @@ import 'package:customize/customize.dart';
 ///Custom Icon Box
  FxIconBox(
   child: Icon(Icons.person),
-  radius: 20,
+  radius: FxRadius.radius20,
   onTap: null,
 )
 
@@ -77,8 +76,8 @@ FxEmptyState(
 <img src="https://imgur.com/kHzZE71.png" width="400"/>
 </p>
 
----
-***
+</br>
+
 ---
 
 ## Basic Dart Example
@@ -125,9 +124,10 @@ FxEmptyState(
   ]
 
 ```
+</br>
+
 ---
-***
----
+
 
 ## Some other methods and Widgets
 
@@ -233,7 +233,7 @@ FxEmptyState(
 
 </details>
 
-
+<br />
 
 **Read the full** [API reference](https://pub.dev/documentation/customize/latest/).
 
@@ -248,8 +248,14 @@ Customize is 100% free and open source. We encourage and support an active, heal
 - If you are a developer, feel free to check out the source and submit pull requests.
 - Please don't forget to like, follow, and star our repo! Join our growing community to keep up to date with the latest GetWidget development.
 
-
-
-**Please don't forget to Like, Follow, and Star our repo!**
-
 Code and documentation Copyright 2021 [Aniket Khote](https://github.com/Aniketkhote)
+
+---
+
+<div align="center" >
+
+### **Show some ❤️ to Like, Follow, and Star our repo!**
+
+</div>
+</br>
+
