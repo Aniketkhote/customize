@@ -4,11 +4,11 @@ import 'package:flutter/cupertino.dart';
 ///Padding extension on widget to directly get padding
 extension PaddingExtensions on Widget {
   ///get padding only on given values non-zero.
-  Padding only({
-    double top,
-    double bottom,
-    double left,
-    double right,
+  Padding pOnly({
+    double? top,
+    double? bottom,
+    double? left,
+    double? right,
   }) =>
       _padding(top: top, bottom: bottom, left: left, right: right);
 
@@ -22,7 +22,7 @@ extension PaddingExtensions on Widget {
   Padding py(double v) => _padding(vertical: v);
 
   ///get [symmetric] vertically and horizontally padding
-  Padding pxy({@required double h, @required double v}) =>
+  Padding pxy({required double h, required double v}) =>
       _padding(horizontal: h, vertical: v);
 
   ///get right side padding
@@ -269,13 +269,13 @@ extension PaddingExtensions on Widget {
   Padding get py64 => _padding(vertical: 64);
 
   Padding _padding({
-    double all,
-    double horizontal,
-    double vertical,
-    double top,
-    double bottom,
-    double left,
-    double right,
+    double? all,
+    double? horizontal,
+    double? vertical,
+    double? top,
+    double? bottom,
+    double? left,
+    double? right,
   }) =>
       Padding(
         padding: EdgeInsets.only(

@@ -1,17 +1,18 @@
 name: customize
-description: Customize Flutter is awesome package to create beautiful UI.
-version: 0.1.2
+description: Customize is awesome Flutter package to create beautiful UI.
+version: 1.0.0
 homepage: "https://github.com/Aniketkhote/customize"
+documentation: https://aniketkhote.github.io/customize-docs/#/
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
   crypto: ^3.0.1
-  get: ^3.26.0
+  get: ^4.1.4
 
 dev_dependencies:
   flutter_test:

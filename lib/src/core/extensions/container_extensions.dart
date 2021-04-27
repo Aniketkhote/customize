@@ -8,13 +8,13 @@ extension ContainerExtensions on Widget {
   ///
   ///Directly access [Container] widget using dot operator
   Container container({
-    Color color,
-    BoxDecoration decoration,
-    AlignmentGeometry alignment,
-    EdgeInsetsGeometry margin,
-    EdgeInsetsGeometry padding,
-    double height,
-    double width,
+    Color? color,
+    BoxDecoration? decoration,
+    AlignmentGeometry? alignment,
+    EdgeInsetsGeometry? margin,
+    EdgeInsetsGeometry? padding,
+    double? height,
+    double? width,
   }) =>
       _copyWith(
         color: color,
@@ -59,16 +59,16 @@ extension ContainerExtensions on Widget {
   Container border(Border border) => _copyWith(border: border);
 
   Container _copyWith({
-    Color color,
-    BoxDecoration decoration,
-    AlignmentGeometry alignment,
-    EdgeInsetsGeometry margin,
-    EdgeInsetsGeometry padding,
-    BorderRadius borderRadius,
-    List<BoxShadow> boxShadow,
-    Border border,
-    double height,
-    double width,
+    Color? color,
+    BoxDecoration? decoration,
+    AlignmentGeometry? alignment,
+    EdgeInsetsGeometry? margin,
+    EdgeInsetsGeometry? padding,
+    BorderRadius? borderRadius,
+    List<BoxShadow>? boxShadow,
+    Border? border,
+    double? height,
+    double? width,
   }) =>
       Container(
         child: this,

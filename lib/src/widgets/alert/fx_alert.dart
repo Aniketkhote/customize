@@ -7,7 +7,7 @@ import '../../fx_utilities.dart';
 class FxAlert extends StatelessWidget {
   ///Creates custom alert box
   const FxAlert({
-    @required this.message,
+    required this.message,
     this.title,
     this.icon,
     this.color = FxColors.primary,
@@ -16,18 +16,18 @@ class FxAlert extends StatelessWidget {
     this.iconBgColor,
     this.iconColor,
     this.leftBar,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   ///
   ///Sets Alert title
   ///
-  final String title;
+  final String? title;
 
   ///
   ///Sets Alert leading icon
   ///
-  final IconData icon;
+  final IconData? icon;
 
   ///
   ///Sets Alert message
@@ -42,27 +42,27 @@ class FxAlert extends StatelessWidget {
   ///
   ///Sets alert background color
   ///
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   ///
   ///Sets icon color
   ///
-  final Color iconColor;
+  final Color? iconColor;
 
   ///
   ///Sets icon background color
   ///
-  final Color iconBgColor;
+  final Color? iconBgColor;
 
   ///
   ///Sets Alert border radius [rounded] [circular]
   ///
-  final BorderRadius borderRadius;
+  final BorderRadius? borderRadius;
 
   ///
   ///Sets vertical left bar
   ///
-  final bool leftBar;
+  final bool? leftBar;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -87,7 +87,7 @@ class FxAlert extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                if (title != null) Text(title).color(color).bold.lg.pb4,
+                if (title != null) Text(title!).color(color).bold.lg.pb4,
                 Text(message)
                     .color(color)
                     .sm

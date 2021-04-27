@@ -5,15 +5,15 @@ import 'package:flutter/cupertino.dart';
 class FxPadding {
   ///get padding only on given values non-zero.
   EdgeInsets only({
-    double top,
-    double bottom,
-    double left,
-    double right,
+    double? top,
+    double? bottom,
+    double? left,
+    double? right,
   }) =>
       _padding(top: top, bottom: bottom, left: left, right: right);
 
   ///get all side padding
-  static EdgeInsets p(double all) => _padding(all: all);
+  static EdgeInsets all(double all) => _padding(all: all);
 
   ///get horizontaly padding
   static EdgeInsets px(double horizontal) => _padding(horizontal: horizontal);
@@ -22,7 +22,7 @@ class FxPadding {
   static EdgeInsets py(double vertical) => _padding(vertical: vertical);
 
   ///get [symmetric] vertically and horizontally padding
-  static EdgeInsets pxy({@required double h, @required double v}) =>
+  static EdgeInsets pxy({required double h, required double v}) =>
       _padding(horizontal: h, vertical: v);
 
   ///get right side padding
@@ -268,13 +268,13 @@ class FxPadding {
   static EdgeInsets get py64 => _padding(vertical: 64);
 
   static EdgeInsets _padding({
-    double all,
-    double horizontal,
-    double vertical,
-    double top,
-    double bottom,
-    double left,
-    double right,
+    double? all,
+    double? horizontal,
+    double? vertical,
+    double? top,
+    double? bottom,
+    double? left,
+    double? right,
   }) =>
       EdgeInsets.only(
         top: top ?? vertical ?? all ?? 0.0,

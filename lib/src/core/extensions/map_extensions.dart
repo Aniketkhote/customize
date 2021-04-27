@@ -3,6 +3,7 @@ import '../../fx_extensions.dart';
 ///Map extension to extend Map functionality
 extension MapExtensions on Map<dynamic, dynamic> {
   ///Check map is either empty or null
+  ///
   ///Example:
   ///```dart
   ///map.isEmptyOrNull // false
@@ -10,6 +11,7 @@ extension MapExtensions on Map<dynamic, dynamic> {
   bool get isEmptyOrNull => FxMap.isEmptyOrNull(this);
 
   ///Check map is neither empty nor null
+  ///
   ///Example:
   ///```dart
   ///map.isNotEmptyOrNull // true
@@ -19,6 +21,7 @@ extension MapExtensions on Map<dynamic, dynamic> {
   ///Whether this map contains the given [key]/[value] pair.
   ///
   ///Returns true if any of the key / value pair in the map are equal.
+  ///
   ///Example:
   ///```dart
   ///map.contains("key","value") // true
@@ -26,6 +29,7 @@ extension MapExtensions on Map<dynamic, dynamic> {
   bool contains(dynamic key, dynamic value) => FxMap.contains(this, key, value);
 
   ///Returns the ID of the object if exists otherwise return 0;
+  ///
   ///Example:
   ///```dart
   ///map.getId // 111
@@ -35,6 +39,7 @@ extension MapExtensions on Map<dynamic, dynamic> {
   ///Returns all entries of this map according to keys.
   ///
   ///which is not in second map.
+  ///
   ///Example:
   ///```dart
   ///map.diffKeys(map2)
@@ -45,6 +50,7 @@ extension MapExtensions on Map<dynamic, dynamic> {
   ///Returns all entries of this map according to values.
   ///
   ///which is not in second map.
+  ///
   ///Example:
   ///```dart
   ///map.diffValues(map2)
@@ -55,6 +61,7 @@ extension MapExtensions on Map<dynamic, dynamic> {
   /// Reads a [key] value of [bool] type from [Map].
   ///
   /// If value/map is NULL or not [bool] type return default value [defaultBool]
+  ///
   /// Example:
   ///```dart
   ///map.getBool("isAdmin") // true
@@ -64,6 +71,7 @@ extension MapExtensions on Map<dynamic, dynamic> {
   /// Reads a [key] value of [int] type from [Map].
   ///
   /// If value/map  is NULL or not [int] type return default value [defaultInt]
+  ///
   /// Example:
   ///```dart
   ///map.getInt("id") // 11
@@ -73,6 +81,7 @@ extension MapExtensions on Map<dynamic, dynamic> {
   /// Reads a [key] value of [double] type from [Map].
   ///
   /// If value/map  is NULL or not [double] type return default value [defaultDouble]
+  ///
   /// Example:
   ///```dart
   ///map.getDouble("price") // 27.32
@@ -82,6 +91,7 @@ extension MapExtensions on Map<dynamic, dynamic> {
   /// Reads a [key] value of [String] type from [Map].
   ///
   /// If value/map  is NULL or not [String] type return default value [defaultString]
+  ///
   /// Example:
   ///```dart
   ///map.getString("username") // thor
@@ -91,11 +101,12 @@ extension MapExtensions on Map<dynamic, dynamic> {
   /// Reads a [key] value of [List] type from [Map].
   ///
   /// If value/map  is NULL or not [List] type return default value [defaultString]
+  ///
   /// Example:
   ///```dart
   ///map.getList(productList) // return list if exists otherwise retrun empty list
   ///```
-  List<T> getList<T>(String key) => FxMap.getList(this, key);
+  List<T> getList<T>(String key) => FxMap.getList(this, key) as List<T>;
 }
 
 ///Custom Methods on Map
@@ -106,14 +117,15 @@ class FxMap {
   static final String defaultString = '';
 
   ///Check map is either empty or null
+  ///
   ///Example:
   ///```dart
   ///isEmptyOrNull(map) // false
   ///```
-  static bool isEmptyOrNull(Map<dynamic, dynamic> map) =>
-      map.isEmpty || map == null;
+  static bool isEmptyOrNull(Map<dynamic, dynamic>? map) => map?.isEmpty ?? true;
 
   ///Check map is neither empty nor null
+  ///
   ///Example:
   ///```dart
   ///isNotEmptyOrNull(map) // true
@@ -123,18 +135,22 @@ class FxMap {
   ///Whether this map contains the given [key]/[value] pair.
   ///
   ///Returns true if any of the key / value pair in the map are equal.
+  ///
   ///Example:
   ///```dart
   ///contains(map, "key","value") // true
   ///```
   static bool contains(Map<dynamic, dynamic> map, dynamic key, dynamic value) {
+    bool isContain = false;
+
     map.forEach((dynamic k, dynamic v) {
-      if (k == key && v == value) return true;
+      if (k == key && v == value) isContain = true;
     });
-    return false;
+    return isContain;
   }
 
   ///Returns the ID of the object if exists otherwise return 0;
+  ///
   ///Example:
   ///```dart
   ///getId(map) // 111
@@ -146,6 +162,7 @@ class FxMap {
   ///Returns all entries of this map according to keys.
   ///
   ///which is not in second map.
+  ///
   ///Example:
   ///```dart
   ///diffKeys(map, map2)
@@ -159,6 +176,7 @@ class FxMap {
   ///Returns all entries of this map according to values.
   ///
   ///which is not in second map.
+  ///
   ///Example:
   ///```dart
   ///diffValues(map,map2)
@@ -172,12 +190,13 @@ class FxMap {
   /// Reads a [key] value of [bool] type from [Map].
   ///
   /// If value/map is NULL or not [bool] type return default value [defaultBool]
+  ///
   /// Example:
   ///```dart
   ///getBool(map,"isAdmin") // true
   ///```
-  static bool getBool(Map<dynamic, dynamic> map, String key) {
-    Map<dynamic, dynamic> data = map;
+  static bool getBool(Map<dynamic, dynamic>? map, String key) {
+    Map<dynamic, dynamic>? data = map;
     data ??= <dynamic, dynamic>{};
 
     return (data.containsKey(key) && data[key] is bool)
@@ -188,44 +207,43 @@ class FxMap {
   /// Reads a [key] value of [int] type from [Map].
   ///
   /// If value/map  is NULL or not [int] type return default value [defaultInt]
+  ///
   /// Example:
   ///```dart
   ///getInt(map, "id") // 11
   ///```
-  static int getInt(Map<dynamic, dynamic> map, String key) {
-    Map<dynamic, dynamic> data = map;
+  static int getInt(Map<dynamic, dynamic>? map, String key) {
+    Map<dynamic, dynamic>? data = map;
     data ??= <dynamic, dynamic>{};
 
-    return data.containsKey(key)
-        ? FxString.toInt(data[key]) ?? defaultInt
-        : defaultInt;
+    return data.containsKey(key) ? FxString.toInt(data[key]) : defaultInt;
   }
 
   /// Reads a [key] value of [double] type from [Map].
   ///
   /// If value/map  is NULL or not [double] type return default value [defaultDouble]
+  ///
   /// Example:
   ///```dart
   ///getDouble(map,"price") // 27.32
   ///```
-  static double getDouble(Map<dynamic, dynamic> map, String key) {
-    Map<dynamic, dynamic> data = map;
+  static double getDouble(Map<dynamic, dynamic>? map, String key) {
+    Map<dynamic, dynamic>? data = map;
     data ??= <dynamic, dynamic>{};
 
-    return data.containsKey(key)
-        ? FxString.toDouble(data[key]) ?? defaultDouble
-        : defaultDouble;
+    return data.containsKey(key) ? FxString.toDouble(data[key]) : defaultDouble;
   }
 
   /// Reads a [key] value of [String] type from [Map].
   ///
   /// If value/map  is NULL or not [String] type return default value [defaultString]
+  ///
   /// Example:
   ///```dart
   ///getString(map,"username") // thor
   ///```
-  static String getString(Map<dynamic, dynamic> map, String key) {
-    Map<dynamic, dynamic> data = map;
+  static String getString(Map<dynamic, dynamic>? map, String key) {
+    Map<dynamic, dynamic>? data = map;
     data ??= <dynamic, dynamic>{};
 
     return (data.containsKey(key) && data[key] is String)
@@ -236,12 +254,13 @@ class FxMap {
   /// Reads a [key] value of [List] type from [Map].
   ///
   /// If value/map  is NULL or not [List] type return default value [defaultString]
+  ///
   /// Example:
   ///```dart
   ///getList(map, productList) // return list if exists otherwise retrun empty list
   ///```
-  static List<dynamic> getList(Map<dynamic, dynamic> map, String key) {
-    Map<dynamic, dynamic> data = map;
+  static List<dynamic> getList(Map<dynamic, dynamic>? map, String key) {
+    Map<dynamic, dynamic>? data = map;
     data ??= <dynamic, dynamic>{};
 
     return (data.containsKey(key) && data[key] is List<dynamic>)

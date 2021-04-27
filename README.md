@@ -32,8 +32,6 @@ It also provide lots of extension methods on String, List and Map.
 import 'package:customize/customize.dart';
 ```
 
-> **Note** : - Removed FxMargin, use FxPadding instead of FxMargin. 
-
 ## Basic Flutter Example
 ```dart
 /// Custom Alert Box
@@ -134,14 +132,14 @@ FxEmptyState(
 <details>
 <summary>Widgets</summary>
 
-* Alert box
-* Icon box
+* FxAlert
+* FxIconBox
 * FxButton
-* Empty state
-* Callout
-* height box
-* width box
-* square box
+* FxEmptyState
+* FxCallout
+* HBox
+* WBox
+* SquareBox
 
 </details>
 
@@ -153,15 +151,15 @@ FxEmptyState(
 * isNumber
 * isMobileNumber
 * removeWhitespace
+* toSlug
 * minLength()
 * maxLength()
 * range()
 * mask()
 * countBy()
 * toTitleCase()
-* toSentenceCase
-* toCapitalCase
-* toSlug
+* toSentenceCase()
+* toCapitalCase()
 * Checks file extensions(eg. png,svg,pdf,audio,video and more).
 
 [String API Reference](https://pub.dev/documentation/customize/latest/customize/StringExtensions.html).
@@ -172,7 +170,7 @@ FxEmptyState(
 <summary>List Methods</summary>
     
 * flatten
-* flattenMap
+* flatMap
 * random
 * min
 * max
@@ -182,7 +180,7 @@ FxEmptyState(
 * mode
 * groupBy
 * countBy()
-* groupByOnMap()
+* groupByKey()
 * pluck()
 * sorted()
 * sortBy()
@@ -236,6 +234,8 @@ FxEmptyState(
 <br />
 
 **Read the full** [API reference](https://pub.dev/documentation/customize/latest/).
+
+**Read** [Documentation](https://aniketkhote.github.io/customize-docs/#/).
 
 ***
 

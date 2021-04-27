@@ -7,7 +7,7 @@ import '../../fx_extensions.dart';
 class FxIconBox extends StatelessWidget {
   ///create widget that wrap with box
   const FxIconBox({
-    @required this.child,
+    required this.child,
     this.label,
     this.onTap,
     this.boxColor,
@@ -24,34 +24,34 @@ class FxIconBox extends StatelessWidget {
   final Widget child;
 
   ///Sets label text for icon box
-  final String label;
+  final String? label;
 
   ///
   ///Callback function
   ///
-  final Function onTap;
+  final Function? onTap;
 
   ///
   ///Set Icon box background color
   ///
-  final Color boxColor;
+  final Color? boxColor;
 
   ///
   ///sets border radius to icon box
   ///
-  final BorderRadius borderRadius;
+  final BorderRadius? borderRadius;
 
   ///sets padding to icon box
-  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry? padding;
 
   ///sets margin to icon box
-  final EdgeInsetsGeometry margin;
+  final EdgeInsetsGeometry? margin;
 
   ///sets size to icon box
-  final double size;
+  final double? size;
 
   ///Sets box shadow to icon box
-  final List<BoxShadow> boxShadow;
+  final List<BoxShadow>? boxShadow;
 
   @override
   Widget build(BuildContext context) => Column(
@@ -69,7 +69,7 @@ class FxIconBox extends StatelessWidget {
               boxShadow: boxShadow ?? FxShadow.none,
             ),
           ),
-          Text(label ?? "").body2.hide(label.isNotEmptyOrNull),
+          Text(label ?? "").body2.hide(label!.isNotEmptyOrNull),
         ],
       );
 }

@@ -7,9 +7,9 @@ import '../../fx_utilities.dart';
 class FxEmptyState extends StatelessWidget {
   /// Create custom empty state screen
   FxEmptyState({
-    @required this.title,
-    @required this.subTitle,
-    @required this.child,
+    required this.title,
+    required this.subTitle,
+    required this.child,
     this.subtitleTextStyle,
     this.titleTextStyle,
     this.clickableText,
@@ -28,12 +28,12 @@ class FxEmptyState extends StatelessWidget {
   ///
   ///Sets image height
   ///
-  final double imageHeight;
+  final double? imageHeight;
 
   ///
   ///Sets image width
   ///
-  final double imageWidth;
+  final double? imageWidth;
 
   ///
   ///Sets title to [FxEmptyState]
@@ -48,32 +48,32 @@ class FxEmptyState extends StatelessWidget {
   ///
   ///Sets style to subtitle
   ///
-  final TextStyle subtitleTextStyle;
+  final TextStyle? subtitleTextStyle;
 
   ///
   ///Sets style to title
   ///
-  final TextStyle titleTextStyle;
+  final TextStyle? titleTextStyle;
 
   ///
   ///Sets clickable text
   ///
-  final String clickableText;
+  final String? clickableText;
 
   ///
   ///Sets style to clickableText
   ///
-  final TextStyle clickableTextStyle;
+  final TextStyle? clickableTextStyle;
 
   ///
   ///Callback function for clickableText
   ///
-  final Function onTap;
+  final Function? onTap;
 
   ///
   ///Sets background color
   ///
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -109,7 +109,7 @@ class FxEmptyState extends StatelessWidget {
                 backgroundColor:
                     MaterialStateProperty.all(FxColors.blueGray100),
               ),
-              onPressed: onTap,
+              onPressed: onTap as void Function()?,
               child: Text(clickableText ?? "")
                   .bold
                   .lg

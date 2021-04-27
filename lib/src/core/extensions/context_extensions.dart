@@ -7,13 +7,13 @@ extension ContextExtensions on BuildContext {
   ///The size of the media in logical pixels (e.g, the size of the screen).
   ///
   ///This is same as [MediaQuery.of(context).size]
-  Size get mediaQuerySize => MediaQuery.of(this).size;
+  Size get mqSize => MediaQuery.of(this).size;
 
   ///This is same as [MediaQuery.of(context).height]
-  double get height => mediaQuerySize.height;
+  double get height => mqSize.height;
 
   ///This is same as [MediaQuery.of(context).width]
-  double get width => mediaQuerySize.width;
+  double get width => mqSize.width;
 
   /// Extension for getting Theme
   ThemeData get theme => Theme.of(this);

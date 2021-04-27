@@ -21,37 +21,37 @@ class FxCallout extends StatelessWidget {
   });
 
   /// sets title to callout
-  final String title;
+  final String? title;
 
   /// sets caption to callout
-  final String caption;
+  final String? caption;
 
   /// sets text to button
-  final String buttonText;
+  final String? buttonText;
 
   /// sets border radius to callout box
-  final double radius;
+  final double? radius;
 
   /// sets callout background
-  final Color background;
+  final Color? background;
 
   /// sets button color
-  final Color buttonColor;
+  final Color? buttonColor;
 
   ///  Called when the button is tapped or otherwise activated.
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   ///sets height to callout
-  final double height;
+  final double? height;
 
   ///sets width to callout
-  final double width;
+  final double? width;
 
   ///sets margin to callout
-  final EdgeInsetsGeometry margin;
+  final EdgeInsetsGeometry? margin;
 
   ///sets padding to callout
-  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -71,8 +71,8 @@ class FxCallout extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(title).xl2.bold,
-                Text(caption).lg.wideLetter.normal,
+                Text(title!).xl2.bold,
+                Text(caption!).lg.wideLetter.normal,
               ],
             ),
             ElevatedButton(
@@ -81,7 +81,7 @@ class FxCallout extends StatelessWidget {
                 backgroundColor:
                     MaterialStateProperty.all(buttonColor ?? FxColors.primary),
               ),
-              child: Text(buttonText.toUpperCase())
+              child: Text(buttonText!.toUpperCase())
                   .bold
                   .color(Colors.white)
                   .center,

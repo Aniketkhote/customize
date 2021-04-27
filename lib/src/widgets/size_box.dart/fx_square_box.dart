@@ -10,7 +10,7 @@ class SquareBox extends StatelessWidget {
   final double size;
 
   ///Create child widget
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {

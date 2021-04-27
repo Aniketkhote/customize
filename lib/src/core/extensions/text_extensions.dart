@@ -9,18 +9,18 @@ extension TextExtension on Text {
   ///
   ///Apply [TextStyle] to existing textstyle
   Text textStyle({
-    Key key,
-    TextStyle style,
-    StrutStyle strutStyle,
-    bool softWrap,
-    TextOverflow overflow,
-    TextDirection textDirection,
-    Locale locale,
-    String semanticsLabel,
-    double textScaleFactor,
-    TextWidthBasis textWidthBasis,
-    int maxLines,
-    TextAlign textAlign,
+    Key? key,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    bool? softWrap,
+    TextOverflow? overflow,
+    TextDirection? textDirection,
+    Locale? locale,
+    String? semanticsLabel,
+    double? textScaleFactor,
+    TextWidthBasis? textWidthBasis,
+    int? maxLines,
+    TextAlign? textAlign,
   }) =>
       _copyWith(
         key: key,
@@ -369,19 +369,19 @@ extension TextExtension on Text {
   Text maxLine(int maxLines) => _copyWith(maxLines: maxLines);
 
   Text _copyWith(
-          {Key key,
-          StrutStyle strutStyle,
-          TextAlign textAlign,
-          TextDirection textDirection = TextDirection.ltr,
-          Locale locale,
-          bool softWrap,
-          TextOverflow overflow,
-          double textScaleFactor,
-          int maxLines,
-          String semanticsLabel,
-          TextWidthBasis textWidthBasis,
-          TextStyle style}) =>
-      Text(data,
+          {Key? key,
+          StrutStyle? strutStyle,
+          TextAlign? textAlign,
+          TextDirection? textDirection = TextDirection.ltr,
+          Locale? locale,
+          bool? softWrap,
+          TextOverflow? overflow,
+          double? textScaleFactor,
+          int? maxLines,
+          String? semanticsLabel,
+          TextWidthBasis? textWidthBasis,
+          TextStyle? style}) =>
+      Text(data!,
           key: key ?? this.key,
           strutStyle: strutStyle ?? this.strutStyle,
           textAlign: textAlign ?? this.textAlign,

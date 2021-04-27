@@ -8,7 +8,7 @@ class HBox extends StatelessWidget {
   final double height;
 
   ///Create child widget
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {

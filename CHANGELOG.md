@@ -1,3 +1,6 @@
+## [1.0.0] - April 23, 2021
+    * Added Null Safety
+
 ## [0.1.3] - April 23, 2021
     * Fixed bug and added some documentation
     

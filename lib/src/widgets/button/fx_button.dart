@@ -7,8 +7,8 @@ import '../../fx_extensions.dart';
 ///Get custom button style
 class FxButton extends StatelessWidget {
   FxButton({
-    @required this.text,
-    @required this.onPressed,
+    required this.text,
+    required this.onPressed,
     this.leadingIcon,
     this.trailingIcon,
     this.padding,
@@ -19,55 +19,55 @@ class FxButton extends StatelessWidget {
     this.textColor,
     this.iconColor,
     this.outlineColor = FxColors.primary,
-    this.shape = ButtonShape.rounded,
-    this.size = ButtonSize.normal,
-    this.type = ButtonType.solid,
+    this.shape = BtnShape.rounded,
+    this.size = BtnSize.normal,
+    this.type = BtnType.solid,
   });
 
   ///set text to button
   final String text;
 
   ///set leading icon to button
-  final IconData leadingIcon;
+  final IconData? leadingIcon;
 
   ///set trailing icon to button
-  final IconData trailingIcon;
+  final IconData? trailingIcon;
 
   ///set
   final VoidCallback onPressed;
 
   ///set padding to button
-  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry? padding;
 
   ///set margin to button
-  final EdgeInsetsGeometry margin;
+  final EdgeInsetsGeometry? margin;
 
   ///set border radius to button
-  final BorderRadius radius;
+  final BorderRadius? radius;
 
   ///set border color
   final Color outlineColor;
 
   ///set button color
-  final Color color;
+  final Color? color;
 
   ///set text color
-  final Color textColor;
+  final Color? textColor;
 
   ///set icon color
-  final Color iconColor;
+  final Color? iconColor;
 
   ///set shadow to button
-  final List<BoxShadow> shadow;
+  final List<BoxShadow>? shadow;
 
   ///set button shape (eg. pill, rounded)
-  final ButtonShape shape;
+  final BtnShape shape;
 
   ///set button size (eg. small, medium, large)
-  final ButtonSize size;
+  final BtnSize size;
 
   ///set button type (eg. solid,outline)
-  final ButtonType type;
+  final BtnType type;
 
   @override
   Widget build(BuildContext context) {
@@ -75,8 +75,8 @@ class FxButton extends StatelessWidget {
       padding: padding ?? FxPadding.pxy(h: 16, v: 7),
       margin: margin ?? FxPadding.pxy(h: 20, v: 5),
       decoration: BoxDecoration(
-        borderRadius: radius ?? getButtonShape(),
-        color: color ?? getButtonType(),
+        borderRadius: radius ?? getBtnShape(),
+        color: color ?? getBtnType(),
         boxShadow: shadow ?? FxShadow.none,
         border: getButtonBorder(),
       ),
@@ -88,21 +88,21 @@ class FxButton extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Icon(leadingIcon,
-                    color: getTextColor(iconColor ?? getButtonType()), size: 20)
+                    color: getTextColor(iconColor ?? getBtnType()), size: 20)
                 .hide(leadingIcon != null),
             text
                 .text()
                 .textStyle(
                   style: TextStyle(
-                    color: textColor ?? getTextColor(color ?? getButtonType()),
+                    color: textColor ?? getTextColor(color ?? getBtnType()),
                   ),
                 )
                 .bold
-                .textStyle(textScaleFactor: getButtonSize())
+                .textStyle(textScaleFactor: getBtnSize())
                 .px4
-                .hide(text != null),
+                .hide(text.isNotEmpty),
             Icon(trailingIcon,
-                    color: getTextColor(iconColor ?? getButtonType()), size: 20)
+                    color: getTextColor(iconColor ?? getBtnType()), size: 20)
                 .hide(trailingIcon != null),
           ],
         ),
@@ -111,22 +111,22 @@ class FxButton extends StatelessWidget {
   }
 
   ///Get button shape (eg. pill,rounded,leaf)
-  BorderRadius getButtonShape() {
-    if (ButtonShape.pill == shape) return FxRadius.radius30;
-    if (ButtonShape.rounded == shape) return FxRadius.radius5;
-    if (ButtonShape.rleft == shape) return FxRadius.left(30);
-    if (ButtonShape.rright == shape) return FxRadius.right(30);
-    if (ButtonShape.leaf == shape)
+  BorderRadius getBtnShape() {
+    if (BtnShape.pill == shape) return FxRadius.radius30;
+    if (BtnShape.rounded == shape) return FxRadius.radius5;
+    if (BtnShape.rleft == shape) return FxRadius.left(30);
+    if (BtnShape.rright == shape) return FxRadius.right(30);
+    if (BtnShape.leaf == shape)
       return FxRadius.only(bottomLeft: 30, topRight: 30);
     return FxRadius.all(0);
   }
 
   ///Get button size (eg. small,medium,large)
-  double getButtonSize() {
-    if (ButtonSize.tiny == size) return .7;
-    if (ButtonSize.small == size) return 1;
-    if (ButtonSize.medium == size) return 1.5;
-    if (ButtonSize.large == size) return 1.8;
+  double getBtnSize() {
+    if (BtnSize.tiny == size) return .7;
+    if (BtnSize.small == size) return 1;
+    if (BtnSize.medium == size) return 1.5;
+    if (BtnSize.large == size) return 1.8;
     return 1.3;
   }
 
@@ -138,19 +138,19 @@ class FxButton extends StatelessWidget {
           : Colors.white;
 
   ///Get [Fxbutton] type (eg. solid,outline)
-  Color getButtonType() {
-    if (ButtonType.outline == type ||
-        ButtonType.outline2x == type ||
-        ButtonType.transparent == type) return Colors.transparent;
+  Color getBtnType() {
+    if (BtnType.outline == type ||
+        BtnType.outline2x == type ||
+        BtnType.transparent == type) return Colors.transparent;
     return FxColors.primary;
   }
 
   ///Get [FxButton] border
   Border getButtonBorder() {
-    if (ButtonType.outline == type)
+    if (BtnType.outline == type)
       return Border.all(
           color: outlineColor, width: 2, style: BorderStyle.solid);
-    if (ButtonType.outline2x == type)
+    if (BtnType.outline2x == type)
       return Border.all(
           color: outlineColor, width: 3, style: BorderStyle.solid);
 
@@ -158,6 +158,6 @@ class FxButton extends StatelessWidget {
   }
 }
 
-enum ButtonShape { pill, flat, rounded, leaf, rleft, rright }
-enum ButtonType { solid, outline, outline2x, transparent }
-enum ButtonSize { tiny, small, normal, medium, large }
+enum BtnShape { pill, flat, rounded, leaf, rleft, rright }
+enum BtnType { solid, outline, outline2x, transparent }
+enum BtnSize { tiny, small, normal, medium, large }

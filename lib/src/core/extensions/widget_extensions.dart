@@ -13,7 +13,7 @@ extension WidgetExtensions on Widget {
   ///
   ///child fills the available space along the flex widget's main axis.
   ///Directly access [Expanded] widget using dot operator
-  Expanded expanded([int flex]) => Expanded(
+  Expanded expanded([int? flex]) => Expanded(
         child: this,
         flex: flex ?? 1,
       );
@@ -24,12 +24,12 @@ extension WidgetExtensions on Widget {
   ///only two out of the three vertical values ([top], [bottom], [height]), can be set.
   ///In each case, at least one of the three must be null.
   Positioned positioned({
-    double top,
-    double bottom,
-    double left,
-    double right,
-    double height,
-    double width,
+    double? top,
+    double? bottom,
+    double? left,
+    double? right,
+    double? height,
+    double? width,
   }) =>
       Positioned(
         child: this,
@@ -48,14 +48,14 @@ extension WidgetExtensions on Widget {
   ///show tooltip
   Widget tooltip(
     String message, {
-    Key key,
-    Decoration decoration,
-    double height,
-    bool preferBelow,
-    EdgeInsetsGeometry padding,
-    TextStyle textStyle,
-    Duration waitDuration,
-    EdgeInsetsGeometry margin,
+    Key? key,
+    Decoration? decoration,
+    double? height,
+    bool? preferBelow,
+    EdgeInsetsGeometry? padding,
+    TextStyle? textStyle,
+    Duration? waitDuration,
+    EdgeInsetsGeometry? margin,
   }) =>
       Tooltip(
         key: key,
@@ -74,7 +74,7 @@ extension WidgetExtensions on Widget {
   ///
   ///The x and y values of the [Alignment] control the horizontal and vertical alignment, respectively
   ///[Align] has some properties like [Alignment.bottomCenter][Alignment.topRight]
-  Align align({AlignmentGeometry alignment}) =>
+  Align align({required AlignmentGeometry alignment}) =>
       Align(child: this, alignment: alignment);
 
   ///[Align] child to Bottom Right of parent widget
@@ -106,21 +106,21 @@ extension WidgetExtensions on Widget {
   ///
   ///The [width] and [height] parameters can be null to indicate that
   ///the size of the box should not be constrained in the corresponding dimension.
-  SizedBox sizedBox({double height, double width}) =>
+  SizedBox sizedBox({double? height, double? width}) =>
       SizedBox(child: this, height: height, width: width);
 
   ///Creates a fixed sqaure size box.
   ///
   ///Sets [width] and [height] parameters equal to given size
-  SizedBox squareBox(double size, [Widget child]) =>
+  SizedBox squareBox(double size, [Widget? child]) =>
       SizedBox(height: size, width: size, child: child);
 
   ///Create Fixed size width box
-  SizedBox wBox(double size, [Widget child]) =>
+  SizedBox wBox(double size, [Widget? child]) =>
       SizedBox(width: size, child: child);
 
   ///Create Fixed size height box
-  SizedBox hBox(double size, [Widget child]) =>
+  SizedBox hBox(double size, [Widget? child]) =>
       SizedBox(height: size, child: child);
 
   ///Create a widget that makes its child partially transparent
@@ -166,13 +166,13 @@ extension WidgetExtensions on Widget {
   /// Add on InkWell Tap handler to the current widget
   InkWell onInkTap(
     VoidCallback callback, {
-    Color splashColor,
-    Color focusColor,
-    Color hoverColor,
-    bool enableFeedback,
-    double radius,
-    BorderRadius borderRadius,
-    MouseCursor mouseCursor,
+    Color? splashColor,
+    Color? focusColor,
+    Color? hoverColor,
+    bool? enableFeedback,
+    double? radius,
+    BorderRadius? borderRadius,
+    MouseCursor? mouseCursor,
   }) {
     return InkWell(
       child: this,
@@ -190,13 +190,13 @@ extension WidgetExtensions on Widget {
   /// Add onInkWell Double Tap handler to the current widget
   InkWell onInkDoubleTap(
     VoidCallback callback, {
-    Color splashColor,
-    Color focusColor,
-    Color hoverColor,
-    bool enableFeedback,
-    double radius,
-    BorderRadius borderRadius,
-    MouseCursor mouseCursor,
+    Color? splashColor,
+    Color? focusColor,
+    Color? hoverColor,
+    bool? enableFeedback,
+    double? radius,
+    BorderRadius? borderRadius,
+    MouseCursor? mouseCursor,
   }) {
     return InkWell(
       child: this,

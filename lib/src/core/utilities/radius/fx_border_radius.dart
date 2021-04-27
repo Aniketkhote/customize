@@ -5,10 +5,10 @@ import 'package:flutter/cupertino.dart';
 class FxRadius {
   ///Gives [BorderRadius] for each corner of a rectangle.
   static BorderRadius only({
-    double topLeft,
-    double topRight,
-    double bottomLeft,
-    double bottomRight,
+    double? topLeft,
+    double? topRight,
+    double? bottomLeft,
+    double? bottomRight,
   }) =>
       _copyWith(
         topLeft: topLeft,
@@ -129,11 +129,11 @@ class FxRadius {
   static BorderRadius get radiusBR50 => _copyWith(bottomRight: 50);
 
   static BorderRadius _copyWith({
-    double topLeft,
-    double topRight,
-    double bottomLeft,
-    double bottomRight,
-    double all,
+    double? topLeft,
+    double? topRight,
+    double? bottomLeft,
+    double? bottomRight,
+    double? all,
   }) =>
       BorderRadius.only(
         topLeft: Radius.circular(topLeft ?? all ?? 0),

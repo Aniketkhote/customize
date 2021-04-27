@@ -42,10 +42,10 @@ extension StringExtensions on String {
   bool get isNotEmptyOrNull => !FxString.isEmptyOrNull(this);
 
   ///Remove first element of [string]
-  String removeFirst([int upto]) => FxString.removeFirst(this);
+  String removeFirst([int? upto]) => FxString.removeFirst(this);
 
   ///Remove last element of [string]
-  String removeLast([int upto]) => FxString.removeLast(this);
+  String removeLast([int? upto]) => FxString.removeLast(this);
 
   ///Removes all whitespace
   String get removeWhitespace => FxString.removeWhitespace(this);
@@ -64,7 +64,7 @@ extension StringExtensions on String {
   int countBy(String str) => FxString.countBy(this, str);
 
   ///parse string to Json map<String,Dynamic>
-  Map<String, dynamic> toJsonMap() => jsonDecode(this);
+  Map<String, dynamic>? toJsonMap() => jsonDecode(this);
 
   ///Convert string to [int]
   int get toInt => FxString.toInt(this);
@@ -73,7 +73,7 @@ extension StringExtensions on String {
   double get toDouble => FxString.toDouble(this);
 
   ///Round off double to int if double is string
-  int get round => FxString.round(this);
+  int? get round => FxString.round(this);
 
   ///Get file name from this
   String get fileName => FxString.fileName(this);
@@ -184,15 +184,15 @@ class FxString {
       string.length >= min && string.length <= max;
 
   ///Checks [string] is empty or null and return [bool]
-  static bool isEmptyOrNull(String string) => string?.isEmpty ?? true;
+  static bool isEmptyOrNull(String? string) => string?.isEmpty ?? true;
 
   ///Remove first element of [string]
-  static String removeFirst(String string, [int upto]) =>
+  static String removeFirst(String string, [int? upto]) =>
       string.minLen(2) ? string.substring(upto ?? 1, string.length) : "";
 
   ///Remove last element of [string]
-  static String removeLast(String string, [int upto]) =>
-      string.minLen(2) ? string.substring(0, string.length - upto ?? 1) : "";
+  static String removeLast(String string, [int? upto]) =>
+      string.minLen(2) ? string.substring(0, string.length - upto!) : "";
 
   ///Removes all whitespace
   static String removeWhitespace(String string) => string.replaceAll(' ', '');
@@ -222,14 +222,14 @@ class FxString {
       str.isEmptyOrNull ? 0 : str.allMatches(string).length;
 
   ///Convert string to [int]
-  static int toInt(Object value) => (value != null) ? int.parse('$value') : 0;
+  static int toInt(Object? value) => (value != null) ? int.parse('$value') : 0;
 
   ///Convert string to [double]
-  static double toDouble(Object value) =>
+  static double toDouble(Object? value) =>
       (value != null) ? double.parse('$value') : 0.0;
 
   ///Round off double to int if double is string
-  static int round(String string) => string.isNotEmptyOrNull && string.isNumber
+  static int? round(String string) => string.isNotEmptyOrNull && string.isNumber
       ? string.toDouble.round()
       : null;
 
@@ -257,7 +257,7 @@ class FxString {
           RegExp(
               r'[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+'),
           (Match m) =>
-              "${m[0][0].toUpperCase()}${m[0].substring(1).toLowerCase()}")
+              "${m[0]![0].toUpperCase()}${m[0]!.substring(1).toLowerCase()}")
       .replaceAll(RegExp(r'(_|-)+'), ' ');
 
   ///Capitalize first letter of String and convert rest of string into lower case

@@ -8,7 +8,7 @@ class WBox extends StatelessWidget {
   final double width;
 
   ///Create child widget
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
