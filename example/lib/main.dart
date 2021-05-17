@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
-          child: FxButton(
+          child: FxButton.light(
             text: "Get Data",
             onPressed: () => null,
           ).center,

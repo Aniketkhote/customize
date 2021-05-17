@@ -106,9 +106,9 @@ FxEmptyState(
   print(mapList.only(['name','price']));
 
   [
-    {'name': 'Bookcase', price: 150}, 
+    {'name': 'Bookcase', 'price': 150}, 
     {'name': 'Chair', 'price': 100},
-    {'name': 'Desk', price: 200}
+    {'name': 'Desk', 'price': 200}
   ]
 
 

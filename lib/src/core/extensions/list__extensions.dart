@@ -131,7 +131,7 @@ extension ListExtensions on List<dynamic> {
   ///
   ///Example:
   ///```dart
-  ///list.only("key", [value1, value2])
+  ///list.only([key1, key2])
   ///```
   List<dynamic> only(List<dynamic> keys) => FxList.only(this, keys);
 
@@ -139,7 +139,7 @@ extension ListExtensions on List<dynamic> {
   ///
   ///Example:
   ///```dart
-  ///list.notOnly("key", [value1, value2])
+  ///list.notOnly([key1, key2])
   ///```
   List<dynamic> notOnly(List<dynamic> keys) => FxList.notOnly(this, keys);
 
@@ -343,9 +343,9 @@ class FxList {
   ///count(list) // return no of all occurrrnces
   ///```
   static Map<dynamic, dynamic>? count(List<dynamic> list) {
-    Map<dynamic, dynamic>? _map;
+    Map<dynamic, dynamic>? _map = <dynamic, dynamic>{};
     list.forEach(
-        (dynamic x) => _map![x] = _map.containsKey(x) ? _map[x] + 1 : 1);
+        (dynamic x) => _map[x] = _map.containsKey(x) ? _map[x] + 1 : 1);
     return _map;
   }
 
@@ -407,7 +407,7 @@ class FxList {
   ///
   ///Example:
   ///```dart
-  ///only(list, "key", [value1, value2])
+  ///only(list, [key1, key2])
   ///```
   static List<dynamic> only(List<dynamic> list, List<dynamic> keys) {
     List<dynamic> _list = <dynamic>[];
@@ -430,7 +430,7 @@ class FxList {
   ///
   ///Example:
   ///```dart
-  ///notOnly(list, "key", [value1, value2])
+  ///notOnly(list, notOnly(list, [key1, key2]))
   ///```
   static List<dynamic> notOnly(List<dynamic> list, List<dynamic> keys) {
     List<dynamic> _list = <dynamic>[];
