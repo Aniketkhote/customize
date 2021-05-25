@@ -13,10 +13,7 @@ extension WidgetExtensions on Widget {
   ///
   ///child fills the available space along the flex widget's main axis.
   ///Directly access [Expanded] widget using dot operator
-  Expanded expanded([int? flex]) => Expanded(
-        child: this,
-        flex: flex ?? 1,
-      );
+  Expanded expanded([int? flex]) => Expanded(child: this, flex: flex ?? 1);
 
   ///Creates a widget that controls where a child of a [Stack] is positioned.
   ///
@@ -68,6 +65,13 @@ extension WidgetExtensions on Widget {
         waitDuration: waitDuration,
         margin: margin,
         child: this,
+      );
+
+  /// Set icon to child widget
+  Icon icon(IconData? icon, {Color? color, double? size}) => Icon(
+        icon,
+        color: color,
+        size: size,
       );
 
   ///How to align the child.

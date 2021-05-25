@@ -26,7 +26,7 @@ extension MapExtensions on Map<dynamic, dynamic> {
   ///```dart
   ///map.contains("key","value") // true
   ///```
-  bool contains(dynamic key, dynamic value) => FxMap.contains(this, key, value);
+  bool contains(String key, dynamic value) => FxMap.contains(this, key, value);
 
   ///Returns the ID of the object if exists otherwise return 0;
   ///
@@ -140,7 +140,7 @@ class FxMap {
   ///```dart
   ///contains(map, "key","value") // true
   ///```
-  static bool contains(Map<dynamic, dynamic> map, dynamic key, dynamic value) {
+  static bool contains(Map<dynamic, dynamic> map, String key, dynamic value) {
     bool isContain = false;
 
     map.forEach((dynamic k, dynamic v) {

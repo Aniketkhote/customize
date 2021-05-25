@@ -50,7 +50,7 @@ extension ListExtensions on List<dynamic> {
   /// // [{"id":1,"age":23},{"id":2,"name":"thor"}]
   /// // [1,2]
   ///```
-  List<dynamic> pluck(dynamic key) => FxList.pluck(this, key);
+  List<dynamic> pluck(String? key) => FxList.pluck(this, key);
 
   ///Get sorted list
   ///
@@ -66,7 +66,7 @@ extension ListExtensions on List<dynamic> {
   ///```dart
   ///list.sortBy("price") // create new list with soreted list according to price
   ///```
-  List<dynamic> sortBy(dynamic key, [bool isDesc = false]) =>
+  List<dynamic> sortBy(String key, [bool isDesc = false]) =>
       FxList.sortBy(this, key, isDesc);
 
   ///Creates a new list with the elements of this that are not in other.
@@ -133,7 +133,7 @@ extension ListExtensions on List<dynamic> {
   ///```dart
   ///list.only([key1, key2])
   ///```
-  List<dynamic> only(List<dynamic> keys) => FxList.only(this, keys);
+  List<dynamic> only(List<String> keys) => FxList.only(this, keys);
 
   ///Removes elements from the list which is given
   ///
@@ -141,7 +141,7 @@ extension ListExtensions on List<dynamic> {
   ///```dart
   ///list.notOnly([key1, key2])
   ///```
-  List<dynamic> notOnly(List<dynamic> keys) => FxList.notOnly(this, keys);
+  List<dynamic> notOnly(List<String> keys) => FxList.notOnly(this, keys);
 
   ///Removes elements from the list that do not have a specified item value
   ///
@@ -151,7 +151,7 @@ extension ListExtensions on List<dynamic> {
   ///```dart
   ///list.whereIn("key", [value1, value2])
   ///```
-  List<dynamic> whereIn(dynamic key, List<num> params) =>
+  List<dynamic> whereIn(String key, List<num> params) =>
       FxList.whereIn(this, key, params);
 
   ///Removes elements from the list that have a specified item value
@@ -162,7 +162,7 @@ extension ListExtensions on List<dynamic> {
   ///```dart
   ///list.whereNotIn("key", [value1, value2])
   ///```
-  List<dynamic> whereNotIn(dynamic key, List<num> params) =>
+  List<dynamic> whereNotIn(String key, List<num> params) =>
       FxList.whereNotIn(this, key, params);
 
   /// Filters the collection by determining if a specified item value is within a given range
@@ -171,7 +171,7 @@ extension ListExtensions on List<dynamic> {
   ///```dart
   ///list.whereBetween("key", start, end)
   ///```
-  List<dynamic> whereBetween(dynamic key, num start, num end) =>
+  List<dynamic> whereBetween(String key, num start, num end) =>
       FxList.whereBetween(this, key, start, end);
 
   /// Filters the collection by determining if a specified item value is outside of a given range
@@ -180,7 +180,7 @@ extension ListExtensions on List<dynamic> {
   ///```dart
   ///list.whereNotBetween("key", start, end)
   ///```
-  List<dynamic> whereNotBetween(dynamic key, num start, num end) =>
+  List<dynamic> whereNotBetween(String key, num start, num end) =>
       FxList.whereNotBetween(this, key, start, end);
 
   /// returns items from the collection where the given key is null:
@@ -218,7 +218,7 @@ extension ListExtensions on List<dynamic> {
   num get mode => FxList.mode(this as List<num>);
 
   ///Checks given key/value is exists or not
-  bool hasKeyValue(dynamic key, dynamic value) =>
+  bool hasKeyValue(String key, dynamic value) =>
       FxList.hasKeyValue(this, key, value);
 
   ///Checks given key is exists or not
@@ -284,7 +284,7 @@ class FxList {
   /// // [{"id":1,"age":23},{"id":2,"name":"thor"}]
   /// // [1,2]
   ///```
-  static List<dynamic> pluck(List<dynamic> list, [dynamic key]) {
+  static List<dynamic> pluck(List<dynamic> list, [String? key]) {
     List<dynamic> _list = <dynamic>[];
     list.forEach((dynamic element) => (element.containsKey(key))
         ? _list.add(element[key])
@@ -309,7 +309,7 @@ class FxList {
   ///```dart
   ///sortBy(list, "price") // create new list with soreted list according to price
   ///```
-  static List<dynamic> sortBy(List<dynamic> list, dynamic key,
+  static List<dynamic> sortBy(List<dynamic> list, String key,
       [bool isDesc = false]) {
     list.sort((dynamic a, dynamic b) => a[key].compareTo(b[key]));
 
@@ -409,7 +409,7 @@ class FxList {
   ///```dart
   ///only(list, [key1, key2])
   ///```
-  static List<dynamic> only(List<dynamic> list, List<dynamic> keys) {
+  static List<dynamic> only(List<dynamic> list, List<String> keys) {
     List<dynamic> _list = <dynamic>[];
     list.forEach((dynamic map) {
       Map<dynamic, dynamic> _map = <dynamic, dynamic>{};
@@ -432,7 +432,7 @@ class FxList {
   ///```dart
   ///notOnly(list, notOnly(list, [key1, key2]))
   ///```
-  static List<dynamic> notOnly(List<dynamic> list, List<dynamic> keys) {
+  static List<dynamic> notOnly(List<dynamic> list, List<String> keys) {
     List<dynamic> _list = <dynamic>[];
     list.forEach((dynamic map) => keys.forEach((dynamic key) {
           if (map.containsKey(key)) map.remove(key);
@@ -454,7 +454,7 @@ class FxList {
   ///whereIn(list, "key", [value1, value2])
   ///```
   static List<dynamic> whereIn(
-      List<dynamic> list, dynamic key, List<num> params) {
+      List<dynamic> list, String key, List<num> params) {
     List<dynamic> _list = <dynamic>[];
 
     params.forEach((dynamic param) {
@@ -475,7 +475,7 @@ class FxList {
   ///whereNotIn(list, "key", [value1, value2])
   ///```
   static List<dynamic> whereNotIn(
-      List<dynamic> list, dynamic key, List<num> params) {
+      List<dynamic> list, String key, List<num> params) {
     params.forEach((dynamic param) =>
         list.removeWhere((dynamic map) => FxMap.contains(map, key, param)));
     return list;
@@ -488,7 +488,7 @@ class FxList {
   ///whereBetween(list, "key",start, end)
   ///```
   static List<dynamic> whereBetween(
-      List<dynamic> list, dynamic key, num start, num end) {
+      List<dynamic> list, String key, num start, num end) {
     List<dynamic> _list = <dynamic>[];
 
     list.forEach((dynamic element) {
@@ -507,7 +507,7 @@ class FxList {
   ///whereNotBetween(list, "key", start, end)
   ///```
   static List<dynamic> whereNotBetween(
-      List<dynamic> list, dynamic key, num start, num end) {
+      List<dynamic> list, String key, num start, num end) {
     List<dynamic> _list = <dynamic>[];
 
     list.forEach((dynamic element) {
@@ -593,7 +593,7 @@ class FxList {
   }
 
   ///Checks given key/value is exists or not
-  static bool hasKeyValue(List<dynamic> list, dynamic key, dynamic value) =>
+  static bool hasKeyValue(List<dynamic> list, String key, dynamic value) =>
       list.any((dynamic element) => FxMap.contains(element, key, value));
 
   ///Checks given key is exists or not

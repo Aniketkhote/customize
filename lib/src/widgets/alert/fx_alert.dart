@@ -75,9 +75,10 @@ class FxAlert extends StatelessWidget {
           children: <Widget>[
             if (leftBar ?? false)
               Container(
-                  decoration: BoxDecoration(
-                      border:
-                          Border(left: BorderSide(color: color, width: 4)))),
+                decoration: BoxDecoration(
+                  border: Border(left: BorderSide(color: color, width: 4)),
+                ),
+              ),
             if (icon != null)
               CircleAvatar(
                 child: Icon(icon, color: iconColor ?? Colors.white),

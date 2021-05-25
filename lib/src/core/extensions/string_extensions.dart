@@ -106,10 +106,10 @@ extension StringExtensions on String {
   bool get isCapital => FxString.isCapital(this);
 
   ///check string is in lower case or not
-  bool isLower(String string) => FxString.isLower(string);
+  bool get isLower => FxString.isLower(this);
 
   ///check string is in upper case or not
-  bool isUpper(String string) => FxString.isUpper(string);
+  bool get isUpper => FxString.isUpper(this);
 
   ///Check image is svg or not
   bool get isSvg => FxString.isSvg(this);

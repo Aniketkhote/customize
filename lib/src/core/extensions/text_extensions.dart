@@ -126,32 +126,32 @@ extension TextExtension on Text {
   ///Whether and how to align text horizontally
   ///
   ///Align the text on the left edge of the container.
-  Text get textAlignLeft => _copyWith(textAlign: TextAlign.left);
+  Text get textLeft => _copyWith(textAlign: TextAlign.left);
 
   ///Whether and how to align text horizontally
   ///
   ///Align the text on the right edge of the container.
-  Text get textAlignRight => _copyWith(textAlign: TextAlign.right);
+  Text get textRight => _copyWith(textAlign: TextAlign.right);
 
   ///Whether and how to align text horizontally
   ///
   ///Align the text in the center of the container.
-  Text get textAlignCenter => _copyWith(textAlign: TextAlign.center);
+  Text get textCenter => _copyWith(textAlign: TextAlign.center);
 
   ///Whether and how to align text horizontally
   ///
   ///Lines that end with hard line breaks are aligned towards the [start] edge.
-  Text get textAlignJustify => _copyWith(textAlign: TextAlign.justify);
+  Text get textJustify => _copyWith(textAlign: TextAlign.justify);
 
   ///Whether and how to align text horizontally
   ///
   ///Align the text start edge of the container
-  Text get textAlignStart => _copyWith(textAlign: TextAlign.start);
+  Text get textStart => _copyWith(textAlign: TextAlign.start);
 
   ///Whether and how to align text horizontally
   ///
   ///Align the text end edge of the container
-  Text get textAlignEnd => _copyWith(textAlign: TextAlign.end);
+  Text get textEnd => _copyWith(textAlign: TextAlign.end);
 
   ///The directionality of the text.
   ///

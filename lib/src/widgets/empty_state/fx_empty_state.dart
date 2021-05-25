@@ -95,13 +95,13 @@ class FxEmptyState extends StatelessWidget {
                 .bold
                 .widerLetter
                 .color(FxColors.blueGray500)
-                .textAlignCenter
+                .textCenter
                 .textStyle(style: titleTextStyle),
             Text(subTitle)
                 .sm
                 .widerLetter
                 .color(FxColors.blueGray500)
-                .textAlignCenter
+                .textCenter
                 .textStyle(style: subtitleTextStyle)
                 .pt4,
             ElevatedButton(
