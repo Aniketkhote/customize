@@ -1,3 +1,6 @@
+## [0.2.2] - July 15, 2021
+    * bug fixed
+
 ## [0.2.1] - May 25, 2021
     * bug fixed
 

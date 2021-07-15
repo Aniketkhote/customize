@@ -1,5 +1,5 @@
 import '../provider/lorem.dart';
-import '../../extensions/list__extensions.dart';
+import '../../extensions/list_extensions.dart';
 import '../../extensions/string_extensions.dart';
 
 ///Generates fake lorem data

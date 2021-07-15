@@ -5,5 +5,5 @@ export 'core/extensions/text_extensions.dart';
 export 'core/extensions/widget_extensions.dart';
 export 'core/extensions/container_extensions.dart';
 export 'core/extensions/map_extensions.dart';
-export 'core/extensions/list__extensions.dart';
+export 'core/extensions/list_extensions.dart';
 export 'core/extensions/num_extensions.dart';

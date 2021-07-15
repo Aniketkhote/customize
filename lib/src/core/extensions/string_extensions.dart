@@ -21,7 +21,7 @@ extension StringExtensions on String {
   ///Checks [string] is valid email or not and return [bool]
   bool get isEmail => FxString.isEmail(this);
 
-  ///Checks [string] is valid mobile number or not and return [bool]
+  ///Checks [string] is indian format valid mobile number or not and return [bool]
   ///
   ///eg. 7xxxxxxxxxx, 8xxxxxxxxxx, 9xxxxxxxxxx
   bool get isMobileNumber => FxString.isMobileNumber(this);
@@ -145,7 +145,7 @@ extension StringExtensions on String {
   bool get isAudio => FxString.isAudio(this);
 
   ///Convert [string] to [Text] widget
-  Text text() => Text(this);
+  Text toText() => Text(this);
 }
 
 /// Custom string methods

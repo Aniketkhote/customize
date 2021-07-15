@@ -11,12 +11,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.white,
         body: SafeArea(
-          child: FxButton.light(
-            text: "Get Data",
-            onPressed: () => null,
-          ).center,
+          child: "Customize".toTitleCase().toText().h1.center,
         ),
       ),
     );

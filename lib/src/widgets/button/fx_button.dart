@@ -330,7 +330,7 @@ class FxButton extends StatelessWidget {
                     color: getTextColor(iconColor ?? getBtnType()), size: 20)
                 .hide(leadingIcon != null),
             text
-                .text()
+                .toText()
                 .textStyle(
                   style: TextStyle(
                     color: textColor ?? getTextColor(color ?? getBtnType()),
